@@ -1,0 +1,32 @@
+$(document).ready(function(){
+     $('#btnsubmit').click(function(){
+         
+         $.post(baseurl+"/index.php?r=Loginregister/LoginValidation",{uemail:$('#uemail').val(),upw:$('#upw').val()}).done(function(data)
+         {
+             if (data=='fail')
+             {
+                  $('#error_msg').html("Invalid username or password");
+                 $('#error_msg').show();
+                 
+                 
+             }
+             else{
+                 
+                 location.href=baseurl+"/index.php";
+             }
+            
+    });
+    
+    });
+    
+     $('#uemail,#upw').keypress(function(e)
+    {
+        if(e.which==13){
+            
+            $('#btnsubmit').trigger('click');
+        }
+        
+    });
+    
+    });
+    

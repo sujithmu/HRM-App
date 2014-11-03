@@ -1,0 +1,320 @@
+2014/10/29 11:12:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "LoginregisterController/Login".' in /var/www/html/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('LoginregisterCo...')
+#1 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=LoginregisterController/Login
+---
+2014/10/29 13:07:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hrmtest.netstrat_hrm' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `netstrat_hrm`.
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 14:02:59 [error] [php] Undefined index: Y (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:19)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/LoginValidation
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (19)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:14:17 [error] [php] Undefined variable: username (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:27)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/LoginValidation
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (27)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:15:21 [error] [php] Undefined variable: username (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:27)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/LoginValidation
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (27)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:22:54 [error] [php] Undefined variable: id (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:16)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/Login
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (16)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:23:46 [error] [php] Undefined variable: user_role_id (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:17)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/Login
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (17)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:25:59 [error] [php] Undefined variable: id (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:16)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/Login
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (16)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:31:42 [error] [php] Undefined variable: id (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:26)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/LoginValidation
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (26)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:31:47 [error] [php] Undefined variable: id (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:26)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/LoginValidation
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (26)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:32:51 [error] [php] Undefined variable: user_role_id (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:27)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/LoginValidation
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (27)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:35:00 [error] [php] Undefined variable: session (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:13)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/Login
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (13)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:35:46 [error] [php] Undefined variable: session (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:13)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/Login
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (13)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/29 16:44:38 [error] [php] Trying to get property of non-object (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:31)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/LoginValidation
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (31)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:10:41 [warning] [application] Failed to set unsafe attribute "uemail" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:10:41 [warning] [application] Failed to set unsafe attribute "upw" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:10:44 [warning] [application] Failed to set unsafe attribute "uemail" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:10:44 [warning] [application] Failed to set unsafe attribute "upw" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:10:44 [warning] [application] Failed to set unsafe attribute "uemail" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:10:44 [warning] [application] Failed to set unsafe attribute "upw" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:10:44 [warning] [application] Failed to set unsafe attribute "uemail" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:10:44 [warning] [application] Failed to set unsafe attribute "upw" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:11:03 [warning] [application] Failed to set unsafe attribute "uemail" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:11:03 [warning] [application] Failed to set unsafe attribute "upw" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:14:46 [warning] [application] Failed to set unsafe attribute "uemail" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:14:46 [warning] [application] Failed to set unsafe attribute "upw" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:14:50 [warning] [application] Failed to set unsafe attribute "uemail" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 09:14:50 [warning] [application] Failed to set unsafe attribute "upw" of "HrmLoginHistory".
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (29)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 10:51:24 [error] [php] Trying to get property of non-object (/var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php:37)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): LoginregisterController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): LoginregisterController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): LoginregisterController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Loginregister/LoginValidation
+in /var/www/html/hrmnetstratum/protected/controllers/LoginregisterController.php (37)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/10/30 16:19:20 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "main".' in /var/www/html/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(782): CController->renderPartial('main', NULL, true)
+#1 /var/www/html/hrmnetstratum/protected/controllers/SiteController.php(32): CController->render('main')
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/
+---
+2014/10/31 11:42:01 [error] [php] Undefined index: active (/var/www/html/yii/framework/zii/widgets/CMenu.php:198)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CBaseController.php(173): ActiveMenu->run()
+#1 /var/www/html/hrmnetstratum/protected/views/layouts/main.php(56): SiteController->widget()
+#2 /var/www/html/yii/framework/web/CBaseController.php(126): require()
+#3 /var/www/html/yii/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#4 /var/www/html/yii/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#5 /var/www/html/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#6 /var/www/html/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#7 /var/www/html/yii/framework/web/CBaseController.php(206): CContentDecorator->run()
+#8 /var/www/html/yii/framework/web/CBaseController.php(300): SiteController->endWidget()
+#9 /var/www/html/hrmnetstratum/protected/views/layouts/column1.php(6): SiteController->endContent()
+#10 /var/www/html/yii/framework/web/CBaseController.php(126): require()
+#11 /var/www/html/yii/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#12 /var/www/html/yii/framework/web/CController.php(784): SiteController->renderFile()
+#13 /var/www/html/hrmnetstratum/protected/controllers/SiteController.php(32): SiteController->render()
+#14 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#15 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#16 /var/www/html/yii/framework/web/CController.php(286): SiteController->runAction()
+#17 /var/www/html/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#18 /var/www/html/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#19 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#20 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/
+in /var/www/html/hrmnetstratum/protected/views/layouts/main.php (56)
+in /var/www/html/hrmnetstratum/protected/views/layouts/column1.php (6)
+in /var/www/html/hrmnetstratum/protected/controllers/SiteController.php (32)
+2014/10/31 12:50:59 [error] [php] Trying to get property of non-object (/var/www/html/hrmnetstratum/protected/views/layouts/main.php:68)
+Stack trace:
+#0 /var/www/html/yii/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#1 /var/www/html/yii/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /var/www/html/yii/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /var/www/html/yii/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /var/www/html/yii/framework/web/CBaseController.php(300): SiteController->endWidget()
+#5 /var/www/html/hrmnetstratum/protected/views/layouts/column1.php(6): SiteController->endContent()
+#6 /var/www/html/yii/framework/web/CBaseController.php(126): require()
+#7 /var/www/html/yii/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#8 /var/www/html/yii/framework/web/CController.php(784): SiteController->renderFile()
+#9 /var/www/html/hrmnetstratum/protected/controllers/SiteController.php(32): SiteController->render()
+#10 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#11 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /var/www/html/yii/framework/web/CController.php(286): SiteController->runAction()
+#13 /var/www/html/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#14 /var/www/html/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#15 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/
+in /var/www/html/hrmnetstratum/protected/views/layouts/main.php (68)
+in /var/www/html/hrmnetstratum/protected/views/layouts/column1.php (6)
+in /var/www/html/hrmnetstratum/protected/controllers/SiteController.php (32)
+2014/10/31 16:07:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "manage".' in /var/www/html/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(270): CController->missingAction('manage')
+#1 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('manage')
+#2 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/mana...')
+#3 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/manage
+---
+2014/10/31 16:08:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "ManageUser/manage".' in /var/www/html/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('ManageUser/mana...')
+#1 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=ManageUser/manage
+---
+2014/10/31 16:09:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "manage".' in /var/www/html/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(270): CController->missingAction('manage')
+#1 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('manage')
+#2 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/mana...')
+#3 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/manage
+---
+2014/10/31 16:10:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "manage".' in /var/www/html/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(270): CController->missingAction('manage')
+#1 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('manage')
+#2 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('manageuser/mana...')
+#3 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=manageuser/manage
+---
+2014/10/31 16:13:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "manage".' in /var/www/html/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(270): CController->missingAction('manage')
+#1 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('manage')
+#2 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/mana...')
+#3 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/manage
+---
+2014/10/31 16:14:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ManageUser".' in /var/www/html/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(270): CController->missingAction('ManageUser')
+#1 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('ManageUser')
+#2 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Mana...')
+#3 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/ManageUser
+---
