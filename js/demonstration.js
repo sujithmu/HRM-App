@@ -119,8 +119,11 @@ function randomFeed(){
 
 
 $(document).ready(function() {
+    
 
 	if($(".usertable").length > 0){
+            
+            
 		var opt = {
 			"sPaginationType": "full_numbers",
 			"oLanguage":{

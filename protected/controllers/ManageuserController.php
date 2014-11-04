@@ -19,11 +19,11 @@ class ManageuserController extends Controller
         }
         
         public function actionView() {
-            $this->layout=FALSE;
-             echo $this->render('viewprofile',"",TRUE); 
+            #$this->layout=FALSE;
+             $this->render('viewprofile',"",FALSE); 
                    
         }
-
+        
 
 
 

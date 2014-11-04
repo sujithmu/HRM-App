@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/themes.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/plugins/datatable/TableTools.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/plugins/chosen/chosen.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/login.css" media="screen, projection" />
         
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/nicescroll/jquery.nicescroll.min.js" type="text/javascript"></script>
@@ -93,7 +94,11 @@
                         'items' => array(
                             array(
                                 'label' => 'Manage Users',
-                                'url' => '#'
+                                'url' => '#',
+                            ),
+                            array(
+                                'label' => 'Add Users',
+                                'url' => "#",
                             ),
                             /*array(
                                 'label' => 'Manage Skills',

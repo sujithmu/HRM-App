@@ -1,18 +1,19 @@
 <body>
 <div class="container-fluid">
-				
-				
-				
-				
+							
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
 									Advanced Users
-								</h3>
+								</h3>                                                                                
 							</div>
+                                                        
+                                                    
+                                                    
 							<div class="box-content nopadding">
+                                                            <div style="float: right;padding-top: 9px;padding-right: 5px;"><button class="btn btn-success" id='addnew'>ADD USER</button></div>
 								<table class="table table-hover table-nomargin table-bordered usertable">
 									<thead>
 										<tr class='thefilter'>
@@ -42,7 +43,7 @@
 											<td class='hidden-350'><span class="label label-satgreen">Active</span></td>
 											<td class='hidden-1024'>03-07-2013</td>
 											<td class='hidden-480'>
-												<a href="#" class="btn viewbutton" rel="tooltip" title="View"><i class="icon-search"></i></a>
+												<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/View" class="btn" rel="tooltip" title="View"><i class="icon-search"></i></a>
 												<a href="#" class="btn" rel="tooltip" title="Edit"><i class="icon-edit"></i></a>
 												<a href="#" class="btn" rel="tooltip" title="Delete"><i class="icon-remove"></i></a>
 											</td>
@@ -352,54 +353,26 @@
 				
 			</div>
     
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">View  Profile</h4>
-      </div>
-      <div class="modal-body"  id="viewpopup">
-        ...
-      </div>
-      <div class="modal-footer">
-        
-      </div>
-    </div>
-  </div>
-</div>
-    
-    
-    
-</body>
 
 <script type="text/javascript">
         
            $(document).ready(function(){
 
         
-                $('.viewbutton').click(function(){
+                 $('#addnew').click(function(){
             
-                $('#myModal').modal();
-                $.ajax({
-                type: "POST",
-                 url: "<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/View",
-                data: { name: "John", location: "Boston" }
-                })
-                .done(function( msg ) {
-                    $('#viewpopup').html(msg);
+                   
+                        location.href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/View";
                  
-            });
+                 });
+                
                 
                 
         });
         
         
-        });
+        
     
     </script>
+    </body>
