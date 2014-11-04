@@ -10,6 +10,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-responsive.min.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/plugins/jquery-ui/smoothness/jquery-ui.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/plugins/jquery-ui/smoothness/jquery.ui.theme.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/plugins/tagsinput/jquery.tagsinput.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/plugins/select2/select2.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/themes.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/plugins/datatable/TableTools.css" media="screen, projection" />
@@ -26,7 +28,16 @@
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/jquery-ui/jquery.ui.datepicker.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js" type="text/javascript"></script>
+        
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/select2/select2.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/bootbox/jquery.bootbox.js" type="text/javascript"></script>
+        
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/form/jquery.form.min.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/validation/jquery.validate.min.js" type="text/javascript"></script>        
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/validation/additional-methods.min.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/tagsinput/jquery.tagsinput.min.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/fileupload/bootstrap-fileupload.min.js" type="text/javascript"></script>
+        
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datatable/TableTools.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datatable/ColReorderWithResize.js" type="text/javascript"></script>
@@ -38,9 +49,9 @@
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/application.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/demonstration.min.js" type="text/javascript"></script>
         
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/form/jquery.form.min.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/validation/jquery.validate.min.js" type="text/javascript"></script>        
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/validation/additional-methods.min.js" type="text/javascript"></script>
+        
+        
+        
         
         
         

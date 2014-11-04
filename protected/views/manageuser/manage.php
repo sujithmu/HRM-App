@@ -9,7 +9,7 @@
 						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
-									Advanced filtering
+									Advanced Users
 								</h3>
 							</div>
 							<div class="box-content nopadding">
@@ -42,7 +42,7 @@
 											<td class='hidden-350'><span class="label label-satgreen">Active</span></td>
 											<td class='hidden-1024'>03-07-2013</td>
 											<td class='hidden-480'>
-												<a href="#" class="btn" rel="tooltip" title="View"><i class="icon-search"></i></a>
+												<a href="#" class="btn viewbutton" rel="tooltip" title="View"><i class="icon-search"></i></a>
 												<a href="#" class="btn" rel="tooltip" title="Edit"><i class="icon-edit"></i></a>
 												<a href="#" class="btn" rel="tooltip" title="Delete"><i class="icon-remove"></i></a>
 											</td>
@@ -351,4 +351,55 @@
 				
 				
 			</div>
+    
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">View  Profile</h4>
+      </div>
+      <div class="modal-body"  id="viewpopup">
+        ...
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+    
 </body>
+
+<script type="text/javascript">
+        
+           $(document).ready(function(){
+
+        
+                $('.viewbutton').click(function(){
+            
+                $('#myModal').modal();
+                $.ajax({
+                type: "POST",
+                 url: "<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/View",
+                data: { name: "John", location: "Boston" }
+                })
+                .done(function( msg ) {
+                    $('#viewpopup').html(msg);
+                 
+            });
+                
+                
+        });
+        
+        
+        });
+    
+    </script>

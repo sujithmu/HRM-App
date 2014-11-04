@@ -9,11 +9,20 @@ class ManageuserController extends Controller
         
         public function actionManage(){
             
-            $this->layout='//layouts/main';
-            $this->render('manage');
-            
+           # $this->layout='//layouts/main';
+           
+           
+           #$this->layout=FALSE;
+           #echo $this->render('manage',"",TRUE); 
+        
+            $this->render('manage',"",FALSE);
         }
-
+        
+        public function actionView() {
+            $this->layout=FALSE;
+             echo $this->render('viewprofile',"",TRUE); 
+                   
+        }
 
 
 
