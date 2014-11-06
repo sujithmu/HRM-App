@@ -462,37 +462,28 @@
 					</ul>
 				</div>
 			</div>   
-			<div id="main">
+			
+                        <div id="main">
                             
                              <div class="mainfooter">
 
-                            <?php echo $content; ?>
+                                <?php echo $content; ?>
+                             
                              </div>  
                             
                             
                             
 			</div>
-		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-    
-                         
-                        <div id="footer">
-			<p>
+            <div id="footer">
+                        <p>
 				FLAT - Responsive Admin Template <span class="font-grey-4">|</span> <a href="#">Contact</a> <span class="font-grey-4">|</span> <a href="#">Imprint</a> 
 			</p>
 			<a href="#" class="gototop"><i class="icon-arrow-up"></i></a>
-                        </div>
+                     </div>
+		</div>
+
+
+                     
                         
     
     

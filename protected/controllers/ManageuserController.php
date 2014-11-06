@@ -20,10 +20,19 @@ class ManageuserController extends Controller
         
         public function actionView() {
             #$this->layout=FALSE;
-             $this->render('viewprofile',"",FALSE); 
+            $obj = new HrmUserRole(); 
+            $this->render('viewprofile',array('model'=>$obj),FALSE); 
+             
+             
                    
         }
         
+        /*public function actionRole(){
+            $role = new HrmUserRole();
+            
+        }*/
+
+
 
 
 
