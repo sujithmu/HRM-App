@@ -27,6 +27,51 @@ class ManageuserController extends Controller
                    
         }
         
+        public function actionUservalidation(){
+            $rs = new HrmUserMaster();
+            #$set = $rs->findByAttributes(array('user_name'=>$_REQUEST['uemail']));
+            $usercriteria = new CDbCriteria();
+                #$usercriteria->select="id";
+                $rq = $_REQUEST['uname'];
+                #$usercriteria->condition="user_name=".$rq;
+                $uname=HrmUserMaster::model()->findByAttributes(array("user_name"=>$rq));
+                if(count($uname)>0){
+                    
+                    echo 'false';
+                }
+                else {
+                    echo 'true';
+                }
+        }
+        public function actionUserReg()
+        {
+            
+                        
+            
+                $adding = new HrmEmployee();
+                $adding->attributes=$_POST;
+                
+                $adding->save();
+                
+                
+                
+            
+            
+        }
+        public function actionEcontact() {
+            
+            #$ss = array();
+            #if(count($ss)==0)
+             
+                
+                $n = new HrmEmpEmergencyContacts();
+                $n->attributes=$_POST;
+                $n->insert();
+             
+            
+        }
+
+
         /*public function actionRole(){
             $role = new HrmUserRole();
             

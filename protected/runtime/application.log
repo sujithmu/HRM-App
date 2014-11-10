@@ -651,3 +651,627 @@ REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/View
 in /var/www/html/hrmnetstratum/protected/views/manageuser/viewprofile.php (57)
 in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (24)
 in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:56:31 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=sujithmu%40netstratum.com
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:57:10 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=sujithmu%40netstratum.com
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:02 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vi
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:02 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipi
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:03 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:05 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:09 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40g
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:09 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40gm
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:09 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40gma
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:09 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40gmai
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:09 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40gmail
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:10 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40gmail.
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:10 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40gmail.c
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:10 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40gmail.com
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 14:59:25 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40gmail.com
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 15:01:06 [error] [php] Undefined index: user_name (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:35)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=sujithmu%40netstratum.com
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (35)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 15:04:33 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@netstratum.com LIMIT 1' at line 1. The SQL statement executed was: SELECT id FROM `hrm_user_master` `t` WHERE user_name=sujithmu@netstratum.com LIMIT 1.
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (37)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 15:04:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@netstratum.com LIMIT 1' at line 1. The SQL statement executed was: SELECT id FROM `hrm_user_master` `t` WHERE user_name=sujithmu@netstratum.com LIMIT 1' in /var/www/html/yii/framework/db/CDbCommand.php:546
+Stack trace:
+#0 /var/www/html/yii/framework/db/CDbCommand.php(418): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1352): CDbCommand->queryRow()
+#2 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1457): CActiveRecord->query(Object(CDbCriteria))
+#3 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(37): CActiveRecord->find(Object(CDbCriteria))
+#4 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUservalidation()
+#5 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Uservalidation')
+#9 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#10 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=sujithmu%40netstratum.com
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/07 15:05:06 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com LIMIT 1' at line 1. The SQL statement executed was: SELECT id FROM `hrm_user_master` `t` WHERE user_name=vipin@gmail.com LIMIT 1.
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (37)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 15:05:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@gmail.com LIMIT 1' at line 1. The SQL statement executed was: SELECT id FROM `hrm_user_master` `t` WHERE user_name=vipin@gmail.com LIMIT 1' in /var/www/html/yii/framework/db/CDbCommand.php:546
+Stack trace:
+#0 /var/www/html/yii/framework/db/CDbCommand.php(418): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1352): CDbCommand->queryRow()
+#2 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1457): CActiveRecord->query(Object(CDbCriteria))
+#3 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(37): CActiveRecord->find(Object(CDbCriteria))
+#4 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUservalidation()
+#5 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Uservalidation')
+#9 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#10 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=vipin%40gmail.com
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/07 15:06:43 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@netstratum.com LIMIT 1' at line 1. The SQL statement executed was: SELECT id FROM `hrm_user_master` `t` WHERE user_name=sujithmu@netstratum.com LIMIT 1.
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (37)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 15:06:43 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@netstratum.com LIMIT 1' at line 1. The SQL statement executed was: SELECT id FROM `hrm_user_master` `t` WHERE user_name=sujithmu@netstratum.com LIMIT 1' in /var/www/html/yii/framework/db/CDbCommand.php:546
+Stack trace:
+#0 /var/www/html/yii/framework/db/CDbCommand.php(418): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1352): CDbCommand->queryRow()
+#2 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1457): CActiveRecord->query(Object(CDbCriteria))
+#3 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(37): CActiveRecord->find(Object(CDbCriteria))
+#4 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUservalidation()
+#5 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Uservalidation')
+#9 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#10 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=sujithmu%40netstratum.com
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/07 15:13:14 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@netstratum.com LIMIT 1' at line 1. The SQL statement executed was: SELECT id FROM `hrm_user_master` `t` WHERE user_name=sujithmu@netstratum.com LIMIT 1.
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (37)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 15:13:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@netstratum.com LIMIT 1' at line 1. The SQL statement executed was: SELECT id FROM `hrm_user_master` `t` WHERE user_name=sujithmu@netstratum.com LIMIT 1' in /var/www/html/yii/framework/db/CDbCommand.php:546
+Stack trace:
+#0 /var/www/html/yii/framework/db/CDbCommand.php(418): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1352): CDbCommand->queryRow()
+#2 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1457): CActiveRecord->query(Object(CDbCriteria))
+#3 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(37): CActiveRecord->find(Object(CDbCriteria))
+#4 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUservalidation()
+#5 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Uservalidation')
+#9 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#10 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=sujithmu%40netstratum.com
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/07 15:13:32 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@netstratum.com LIMIT 1' at line 1. The SQL statement executed was: SELECT id FROM `hrm_user_master` `t` WHERE user_name=sujithmu@netstratum.com LIMIT 1.
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (37)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/07 15:13:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@netstratum.com LIMIT 1' at line 1. The SQL statement executed was: SELECT id FROM `hrm_user_master` `t` WHERE user_name=sujithmu@netstratum.com LIMIT 1' in /var/www/html/yii/framework/db/CDbCommand.php:546
+Stack trace:
+#0 /var/www/html/yii/framework/db/CDbCommand.php(418): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1352): CDbCommand->queryRow()
+#2 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1457): CActiveRecord->query(Object(CDbCriteria))
+#3 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(37): CActiveRecord->find(Object(CDbCriteria))
+#4 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUservalidation()
+#5 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Uservalidation')
+#9 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#10 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=sujithmu%40netstratum.com
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/07 15:19:48 [error] [exception.CDbException] exception 'CDbException' with message 'Table "hrm_user_master" does not have a column named "0".' in /var/www/html/yii/framework/db/schema/CDbCommandBuilder.php:694
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1519): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, '', Array, '`t`.')
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(37): CActiveRecord->findByAttributes(Array)
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUservalidation()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Uservalidation')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=sujithmu%40netstratum.com
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/07 15:20:55 [error] [exception.CDbException] exception 'CDbException' with message 'Table "hrm_user_master" does not have a column named "0".' in /var/www/html/yii/framework/db/schema/CDbCommandBuilder.php:694
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1519): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, '', Array, '`t`.')
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(37): CActiveRecord->findByAttributes(Array)
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUservalidation()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Uservalidation')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Uservalidation&uname=sujithmu%40netstratum.com
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 11:09:23 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_employee` (`emp_lastname`, `emp_firstname`, `emp_middle_name`, `emp_nick_name`, `emp_dri_lice_num`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4).
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (55)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 11:09:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_employee` (`emp_lastname`, `emp_firstname`, `emp_middle_name`, `emp_nick_name`, `emp_dri_lice_num`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4)' in /var/www/html/yii/framework/db/CDbCommand.php:361
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1078): CDbCommand->execute()
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(55): CActiveRecord->insert()
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUserReg()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('UserReg')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 11:11:41 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_employee` (`emp_lastname`, `emp_firstname`, `emp_middle_name`, `emp_nick_name`, `emp_dri_lice_num`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4).
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (55)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 11:11:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_employee` (`emp_lastname`, `emp_firstname`, `emp_middle_name`, `emp_nick_name`, `emp_dri_lice_num`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4)' in /var/www/html/yii/framework/db/CDbCommand.php:361
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1078): CDbCommand->execute()
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(55): CActiveRecord->insert()
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUserReg()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('UserReg')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 11:17:23 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_employee` (`emp_lastname`, `emp_firstname`, `emp_middle_name`, `emp_nick_name`, `emp_dri_lice_num`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4).
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (55)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 11:17:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_employee` (`emp_lastname`, `emp_firstname`, `emp_middle_name`, `emp_nick_name`, `emp_dri_lice_num`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4)' in /var/www/html/yii/framework/db/CDbCommand.php:361
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1078): CDbCommand->execute()
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(55): CActiveRecord->insert()
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUserReg()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('UserReg')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 13:58:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_employee` (`emp_lastname`, `emp_firstname`, `emp_middle_name`, `emp_nick_name`, `emp_dri_lice_num`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4).
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (55)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 13:58:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_employee` (`emp_lastname`, `emp_firstname`, `emp_middle_name`, `emp_nick_name`, `emp_dri_lice_num`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4)' in /var/www/html/yii/framework/db/CDbCommand.php:361
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1078): CDbCommand->execute()
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(55): CActiveRecord->insert()
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionUserReg()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('UserReg')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/User...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 14:31:52 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/html/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Econtact')
+#4 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Econ...')
+#5 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Econtact
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 14:33:20 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/html/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Econtact')
+#4 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Econ...')
+#5 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Econtact
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 14:34:20 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/html/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Econtact')
+#4 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Econ...')
+#5 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Econtact
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 14:36:43 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/html/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Econtact')
+#4 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Econ...')
+#5 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Econtact
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 14:37:06 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/html/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Econtact')
+#4 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Econ...')
+#5 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Econtact
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 14:38:02 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/html/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Econtact')
+#4 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Econ...')
+#5 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Econtact
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 14:38:15 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/html/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Econtact')
+#4 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Econ...')
+#5 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Econtact
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 14:50:27 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/html/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Econtact')
+#4 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Econ...')
+#5 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Econtact
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 14:52:54 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /var/www/html/yii/framework/web/CController.php:336
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Econtact')
+#4 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Econ...')
+#5 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Econtact
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 15:28:14 [error] [php] Undefined index: fname (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:49)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (49)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 15:31:13 [error] [php] Undefined index: fname (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:50)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (50)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 15:31:14 [error] [php] Undefined index: fname (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:50)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (50)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 15:31:24 [error] [php] Undefined index: fname (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:50)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (50)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 15:32:06 [error] [php] Undefined index: fname (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:50)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (50)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 15:32:19 [error] [php] Undefined index: fname (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:50)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (50)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 15:51:52 [error] [php] Undefined index: fname (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:50)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (50)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 15:51:56 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0-0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_emp_emergency_contacts` (`eec_name`, `eec_relationship`, `eec_home_no`, `eec_mobile_no`, `eec_office_no`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4).
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (75)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 15:51:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0-0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_emp_emergency_contacts` (`eec_name`, `eec_relationship`, `eec_home_no`, `eec_mobile_no`, `eec_office_no`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4)' in /var/www/html/yii/framework/db/CDbCommand.php:361
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1078): CDbCommand->execute()
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(75): CActiveRecord->insert()
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionEcontact()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Econtact')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Econ...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Econtact
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/10 16:06:05 [error] [php] Undefined index: fname (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:53)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (53)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/10 16:06:47 [error] [php] Undefined index: #fname (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:53)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (53)
+in /var/www/html/hrmnetstratum/index.php (13)

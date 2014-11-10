@@ -31,7 +31,6 @@ class LoginregisterController extends Controller
                 #print_r($add);
                 
                 
-                
                 $session=new CHttpSession;
                 $session->open();
                 $session['id']=$store->id;

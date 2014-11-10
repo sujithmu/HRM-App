@@ -15,6 +15,11 @@ and open the template in the editor.
     margin-left: 31px;
     
 }
+
+.error{
+    color:#FE59AD !important;
+    border-color: #FE59AD !important;
+}
 .popup{
     background-clip: padding-box;
     background-color: #fff;

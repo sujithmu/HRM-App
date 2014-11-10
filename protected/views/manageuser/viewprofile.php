@@ -23,7 +23,7 @@
                                  <a href="#profile" data-toggle='tab'><i class="icon-user"></i> Profile</a>
                                 </li>
                                 <li>
-                                <a href="#security" data-toggle='tab'><i class="icon-lock"></i> Emergency Contact</a>
+                                <a href="#econtact" data-toggle='tab'><i class="icon-lock"></i> Emergency Contact</a>
 			</li>
                          <li>
                             <a href="#security" data-toggle='tab'><i class="icon-lock"></i> Dependency</a>
@@ -67,46 +67,46 @@
                                     <div class="control-group">
                                             <label for="name" class="control-label right">First Name:</label>
                                             <div class="controls">
-                                                <input type="text" id="fname" name="name" class='input-xlarge' value="">
+                                                <input type="text" id="fname" name="fname" class='input-xlarge' value="">
                                             </div>
                                     </div>
                                     <div class="control-group">
                                             <label for="name" class="control-label right">Middle Name:</label>
                                             <div class="controls">
-                                                <input type="text" id="mname" name="name" class='input-xlarge' value="">
+                                                <input type="text" id="mname" name="mname" class='input-xlarge' value="">
                                             </div>
                                     </div>
                                     <div class="control-group">
                                             <label for="name" class="control-label right">Last Name:</label>
                                             <div class="controls">
-                                                <input type="text" id="lname" name="name" class='input-xlarge' value="">
+                                                <input type="text" id="lname" name="lname" class='input-xlarge' value="">
                                             </div>
                                     </div>
                                     <div class="control-group">
                                             <label for="email" class="control-label right">Username:</label>
                                             <div class="controls">
-                                                <input type="text" id="uname" name="email" class='input-xlarge' value="">
+                                                <input type="text" id="uname" name="uname" data-rule-email="true" class='input-xlarge' value="">
                                                     
                                             </div>
                                     </div>
                                     <div class="control-group">
                                             <label for="pw" class="control-label right">Password:</label>
                                             <div class="controls">
-                                                <input type="password" id="pswd" name="pw" class='input-xlarge' value="">
+                                                <input type="password" id="pswd" name="pswd" class='input-xlarge' value="">
                                                     
                                             </div>
                                     </div>
                                     <div class="control-group">
                                             <label for="pw" class="control-label right">Confirm Password:</label>
                                             <div class="controls">
-                                                <input type="password" id="cpswd" name="pw" class='input-xlarge' value="">
+                                                <input type="password" id="cpswd" name="cpswd" class='input-xlarge' value="">
                                                     
                                             </div>
                                     </div>
                                     <div class="control-group">
                                             <label for="stat" class="control-label right">Status:</label>
                                             <div class="controls">
-                                                <select name="stat" id="userstatus">
+                                                <select name="userstatus" id="userstatus">
                                                     <option value="1">Active</option>
                                                     <option value="2">Inactive</option>
                                                 </select>
@@ -114,62 +114,89 @@
                                             </div>
                                     </div>
                                     <div class="form-actions">
-                                        <input type="submit" id="sbtn" class='btn btn-primary' value="Save">
+                                        <input type="button" id="sbtn" name="sbtn" class='btn btn-primary' value="Save">
                                             <input type="reset" class='btn' value="Discard changes">
                                     </div>
                                     </div>
                                 </div>
                 </form>
                 </div>
-                <div class="tab-pane" id="notifications">
-                        <form action="#" class="form-horizontal">
-                                <div class="control-group">
-                                        <label for="asdf" class="control-label">Email notifications</label>
-                                        <div class="controls">
-                                                        <label class="checkbox"><input type="checkbox" name="asdf"> Send me security emails</label>
-                                                        <label class="checkbox"><input type="checkbox" name="asdf"> Send system emails</label>
-                                                        <label class="checkbox"><input type="checkbox" name="asdf"> Lorem ipsum dolor</label>
-                                                        <label class="checkbox"><input type="checkbox" name="asdf"> Minim veli</label>
-                                        </div>
-                                </div>
-                                                <div class="control-group">
-                                                        <label for="asdf" class="control-label">Email for notifications</label>
-                                                        <div class="controls">
-                                                                <select name="email" id="email">
-                                                                        <option value="1">asdf@blasdas.com</option>
-                                                                        <option value="2">johnDoe@asdasf.de</option>
-                                                                        <option value="3">janeDoe@janejanejane.net</option>
-                                                                </select>
-                                                        </div>
-                                                </div>
-                                                <div class="form-actions">
-                                                        <input type="submit" class='btn btn-primary' value="Save">
-                                                        <input type="reset" class='btn' value="Discard changes">
-                                                </div>
-                        </form>
-                                </div>
+                <div class="tab-pane" id="econtact">
+                    <form action="" id="contact" method="POST" class="form-horizontal">
+                           <div class="span10">
+                            
+                            <div class="control-group">
+                                            <label for="name" class="control-label right">Contact Name:</label>
+                                            <div class="controls">
+                                                <input type="text" id="name" name="name" class='input-xlarge' value="">
+                                            </div>
+                            </div>
+                            <div class="control-group">
+                                            <label for="address" class="control-label right">Contact Address:</label>
+                                            <div class="controls">
+                                                <textarea cols="50" rows="4" id="address" name="address" class='input-xlarge'></textarea>
+                                            </div>
+                            </div>
+                            <div class="control-group">
+                                            <label for="city" class="control-label right">City:</label>
+                                            <div class="controls">
+                                                <input type="text" id="city" name="city" class='input-xlarge' value="">
+                                            </div>
+                            </div>
+                            <div class="control-group">
+                                            <label for="state" class="control-label right">State:</label>
+                                            <div class="controls">
+                                                <input type="text" id="state" name="state" class='input-xlarge' value="">
+                                            </div>
+                            </div>
+                            <div class="control-group">
+                                            <label for="pin" class="control-label right">Pincode:</label>
+                                            <div class="controls">
+                                                <input type="text" id="pincode" name="pincode" class='input-xlarge' value="" data-rule-number="true" data-rule-minlength="6" data-rule-maxlength="6" data-rule-required="true">
+                                            </div>
+                            </div>
+                            <div class="control-group">
+                                            <label for="country" class="control-label right">Country:</label>
+                                            <div class="controls">
+                                                <input type="text" id="country" name="country" class='input-xlarge' value="">
+                                            </div>
+                            </div>
+                            <div class="control-group">
+                                            <label for="relation" class="control-label right">Relation:</label>
+                                            <div class="controls">
+                                                <input type="text" id="relation" name="relation" class='input-xlarge' value="">
+                                            </div>
+                            </div>
+                            <div class="control-group">
+                                            <label for="number" class="control-label right">Home Number:</label>
+                                            <div class="controls">
+                                                <input type="text" id="hnumber" name="hnumber" class='input-xlarge' value="" data-rule-number="true" data-rule-required="true">
+                                            </div>
+                            </div>
+                             <div class="control-group">
+                                            <label for="number" class="control-label right">Mobile Number:</label>
+                                            <div class="controls">
+                                                <input type="text" id="mnumber" name="mnumber" class='input-xlarge' value="" data-rule-number="true" data-rule-minlength="10" data-rule-maxlength="10" data-rule-required="true">
+                                            </div>
+                            </div>
+                            <div class="control-group">
+                                            <label for="number" class="control-label right">Office Number:</label>
+                                            <div class="controls">
+                                                <input type="text" id="onumber" name="onumber" class='input-xlarge' value="">
+                                            </div>
+                            </div>
+                            <div class="form-actions">
+                                <input type="button" id="sbutton" name="sbutton" class='btn btn-primary' value="Save">
+                                <input type="reset" class='btn' value="Discard changes">
+                            </div>
+                          </div>                                                                                               
+                    </form>
+                </div>
                                 <div class="tab-pane" id="security">
                                         <form action="#" class="form-horizontal">
-                                                <div class="control-group">
-                                                        <label for="asdf" class="control-label">Disable account for</label>
-                                                        <div class="controls">
-                                                                <select name="email" id="email">
-                                                                        <option value="1">1 week</option>
-                                                                        <option value="2">2 weeks</option>
-                                                                        <option value="3">3 weeks</option>
-                                                                </select>
-                                                        </div>
-                                                </div>
-                                                <div class="control-group">
-                                                        <label for="asdf" class="control-label">Lock account?</label>
-                                                        <div class="controls">
-                                                                <a href="more-locked.html" class="btn btn-danger">Lock account now</a>
-                                                        </div>
-                                                </div>
-                                                <div class="form-actions">
-                                                        <input type="button" class='btn btn-primary' value="Save">
-                                                        <input type="reset" class='btn' value="Discard changes">
-                                                </div>
+                                            
+                                                
+                                                
 					</form>
                                                             </div>
 							</div>
@@ -179,6 +206,7 @@
 		
                         </div>
                 </div>
+    
 </body>
 
 <script type="text/javascript">
@@ -190,10 +218,11 @@
                 rules:{
                         fname:"required",
                         lname:"required",
+                                                
                         uname:  {
                                 required:true,
                                 minlength:2,
-                        
+                                remote:"<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Uservalidation",                                                                                     
                                 },
                         pswd:{
                                 required:true,
@@ -212,7 +241,8 @@
                         lname:"Please enter your lastname",
                         uname:{
                                 required: "Please enter a username",
-                                minlength: "Your username must consist of at least 2 characters"
+                                minlength: "Your username must consist of at least 2 characters",
+                                remote:"Username already taken"
                             },
                         pswd:{
                                  required: "Please provide a password",
@@ -228,10 +258,42 @@
             });
             
             $('#sbtn').click(function(){
-        
-                       $('#profileform').submit();
-        
-                    });
+            
+               $('#profileform').submit();        
+               $.post("index.php?r=Manageuser/UserReg",{fname:$('#emp_firstname').val(),mname:$('#emp_middle_name').val(),lname:$('#emp_lastname').val()})
+                       .done(function(data){
+                           
+                       });
+
+            });
+            
+            $('#contact').validate({
+                
+                rules:{
+                    name:"required",
+                    address:"required",
+                    state:"required",
+                    pincode:"required",
+                    relation:"required",
+                    hnumber:"required",
+                    mnumber:"required",
+                    },
+                messages:{
+                    name:"Please enter a valid contact person name",
+                    address:"Add your address",
+                    state:"Add state",
+                    pincode:"Valid pincode required",
+                    relation:"Add relationship",
+                    hnumber:"Home number required",
+                    mnumber:"Add mobile number 10 digits",
+                    },
+            });
+            $('#sbutton').click(function(){
+                $('#contact').submit();
+                $.post("index.php?r=Manageuser/Econtact",{name:$('#eec_name').val(),address:$('#eec_address').val(),city:$('#eec_city').val(),
+                state:$('#eec_state').val(),pincode:$('#eec_pincode').val(),country:$('#eec_country').val(),relation:$('#eec_relationship').val(),
+                hnumber:$('#eec_home_no').val(),mnumber:$('#eec_mobile_no').val(),onumber:$('#eec_office_no').val()})
+            });
             
     });
     
