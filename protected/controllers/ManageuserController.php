@@ -46,16 +46,16 @@ class ManageuserController extends Controller
         public function actionUserReg()
         {
             
-                        
-            
+                                    
                 $adding = new HrmEmployee();
-                $adding->attributes=$_POST;
+                
+                #$adding->attributes=array($_POST['']); //for adding more fields as array
+               echo $adding->emp_firstname=$_POST['fname'];
+                echo $adding->emp_middle_name=$_POST['mname'];
+                echo $adding->emp_lastname=$_POST['lname'];
                 
                 $adding->save();
-                
-                
-                
-            
+                                                 
             
         }
         public function actionEcontact() {
@@ -71,7 +71,13 @@ class ManageuserController extends Controller
             
         }
 
-
+        public function actionDynamicstates(){
+            
+            $record = new Countries();
+            $countryid = $_REQUEST['cid'];
+            $cid=  Countries::model()->findAllByAttributes(array("id"=>$countryid));              
+            
+        }
         /*public function actionRole(){
             $role = new HrmUserRole();
             

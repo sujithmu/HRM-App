@@ -23,27 +23,27 @@
                                  <a href="#profile" data-toggle='tab'><i class="icon-user"></i> Profile</a>
                                 </li>
                                 <li>
-                                <a href="#econtact" data-toggle='tab'><i class="icon-lock"></i> Emergency Contact</a>
+                                <a href="#econtact" data-toggle='tab'>Emergency Contact</a>
 			</li>
                          <li>
-                            <a href="#security" data-toggle='tab'><i class="icon-lock"></i> Dependency</a>
+                            <a href="#security" data-toggle='tab'>Dependency</a>
 			</li>
                         <li>
-                            <a href="#security" data-toggle='tab'><i class="icon-lock"></i> Job</a>
+                            <a href="#security" data-toggle='tab'>Job</a>
 			</li>
                         <li>
-                            <a href="#security" data-toggle='tab'><i class="icon-lock"></i> Salary</a>
+                            <a href="#security" data-toggle='tab'>Salary</a>
 			</li>
                         <li>
-                            <a href="#security" data-toggle='tab'><i class="icon-lock"></i> Report To</a>
+                            <a href="#security" data-toggle='tab'>Report To</a>
 			</li>
                         <li>
-                            <a href="#security" data-toggle='tab'><i class="icon-lock"></i> Qualifications</a>
+                            <a href="#security" data-toggle='tab'>Qualifications</a>
 			</li>
                     </ul>
         <div class="tab-content padding tab-content-inline tab-content-bottom">
             <div class="tab-pane active" id="profile">
-                <form action="" id="profileform" method="POST" class="form-horizontal">
+                <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/UserReg" id="profileform" method="POST" class="form-horizontal">
                     <div class="row-fluid">
                     <div class="span2">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -132,9 +132,45 @@
                                             </div>
                             </div>
                             <div class="control-group">
+                                            <label for="relation" class="control-label right">Relation:</label>
+                                            <div class="controls">
+                                                <input type="text" id="relation" name="relation" class='input-xlarge' value="">
+                                            </div>
+                            </div>
+                            <div class="control-group">
                                             <label for="address" class="control-label right">Contact Address:</label>
                                             <div class="controls">
                                                 <textarea cols="50" rows="4" id="address" name="address" class='input-xlarge'></textarea>
+                                            </div>
+                            </div>
+                            <div class="control-group">
+                                            <label for="pin" class="control-label right">Pincode/Zip:</label>
+                                            <div class="controls">
+                                                <input type="text" id="pincode" name="pincode" class='input-xlarge' value="" data-rule-number="true" data-rule-minlength="6" data-rule-maxlength="6" data-rule-required="true">
+                                            </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                            <label for="country" class="control-label right">Country:</label>
+                                            
+                                            <div class="controls" id="country">
+                                                    <?php echo CHtml::dropDownList('countrylist', '99', 
+                                                        CHtml::listData(Countries::model()->findAll(),'id','country_name'),
+                                                            array(
+                                                            'class'=>'input-xlarge',)
+                                                            ); ?>
+                                            
+                                                
+                                            </div>
+                            </div>
+                            <div class="control-group">
+                                            <label for="state" class="control-label right">State:</label>
+                                            <div class="controls" id="state">
+                                                <?php echo CHtml::dropDownList('statelist', '17', 
+                                                        CHtml::listData(StateList::model()->findAll(),'id','state'),
+                                                        array(
+                                                            'class'=>'input-xlarge',)
+                                                        ); ?>
                                             </div>
                             </div>
                             <div class="control-group">
@@ -143,30 +179,10 @@
                                                 <input type="text" id="city" name="city" class='input-xlarge' value="">
                                             </div>
                             </div>
-                            <div class="control-group">
-                                            <label for="state" class="control-label right">State:</label>
-                                            <div class="controls">
-                                                <input type="text" id="state" name="state" class='input-xlarge' value="">
-                                            </div>
-                            </div>
-                            <div class="control-group">
-                                            <label for="pin" class="control-label right">Pincode:</label>
-                                            <div class="controls">
-                                                <input type="text" id="pincode" name="pincode" class='input-xlarge' value="" data-rule-number="true" data-rule-minlength="6" data-rule-maxlength="6" data-rule-required="true">
-                                            </div>
-                            </div>
-                            <div class="control-group">
-                                            <label for="country" class="control-label right">Country:</label>
-                                            <div class="controls">
-                                                <input type="text" id="country" name="country" class='input-xlarge' value="">
-                                            </div>
-                            </div>
-                            <div class="control-group">
-                                            <label for="relation" class="control-label right">Relation:</label>
-                                            <div class="controls">
-                                                <input type="text" id="relation" name="relation" class='input-xlarge' value="">
-                                            </div>
-                            </div>
+                            
+                            
+                            
+                            
                             <div class="control-group">
                                             <label for="number" class="control-label right">Home Number:</label>
                                             <div class="controls">
@@ -254,18 +270,30 @@
                                  equalTo: "Please enter the same password as above"   
                         },
                 },
+                      submitHandler: function(form) 
+                        {
+                                              
+                        $(form).ajaxSubmit();
+                        }
             
             });
             
             $('#sbtn').click(function(){
             
                $('#profileform').submit();        
-               $.post("index.php?r=Manageuser/UserReg",{fname:$('#emp_firstname').val(),mname:$('#emp_middle_name').val(),lname:$('#emp_lastname').val()})
-                       .done(function(data){
-                           
-                       });
+                  
 
             });
+            
+            $("#country").change(function () {
+                
+              
+                alert($('#country option:selected').val());
+                
+                
+              });
+              
+            
             
             $('#contact').validate({
                 
@@ -290,10 +318,7 @@
             });
             $('#sbutton').click(function(){
                 $('#contact').submit();
-                $.post("index.php?r=Manageuser/Econtact",{name:$('#eec_name').val(),address:$('#eec_address').val(),city:$('#eec_city').val(),
-                state:$('#eec_state').val(),pincode:$('#eec_pincode').val(),country:$('#eec_country').val(),relation:$('#eec_relationship').val(),
-                hnumber:$('#eec_home_no').val(),mnumber:$('#eec_mobile_no').val(),onumber:$('#eec_office_no').val()})
-            });
+              });
             
     });
     
