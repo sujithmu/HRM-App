@@ -37,6 +37,8 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript">var baseurl="<?php echo Yii::app()->request->baseUrl; ?>";</script>
+<script type="text/javascript">
+    var baseurl="<?php echo Yii::app()->request->baseUrl; ?>";
+</script>
 <script src="js/login.js"></script>
     

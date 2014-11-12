@@ -81,7 +81,15 @@ return array(
 			'routes'=>array(
 				array(
 					'class'=>'CFileLogRoute',
+                                     
 					'levels'=>'error, warning',
+                                      
+				),
+                            array(
+					
+                                        'class'=>'CWebLogRoute',
+					'categories'=>'system.db.CDbCommand',
+                                        'showInFireBug'=>true,
 				),
 				// uncomment the following to show log messages on web pages
 				/*

@@ -107,8 +107,8 @@
                                             <label for="stat" class="control-label right">Status:</label>
                                             <div class="controls">
                                                 <select name="userstatus" id="userstatus">
-                                                    <option value="1">Active</option>
-                                                    <option value="2">Inactive</option>
+                                                    <option value="Y">Active</option>
+                                                    <option value="N">Inactive</option>
                                                 </select>
                                                     
                                             </div>
@@ -117,6 +117,12 @@
                                         <input type="button" id="sbtn" name="sbtn" class='btn btn-primary' value="Save">
                                             <input type="reset" class='btn' value="Discard changes">
                                     </div>
+                                
+                                <div class="alert alert-success span8" id="profilealert" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong>          Success!</strong>
+                                </div>
+                                
                                     </div>
                                 </div>
                 </form>
@@ -273,7 +279,22 @@
                       submitHandler: function(form) 
                         {
                                               
-                        $(form).ajaxSubmit();
+                            $(form).ajaxSubmit({
+                                    
+                success: function(){
+                                 $('#profilealert').fadeIn();
+                                 setTimeout(
+                                 function(){
+                                     
+                                     $('#profilealert').fadeOut();
+                                 },3000
+                                 
+                
+                );
+                                    
+                            }  });
+                       
+                        
                         }
             
             });
@@ -288,11 +309,24 @@
             $("#country").change(function () {
                 
               
-                alert($('#country option:selected').val());
+                var coid = $('#country option:selected').val();
                 
                 
-              });
-              
+                
+                $.ajax({
+                        type: "POST",
+                        url: "<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Dynamicstates",
+                        data: { countryid: coid}
+                    })
+                        .done(function(msg) {
+                            
+                           $('#state').html(msg);
+                
+                       });
+                      
+              });                 
+            
+            
             
             
             $('#contact').validate({

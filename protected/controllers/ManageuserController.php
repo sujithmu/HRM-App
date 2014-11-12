@@ -21,7 +21,7 @@ class ManageuserController extends Controller
         public function actionView() {
             #$this->layout=FALSE;
             $obj = new HrmUserRole(); 
-            $this->render('viewprofile',array('model'=>$obj),FALSE); 
+            $this->render('viewprofile',array('model'=>$obj)); 
              
              
                    
@@ -46,18 +46,35 @@ class ManageuserController extends Controller
         public function actionUserReg()
         {
             
-                                    
-                $adding = new HrmEmployee();
+                
+           // $_REQUEST['user_name'] = $_REQUEST['uname'];
+            // $rr->setAttribute("user_name", $_REQUEST['uname']);
+              # $rr->setAttribute("user_password", $_REQUEST['pswd']);
+              #  $rr->setAttribute("user_role_id", $_REQUEST['myDropdown']);
+                $vip =  new HrmUserMaster();
+                $vip->user_name=$_REQUEST['uname'];
+                $vip->user_password=$_REQUEST['pswd'];
+                $vip->user_role_id=$_REQUEST['myDropdown'];
+                $vip->status=$_REQUEST['userstatus'];
+                
+               //$rr->attributes = array('user_name'=>$_REQUEST['uname'],'user_password'=>$_REQUEST['pswd'],'user_role_id'=>$_REQUEST['myDropdown']);
+              
+                $vip->save();   
+            
+            
+               $adding = new HrmEmployee();
                 
                 #$adding->attributes=array($_POST['']); //for adding more fields as array
-               echo $adding->emp_firstname=$_POST['fname'];
-                echo $adding->emp_middle_name=$_POST['mname'];
-                echo $adding->emp_lastname=$_POST['lname'];
+               $adding->emp_firstname=$_REQUEST['fname'];
+               $adding->emp_middle_name=$_REQUEST['mname'];
+               $adding->emp_lastname=$_REQUEST['lname'];                              
+               $adding->save();   
                 
-                $adding->save();
-                                                 
-            
+                                           
+               
+               
         }
+        
         public function actionEcontact() {
             
             #$ss = array();
@@ -67,17 +84,21 @@ class ManageuserController extends Controller
                 $n = new HrmEmpEmergencyContacts();
                 $n->attributes=$_POST;
                 $n->insert();
-             
+                
             
         }
 
         public function actionDynamicstates(){
             
-            $record = new Countries();
-            $countryid = $_REQUEST['cid'];
-            $cid=  Countries::model()->findAllByAttributes(array("id"=>$countryid));              
+            $record =  new commenmodel('state_list');
+            $countryid = $_REQUEST['countryid'];
+            $cid=  $record->findAllByAttributes(array("country_id"=>$countryid)); 
+            $this->layout=FALSE;
+           
+            $this->render('statelist',array('selectarray'=>$cid),FALSE);       
             
         }
+        
         /*public function actionRole(){
             $role = new HrmUserRole();
             

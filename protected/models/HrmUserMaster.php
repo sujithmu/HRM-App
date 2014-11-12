@@ -34,13 +34,13 @@ class HrmUserMaster extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_role_id, emp_number, user_name, user_password, deleted, status, date_entered, date_modified, modified_user_id, created_by', 'required'),
-			array('user_role_id, emp_number, deleted, modified_user_id, created_by', 'numerical', 'integerOnly'=>true),
+			#array('user_role_id, emp_number, user_name, user_password, deleted, status, date_entered, date_modified, modified_user_id, created_by', 'required'),
+			#array('user_role_id, emp_number, deleted, modified_user_id, created_by', 'numerical', 'integerOnly'=>true),
 			array('user_name, user_password', 'length', 'max'=>200),
-			array('status', 'length', 'max'=>1),
+			#array('status', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_role_id, emp_number, user_name, user_password, deleted, status, date_entered, date_modified, modified_user_id, created_by', 'safe', 'on'=>'search'),
+			#array('id, user_role_id, emp_number, user_name, user_password, deleted, status, date_entered, date_modified, modified_user_id, created_by', 'safe', 'on'=>'search'),
 		);
 	}
 
