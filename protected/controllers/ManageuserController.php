@@ -14,16 +14,16 @@ class ManageuserController extends Controller
            
            #$this->layout=FALSE;
            #echo $this->render('manage',"",TRUE); 
-        
+            
             $this->render('manage',"",FALSE);
         }
         
         public function actionView() {
             #$this->layout=FALSE;
             $obj = new HrmUserRole(); 
-            $this->render('viewprofile',array('model'=>$obj)); 
+            $this->render('viewprofile',array('model'=>$obj));           
              
-             
+            Yii::app()->red->redirect();
                    
         }
         
@@ -54,13 +54,14 @@ class ManageuserController extends Controller
                 $vip =  new HrmUserMaster();
                 $vip->user_name=$_REQUEST['uname'];
                 $vip->user_password=$_REQUEST['pswd'];
-                $vip->user_role_id=$_REQUEST['myDropdown'];
+                $vip->user_role_id=$_REQUEST['userrole'];
                 $vip->status=$_REQUEST['userstatus'];
                 
                //$rr->attributes = array('user_name'=>$_REQUEST['uname'],'user_password'=>$_REQUEST['pswd'],'user_role_id'=>$_REQUEST['myDropdown']);
               
                 $vip->save();   
-            
+                
+                $pri = $vip->getPrimaryKey();
             
                $adding = new HrmEmployee();
                 
@@ -70,8 +71,70 @@ class ManageuserController extends Controller
                $adding->emp_lastname=$_REQUEST['lname'];                              
                $adding->save();   
                 
-                                           
+               #print_r($_FILES);
+               /*
+               $uploadedimage = CUploadedFile::getInstanceByName('uploadimage');
+               #print_r($uploadedimage);
+               $uploadedimage->saveAs(dirname(Yii::app()->request->scriptFile).'/profilepictures/main-'.$pri.'.'.$uploadedimage->extensionName);
+               chmod(dirname(Yii::app()->request->scriptFile).'/profilepictures/main-'.$pri.'.'.$uploadedimage->extensionName, 0777);
                
+               #echo dirname(Yii::app()->request->scriptFile).'/profilepictures';
+               */
+               if(isset($_FILES['uploadimage'])){
+                   
+             
+               
+               $img = Yii::app()->imagemod->load($_FILES['uploadimage']);
+           if ($img->uploaded) {
+            $img->image_resize          = FALSE;
+            $img->image_ratio_y         = FALSE;
+  
+            $img->image_convert         = 'jpg';
+            $img->file_new_name_body = 'main-'.$pri;
+            $img->process(dirname(Yii::app()->request->scriptFile).'/profilepictures/');
+            if ($img->processed) {
+              echo 'image resized';
+              $img->clean(); //delete original image
+            } else {
+              echo 'error : ' . $img->error;
+            }
+            
+            chmod(dirname(Yii::app()->request->scriptFile).'/profilepictures/main-'.$pri.'.jpg', 0777);
+            $img = Yii::app()->imagemod->load(dirname(Yii::app()->request->scriptFile).'/profilepictures/main-'.$pri.'.jpg');
+            $img->image_resize          = true;
+            $img->image_ratio_y         = true;
+            $img->image_x               = 150;
+            $img->image_convert         = 'jpg';
+            $img->file_new_name_body = 'profile-'.$pri;
+            $img->process(dirname(Yii::app()->request->scriptFile).'/profilepictures/');
+            if ($img->processed) {
+              echo 'image resized';
+            
+            } else {
+              echo 'error : ' . $img->error;
+            }
+            
+            $img = Yii::app()->imagemod->load(dirname(Yii::app()->request->scriptFile).'/profilepictures/main-'.$pri.'.jpg');
+             $img->image_resize         = true;
+            $img->image_ratio_y         = true;
+            $img->image_x               = 50;
+            $img->image_convert         = 'jpg';
+            $img->file_new_name_body = 'thumbimg-'.$pri;
+            $img->process(dirname(Yii::app()->request->scriptFile).'/profilepictures/');
+            if ($img->processed) {
+              echo 'image resized';
+             
+            } else {
+              echo 'error : ' . $img->error;
+            } 
+            
+           
+            chmod(dirname(Yii::app()->request->scriptFile).'/profilepictures/profile-'.$pri.'.jpg', 0777);
+            chmod(dirname(Yii::app()->request->scriptFile).'/profilepictures/thumbimg-'.$pri.'.jpg', 0777);
+         }
+            }
+             
+            
                
         }
         
@@ -79,11 +142,20 @@ class ManageuserController extends Controller
             
             #$ss = array();
             #if(count($ss)==0)
-             
+                
                 
                 $n = new HrmEmpEmergencyContacts();
-                $n->attributes=$_POST;
-                $n->insert();
+                $n->eec_name=$_REQUEST['name'];
+                $n->eec_relationship=$_REQUEST['relation'];
+                $n->eec_address=$_REQUEST['address'];
+                $n->eec_pincode=$_REQUEST['pincode'];
+                $n->eec_country=$_REQUEST['countrylist'];
+                $n->eec_state=$_REQUEST['statelist'];
+                $n->eec_city=$_REQUEST['city'];
+                $n->eec_home_no=$_REQUEST['hnumber'];
+                $n->eec_mobile_no=$_REQUEST['mnumber'];
+                $n->eec_office_no=$_REQUEST['onumber'];
+                $n->save();
                 
             
         }

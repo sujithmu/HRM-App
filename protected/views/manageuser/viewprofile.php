@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/profile.css" media="screen, projection" />
 <body>
 
     <div class="container-fluid">
@@ -9,7 +10,7 @@
 			</div>
 			
 			<div class="row-fluid">
-				<div class="span12">
+				<div class="span12 prof">
 					<div class="box box-color box-bordered">
 						<div class="box-title">
 							<h3>
@@ -26,13 +27,13 @@
                                 <a href="#econtact" data-toggle='tab'>Emergency Contact</a>
 			</li>
                          <li>
-                            <a href="#security" data-toggle='tab'>Dependency</a>
+                            <a href="#dependent" data-toggle='tab'>Dependency</a>
 			</li>
                         <li>
-                            <a href="#security" data-toggle='tab'>Job</a>
+                            <a href="#job" data-toggle='tab'>Job</a>
 			</li>
                         <li>
-                            <a href="#security" data-toggle='tab'>Salary</a>
+                            <a href="#salary" data-toggle='tab'>Salary</a>
 			</li>
                         <li>
                             <a href="#security" data-toggle='tab'>Report To</a>
@@ -43,25 +44,31 @@
                     </ul>
         <div class="tab-content padding tab-content-inline tab-content-bottom">
             <div class="tab-pane active" id="profile">
-                <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/UserReg" id="profileform" method="POST" class="form-horizontal">
-                    <div class="row-fluid">
-                    <div class="span2">
-                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                            <div class="fileupload-new thumbnail" style="max-width: 200px; max-height: 150px;"><img src="img/demo/user-1.jpg" /></div>
-                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                            <div>
-                                    <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name='imagefile' /></span>
-                                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                            </div>
-                    </div>
-                    </div>
+    <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/UserReg" id="profileform" method="POST" class="form-horizontal" 
+          enctype="multipart/form-data">
+        <div class="row-fluid">
+        <div class="span2">
+        <div class="fileupload fileupload-new" data-provides="fileupload">
+                <div class="fileupload-new thumbnail" style="max-width: 100px; max-height: 150px;"><img src="" /></div>
+                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 100px; max-height: 150px; line-height: 20px;"></div>
+                <div>
+                    <span class="btn btn-file"><span class="fileupload-new">Select image</span>
+                    <span class="fileupload-exists">Change</span>
+                        <input type="file" name='uploadimage' id="uploadimage"/>
+                    </span>
+                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                </div>
+        </div>
+        </div>
                             <div class="span10">
                                     
                                     <div class="control-group">
                                             <label for="name" class="control-label right">User Role:</label>
                                             <div class="controls">
-                                             <?php echo CHtml::dropDownList('myDropdown', '1', CHtml::listData(HrmUserRole::model()->findAll(), 'id',
-                                                        'display_name')); ?>
+                                             <?php echo CHtml::dropDownList('userrole', '1', CHtml::listData(HrmUserRole::model()->findAll(), 'id',
+                                                        'display_name'),   array(
+                                                            'class'=>'input-xlarge',)                                        
+                                                                              ); ?>
                                             </div>
                                     </div>
                                     <div class="control-group">
@@ -106,7 +113,7 @@
                                     <div class="control-group">
                                             <label for="stat" class="control-label right">Status:</label>
                                             <div class="controls">
-                                                <select name="userstatus" id="userstatus">
+                                                <select name="userstatus" id="userstatus" class="input-xlarge">
                                                     <option value="Y">Active</option>
                                                     <option value="N">Inactive</option>
                                                 </select>
@@ -128,7 +135,7 @@
                 </form>
                 </div>
                 <div class="tab-pane" id="econtact">
-                    <form action="" id="contact" method="POST" class="form-horizontal">
+                    <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Econtact" id="contact" method="POST" class="form-horizontal">
                            <div class="span10">
                             
                             <div class="control-group">
@@ -211,16 +218,89 @@
                                 <input type="button" id="sbutton" name="sbutton" class='btn btn-primary' value="Save">
                                 <input type="reset" class='btn' value="Discard changes">
                             </div>
+                               <div class="alert alert-success span8" id="contactalert" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong>          Success!</strong>
+                                </div>
                           </div>                                                                                               
                     </form>
                 </div>
-                                <div class="tab-pane" id="security">
-                                        <form action="#" class="form-horizontal">
+              
+            <div class="tab-pane" id="dependent">
+            <form action="" class="form-horizontal" id="dependentform" method="POST" class="form-horizontal">
+
+                   <div class="span10">
+
+                    <div class="control-group">
+                                    <label for="name" class="control-label right">Name:</label>
+                                    <div class="controls">
+                                        <input type="text" id="dname" name="dname" class='input-xlarge' value="">
+                                    </div>
+                    </div>                                                                                                  
+                    
+                    <div class="control-group">
+                                            <label for="relation" class="control-label right">Relationship:</label>
+                                            <div class="controls">
+                                                <select name="relationship" id="relationship" class="input-xlarge">
+                                                    <option value="1">Father</option>
+                                                    <option value="2">Mother</option>
+                                                    <option value="3">Brother</option>
+                                                    <option value="4">Sister</option>
+                                                    <option value="5">Son</option>
+                                                    <option value="6">Daughter</option>
+                                                </select>
+                                                    
+                                            </div>
                                             
+                    </div>   
+                     
+                       <div class="control-group">
+                            <label for="date" class="control-label right">DOB:</label>
+                            <div class="controls">
+                                <input type="text" name="dob" id="dob" class="input-medium datepick input-xlarge">
+				
+                                
+                            </div>
+                       </div>
+                       
+                       
+                    <div class="form-actions">
+                        <input type="button" id="depbutton" name="depbutton" class='btn btn-primary' value="Save">
+                        <input type="reset" class='btn' value="Discard changes">
+                    </div>                        
+                        
+                  </div>                                               
                                                 
-                                                
-					</form>
-                                                            </div>
+                </form>
+                </div>
+            
+            <div class="tab-pane" id="job">
+                <form action="" class="form-horizontal" id="jobform" method="POST" class="form-horizontal">
+                    
+                    <div class="span10">
+                        
+                        <div class="control-group">
+                                    <label for="title" class="control-label right">Job Title:</label>
+                                    <div class="controls" id="jtitle">
+                                                <?php echo CHtml::dropDownList('jobtitle', '1', 
+                                                        CHtml::listData(HrmJobTitle::model()->findAll(),'id','job_title'),
+                                                        array(
+                                                            'class'=>'input-xlarge',)
+                                                        ); ?>
+                                    </div>                                                                                                          
+                                    
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    
+                </form>
+                
+                
+            </div>
+            
+            
 							</div>
 						</div>
 					</div>
@@ -230,132 +310,9 @@
                 </div>
     
 </body>
-
 <script type="text/javascript">
+    var baseurl="<?php echo Yii::app()->request->baseUrl; ?>";
     
-    $(document).ready(function(){
-        
-        $('#profileform').validate({
-            
-                rules:{
-                        fname:"required",
-                        lname:"required",
-                                                
-                        uname:  {
-                                required:true,
-                                minlength:2,
-                                remote:"<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Uservalidation",                                                                                     
-                                },
-                        pswd:{
-                                required:true,
-                                minlength:5,
-                                },
-                        cpswd:{
-                                required:true,
-                                minlength:5,
-                                equalTo: "#pswd"
-                                }, 
-                 
-                    },
-                
-                messages:{
-                        fname:"Please enter your firstname",
-                        lname:"Please enter your lastname",
-                        uname:{
-                                required: "Please enter a username",
-                                minlength: "Your username must consist of at least 2 characters",
-                                remote:"Username already taken"
-                            },
-                        pswd:{
-                                 required: "Please provide a password",
-                                 minlength: "Your password must be at least 5 characters long"   
-                             },
-                        cpswd:{
-                                 required: "Please provide a password",
-                                 minlength: "Your password must be at least 5 characters long",
-                                 equalTo: "Please enter the same password as above"   
-                        },
-                },
-                      submitHandler: function(form) 
-                        {
-                                              
-                            $(form).ajaxSubmit({
-                                    
-                success: function(){
-                                 $('#profilealert').fadeIn();
-                                 setTimeout(
-                                 function(){
-                                     
-                                     $('#profilealert').fadeOut();
-                                 },3000
-                                 
-                
-                );
-                                    
-                            }  });
-                       
-                        
-                        }
-            
-            });
-            
-            $('#sbtn').click(function(){
-            
-               $('#profileform').submit();        
-                  
-
-            });
-            
-            $("#country").change(function () {
-                
-              
-                var coid = $('#country option:selected').val();
-                
-                
-                
-                $.ajax({
-                        type: "POST",
-                        url: "<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Dynamicstates",
-                        data: { countryid: coid}
-                    })
-                        .done(function(msg) {
-                            
-                           $('#state').html(msg);
-                
-                       });
-                      
-              });                 
-            
-            
-            
-            
-            $('#contact').validate({
-                
-                rules:{
-                    name:"required",
-                    address:"required",
-                    state:"required",
-                    pincode:"required",
-                    relation:"required",
-                    hnumber:"required",
-                    mnumber:"required",
-                    },
-                messages:{
-                    name:"Please enter a valid contact person name",
-                    address:"Add your address",
-                    state:"Add state",
-                    pincode:"Valid pincode required",
-                    relation:"Add relationship",
-                    hnumber:"Home number required",
-                    mnumber:"Add mobile number 10 digits",
-                    },
-            });
-            $('#sbutton').click(function(){
-                $('#contact').submit();
-              });
-            
-    });
-    
-    
-    
-    </script>
+</script>
+<script src="js/profile.js"></script>
+<script src="js/contact.js"></script>

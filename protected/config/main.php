@@ -36,6 +36,13 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+                'imagemod'=>array(
+                    
+                    'class' => 'application.extensions.imagemodifier.CImageModifier',
+                ),
+                'red'=>array(
+                     'class' => 'application.extensions.Redirect.redirect',
+                ),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
