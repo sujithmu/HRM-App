@@ -36,10 +36,10 @@
                             <a href="#salary" data-toggle='tab'>Salary</a>
 			</li>
                         <li>
-                            <a href="#security" data-toggle='tab'>Report To</a>
+                            <a href="#report" data-toggle='tab'>Report To</a>
 			</li>
                         <li>
-                            <a href="#security" data-toggle='tab'>Qualifications</a>
+                            <a href="#qualification" data-toggle='tab'>Qualifications</a>
 			</li>
                     </ul>
         <div class="tab-content padding tab-content-inline tab-content-bottom">
@@ -49,7 +49,7 @@
         <div class="row-fluid">
         <div class="span2">
         <div class="fileupload fileupload-new" data-provides="fileupload">
-                <div class="fileupload-new thumbnail" style="max-width: 100px; max-height: 150px;"><img src="" /></div>
+                <div class="fileupload-new thumbnail" style="max-width: 100px; max-height: 150px;"><img src="img/demo/profile.jpg" /></div>
                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 100px; max-height: 150px; line-height: 20px;"></div>
                 <div>
                     <span class="btn btn-file"><span class="fileupload-new">Select image</span>
@@ -227,7 +227,7 @@
                 </div>
               
             <div class="tab-pane" id="dependent">
-            <form action="" class="form-horizontal" id="dependentform" method="POST" class="form-horizontal">
+            <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Dependent" class="form-horizontal" id="dependentform" method="POST" class="form-horizontal">
 
                    <div class="span10">
 
@@ -241,13 +241,16 @@
                     <div class="control-group">
                                             <label for="relation" class="control-label right">Relationship:</label>
                                             <div class="controls">
-                                                <select name="relationship" id="relationship" class="input-xlarge">
-                                                    <option value="1">Father</option>
-                                                    <option value="2">Mother</option>
-                                                    <option value="3">Brother</option>
-                                                    <option value="4">Sister</option>
-                                                    <option value="5">Son</option>
-                                                    <option value="6">Daughter</option>
+                                                <select required="" name="relationship" id="relationship" class="input-xlarge">
+                                                    <option value="">Please select</option>
+                                                    
+                                                    <option value="father">Father</option>
+                                                    <option value="mother">Mother</option>
+                                                    <option value="brother">Brother</option>
+                                                    <option value="sister">Sister</option>
+                                                    <option value="wife">Wife</option>
+                                                    <option value="son">Son</option>
+                                                    <option value="daughter">Daughter</option>
                                                 </select>
                                                     
                                             </div>
@@ -257,9 +260,7 @@
                        <div class="control-group">
                             <label for="date" class="control-label right">DOB:</label>
                             <div class="controls">
-                                <input type="text" name="dob" id="dob" class="input-medium datepick input-xlarge">
-				
-                                
+                                <input type="text" name="dateofbirth" id="dateofbirth" class="input-medium datepick input-xlarge">				                               
                             </div>
                        </div>
                        
@@ -267,7 +268,11 @@
                     <div class="form-actions">
                         <input type="button" id="depbutton" name="depbutton" class='btn btn-primary' value="Save">
                         <input type="reset" class='btn' value="Discard changes">
-                    </div>                        
+                    </div>   
+                    <div class="alert alert-success span8" id="dependentalert" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong>          Success!</strong>
+                    </div>
                         
                   </div>                                               
                                                 
@@ -285,12 +290,55 @@
                                                 <?php echo CHtml::dropDownList('jobtitle', '1', 
                                                         CHtml::listData(HrmJobTitle::model()->findAll(),'id','job_title'),
                                                         array(
-                                                            'class'=>'input-xlarge',)
+                                                            'class'=>'input-xlarge',
+                                                            )
                                                         ); ?>
                                     </div>                                                                                                          
                                     
                         </div>
+                        <div class="control-group">
+                                    <label for="status" class="control-label right">Employment Status:</label>
+                                    <div class="controls">
+                                        <select required="" name="estatus" id="estatus" class="input-xlarge">
+                                                    <option value=""></option>
+                                                    <option value="1">Worker</option>
+                                                    <option value="2">Employee</option>
+                                                    <option value="3">Self-Employed</option>
+                                                    
+                                                </select>                                                                                                
+                                        
+                                    </div>
+                        </div>
+                        <div class="control-group">
+                                    <label for="job" class="control-label right">Job Category:</label>
+                                    <div class="controls" id="jcategory">
+                                         <?php echo CHtml::dropDownList('jobcategory', '1', 
+                                                        CHtml::listData(HrmJobCategory::model()->findAll(),'id','job_category'),
+                                                        array(
+                                                            'class'=>'input-xlarge',
+                                                           
+                                                            )
+                                                        ); ?>   
+                                        
+                                    </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="date" class="control-label right">Joining Date:</label>
+                            <div class="controls">
+                                <input type="text" name="joindate" id="joindate" class="input-medium datepick input-xlarge">                                
+                            </div>
+                        </div>
+                                                                     
                         
+                        
+                        <div class="form-actions">
+                            <input type="button" id="jobbutton" name="jobbutton" class='btn btn-primary' value="Save">
+                            <input type="reset" class='btn' value="Discard changes">
+                        </div>
+                        <div class="alert alert-success span8" id="jobalert" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong>          Success!</strong>
+                        </div>
                         
                     </div>
                     
@@ -299,6 +347,105 @@
                 
                 
             </div>
+            
+            <div class="tab-pane" id="salary">
+                <form action="" class="form-horizontal" id="salaryform" method="POST" class="form-horizontal">
+                    <div class="span10">
+                        <div class="control-group">
+                                    <label for="pay" class="control-label right">Pay Grade:</label>
+                                    <div class="controls">
+                                        <input type="text" id="pgrade" name="pgrade" class='input-xlarge' value="">
+                                    </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label right">Salary Components:</label>
+                            <div class="controls">
+                                    <label class='checkbox'>
+                                        <input type="checkbox" id="component1" name="component1"> Basic Salary
+                                    </label>
+                                    <label class='checkbox'>
+                                        <input type="checkbox" id="component2" name="component2"> ipsum eiusmod
+                                    </label>
+                                    <label class='checkbox'>
+                                        <input type="checkbox" id="component3" name="component3"> Eiusmod lorem ipsum
+                                    </label>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                                    <label for="amt" class="control-label right">Salary Amount-CTC:</label>
+                                    <div class="controls">
+                                        <input type="text" id="amount" name="amount" class='input-xlarge' value="">
+                                    </div>
+                        </div>
+                        <div class="control-group">
+                                    <label for="status" class="control-label right">Salary Account Types:</label>
+                                    <div class="controls">
+                                        <select required="" name="accounttypes" id="accounttypes" class="input-xlarge">
+                                                    <option value=""></option>
+                                                    <option value="1">Current Account</option>
+                                                    <option value="2">Savings Account</option>
+                                                    <option value="3">Recurring Account</option>
+                                                    <option value="4">Fixed Account</option>
+                                                </select>                                                                                                
+                                        
+                                    </div>
+                        </div>
+                        <div class="form-actions">
+                            <input type="button" id="salarybutton" name="salarybutton" class='btn btn-primary' value="Save">
+                            <input type="reset" class='btn' value="Discard changes">
+                        </div>
+                        <div class="alert alert-success span8" id="salaryalert" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong>          Success!</strong>
+                        </div>
+                        
+                    </div>
+                    
+                </form>
+                
+                
+            </div>
+            
+            <div class="tab-pane" id="report">
+                <form action="" class="form-horizontal" id="reportform" method="POST" class="form-horizontal">
+                    <div class="span10">
+                        <div class="control-group">
+                                    <label for="name" class="control-label right">Name:</label>
+                                    <div class="controls">
+                                        <input type="text" id="rname" name="rname" class='input-xlarge' value="">
+                                    </div>
+                        </div>
+                        <div class="control-group">
+                            
+                            <div class="controls">
+                                    <label class='checkbox'>
+                                        <input type="checkbox" id="assign1" name="assign1"> Supervisor
+                                    </label>
+                                    <label class='checkbox'>
+                                        <input type="checkbox" id="assign2" name="assign2"> Subordinate
+                                    </label>                                    
+                            </div>                            
+                        </div>
+                        
+                        
+                        <div class="form-actions">
+                            <input type="button" id="reportbutton" name="reportbutton" class='btn btn-primary' value="Save">
+                            <input type="reset" class='btn' value="Discard changes">
+                        </div>
+                        <div class="alert alert-success span8" id="reportalert" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong>          Success!</strong>
+                        </div>
+                        
+                    </div>
+                    
+                </form>
+                
+                
+            </div>
+            
+            
             
             
 							</div>
@@ -316,3 +463,7 @@
 </script>
 <script src="js/profile.js"></script>
 <script src="js/contact.js"></script>
+<script src="js/dependency.js"></script>
+<script src="js/job.js"></script>
+<script src="js/salary.js"></script>
+<script src="js/reportto.js"></script>

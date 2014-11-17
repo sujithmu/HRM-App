@@ -43,6 +43,29 @@ class ManageuserController extends Controller
                     echo 'true';
                 }
         }
+        
+        public function actionReport(){
+            $find = $_REQUEST['rname'];
+            $rname = HrmReportTo::model()->findAllByAttributes(array("supervisor_name"=>$find));
+            
+            $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+        //'model'=>$model,
+        //'attribute'=>'name',
+                'id'=>'country-single',
+                'name'=>'country_single',
+                'source'=>$this->createUrl('request/suggestCountry'),
+                'htmlOptions'=>array(
+                'size'=>'40'
+                       ),
+                ));
+            
+            }
+
+        
+
+
+
+
         public function actionUserReg()
         {
             
@@ -157,6 +180,21 @@ class ManageuserController extends Controller
                 $n->eec_office_no=$_REQUEST['onumber'];
                 $n->save();
                 
+            
+        }
+        public function actionDependent(){
+            
+            $d = new HrmDependent();
+            $d->dependent_name=$_REQUEST['dname'];
+            $d->dependent_relation=$_REQUEST['relationship'];                
+            $d->dependent_dob=$_REQUEST['dateofbirth'];
+            
+            
+            #$from=DateTime::createFromFormat('Y-m-d',$this->dependent_dob);
+            #$this->dependent_dob=$from->format('d/m/Y');
+            
+            
+            $d->save();
             
         }
 

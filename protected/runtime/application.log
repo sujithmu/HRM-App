@@ -2981,3 +2981,270 @@ REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/View
 in /var/www/html/hrmnetstratum/protected/extensions/Redirect/redirect.php (33)
 in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (26)
 in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/17 12:53:23 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_dependent` (`dependent_name`, `dependent_relation`, `dependent_dob`) VALUES (:yp0, :yp1, :yp2).
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (168)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/17 12:53:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `hrm_dependent` (`dependent_name`, `dependent_relation`, `dependent_dob`) VALUES (:yp0, :yp1, :yp2)' in /var/www/html/yii/framework/db/CDbCommand.php:361
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1078): CDbCommand->execute()
+#1 /var/www/html/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(168): CActiveRecord->save()
+#3 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#4 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#8 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#9 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 12:54:55 [error] [exception.CException] exception 'CException' with message 'Property "HrmDependent.emp_number" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('emp_number')
+#1 /var/www/html/yii/framework/validators/CNumberValidator.php(78): CActiveRecord->__get('emp_number')
+#2 /var/www/html/yii/framework/validators/CValidator.php(213): CNumberValidator->validateAttribute(Object(HrmDependent), 'emp_number')
+#3 /var/www/html/yii/framework/base/CModel.php(159): CValidator->validate(Object(HrmDependent), NULL)
+#4 /var/www/html/yii/framework/db/ar/CActiveRecord.php(805): CModel->validate(NULL)
+#5 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(168): CActiveRecord->save()
+#6 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#7 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#11 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#12 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 12:56:12 [error] [exception.CException] exception 'CException' with message 'Property "HrmDependent.emp_number" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(145): CComponent->__get('emp_number')
+#1 /var/www/html/yii/framework/validators/CNumberValidator.php(78): CActiveRecord->__get('emp_number')
+#2 /var/www/html/yii/framework/validators/CValidator.php(213): CNumberValidator->validateAttribute(Object(HrmDependent), 'emp_number')
+#3 /var/www/html/yii/framework/base/CModel.php(159): CValidator->validate(Object(HrmDependent), NULL)
+#4 /var/www/html/yii/framework/db/ar/CActiveRecord.php(805): CModel->validate(NULL)
+#5 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(168): CActiveRecord->save()
+#6 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#7 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#11 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#12 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 13:05:14 [error] [exception.CException] exception 'CException' with message 'Property "HrmDependent.datetime" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('datetime', 'NULL')
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(167): CActiveRecord->__set('datetime', 'NULL')
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 13:05:16 [error] [exception.CException] exception 'CException' with message 'Property "HrmDependent.datetime" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('datetime', 'NULL')
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(167): CActiveRecord->__set('datetime', 'NULL')
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 13:05:19 [error] [exception.CException] exception 'CException' with message 'Property "HrmDependent.datetime" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('datetime', 'NULL')
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(167): CActiveRecord->__set('datetime', 'NULL')
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 13:07:01 [error] [exception.CException] exception 'CException' with message 'Property "HrmDependent.date" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('date', Object(CDbExpression))
+#1 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(169): CActiveRecord->__set('date', Object(CDbExpression))
+#2 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#3 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#7 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#8 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 13:08:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'dependent_dob' cannot be null. The SQL statement executed was: INSERT INTO `hrm_dependent` (`dependent_name`, `dependent_relation`, `dependent_dob`) VALUES (:yp0, :yp1, NULL).
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (173)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/17 13:08:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'dependent_dob' cannot be null. The SQL statement executed was: INSERT INTO `hrm_dependent` (`dependent_name`, `dependent_relation`, `dependent_dob`) VALUES (:yp0, :yp1, NULL)' in /var/www/html/yii/framework/db/CDbCommand.php:361
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1078): CDbCommand->execute()
+#1 /var/www/html/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(173): CActiveRecord->save()
+#3 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#4 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#8 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#9 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 13:11:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'dependent_dob' cannot be null. The SQL statement executed was: INSERT INTO `hrm_dependent` (`dependent_name`, `dependent_relation`, `dependent_dob`) VALUES (:yp0, :yp1, NULL).
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (173)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/17 13:11:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'dependent_dob' cannot be null. The SQL statement executed was: INSERT INTO `hrm_dependent` (`dependent_name`, `dependent_relation`, `dependent_dob`) VALUES (:yp0, :yp1, NULL)' in /var/www/html/yii/framework/db/CDbCommand.php:361
+Stack trace:
+#0 /var/www/html/yii/framework/db/ar/CActiveRecord.php(1078): CDbCommand->execute()
+#1 /var/www/html/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(173): CActiveRecord->save()
+#3 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#4 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#8 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#9 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 14:09:19 [error] [exception.CException] exception 'CException' with message 'Property "ManageuserController.dependent_dob" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(169): CComponent->__get('dependent_dob')
+#1 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#2 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#6 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#7 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 14:09:43 [error] [exception.CException] exception 'CException' with message 'Property "ManageuserController.dependent_dob" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(169): CComponent->__get('dependent_dob')
+#1 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#2 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#6 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#7 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 14:48:28 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.localtime" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/yii/framework/base/CModule.php(105): CComponent->__get('localtime')
+#1 /var/www/html/hrmnetstratum/protected/models/HrmDependent.php(35): CModule->__get('localtime')
+#2 /var/www/html/yii/framework/base/CModel.php(284): HrmDependent->rules()
+#3 /var/www/html/yii/framework/base/CModel.php(260): CModel->createValidators()
+#4 /var/www/html/yii/framework/base/CModel.php(158): CModel->getValidators()
+#5 /var/www/html/yii/framework/db/ar/CActiveRecord.php(805): CModel->validate(NULL)
+#6 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(174): CActiveRecord->save()
+#7 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#8 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#12 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#13 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 14:52:47 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.localtime" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/yii/framework/base/CModule.php(105): CComponent->__get('localtime')
+#1 /var/www/html/hrmnetstratum/protected/models/HrmDependent.php(35): CModule->__get('localtime')
+#2 /var/www/html/yii/framework/base/CModel.php(284): HrmDependent->rules()
+#3 /var/www/html/yii/framework/base/CModel.php(260): CModel->createValidators()
+#4 /var/www/html/yii/framework/base/CModel.php(158): CModel->getValidators()
+#5 /var/www/html/yii/framework/db/ar/CActiveRecord.php(805): CModel->validate(NULL)
+#6 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(174): CActiveRecord->save()
+#7 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#8 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#12 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#13 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 14:53:23 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.localtime" is not defined.' in /var/www/html/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /var/www/html/yii/framework/base/CModule.php(105): CComponent->__get('localtime')
+#1 /var/www/html/hrmnetstratum/protected/models/HrmDependent.php(35): CModule->__get('localtime')
+#2 /var/www/html/yii/framework/base/CModel.php(284): HrmDependent->rules()
+#3 /var/www/html/yii/framework/base/CModel.php(260): CModel->createValidators()
+#4 /var/www/html/yii/framework/base/CModel.php(158): CModel->getValidators()
+#5 /var/www/html/yii/framework/db/ar/CActiveRecord.php(805): CModel->validate(NULL)
+#6 /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php(174): CActiveRecord->save()
+#7 /var/www/html/yii/framework/web/actions/CInlineAction.php(49): ManageuserController->actionDependent()
+#8 /var/www/html/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /var/www/html/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /var/www/html/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('Dependent')
+#12 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/Depe...')
+#13 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Dependent
+HTTP_REFERER=http://localhost/hrmnetstratum/index.php?r=Manageuser/View
+---
+2014/11/17 15:12:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "View\".' in /var/www/html/yii/framework/web/CController.php:483
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(270): CController->missingAction('View\')
+#1 /var/www/html/yii/framework/web/CWebApplication.php(282): CController->run('View\')
+#2 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Manageuser/View...')
+#3 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/html/hrmnetstratum/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/View\
+---
