@@ -3248,3 +3248,124 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/View\
 ---
+2014/11/18 11:40:38 [error] [php] Undefined index: empno (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:82)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (82)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/18 11:40:40 [error] [php] Undefined index: empno (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:82)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (82)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/18 11:40:41 [error] [php] Undefined index: empno (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:82)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (82)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/18 11:40:43 [error] [php] Undefined index: empno (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:82)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (82)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/18 11:40:50 [error] [php] Undefined index: empno (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:82)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (82)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/18 11:52:11 [error] [php] Undefined variable: vip (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:87)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/UserReg
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (87)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/18 15:36:38 [error] [php] Undefined index: empnumber (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:248)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Reportto
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (248)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/18 15:36:39 [error] [php] Undefined index: empnumber (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:248)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Reportto
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (248)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/18 15:36:41 [error] [php] Undefined index: empnumber (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:248)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Reportto
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (248)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/18 15:36:45 [error] [php] Undefined index: empnumber (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:248)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Reportto
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (248)
+in /var/www/html/hrmnetstratum/index.php (13)
+2014/11/18 15:39:47 [error] [php] Undefined index: empnumber (/var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php:248)
+Stack trace:
+#0 /var/www/html/yii/framework/web/CController.php(286): ManageuserController->runAction()
+#1 /var/www/html/yii/framework/web/CController.php(265): ManageuserController->runActionWithFilters()
+#2 /var/www/html/yii/framework/web/CWebApplication.php(282): ManageuserController->run()
+#3 /var/www/html/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /var/www/html/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#5 /var/www/html/hrmnetstratum/index.php(13): CWebApplication->run()
+REQUEST_URI=/hrmnetstratum/index.php?r=Manageuser/Reportto
+in /var/www/html/hrmnetstratum/protected/controllers/ManageuserController.php (248)
+in /var/www/html/hrmnetstratum/index.php (13)

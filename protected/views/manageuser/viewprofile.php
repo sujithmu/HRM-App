@@ -33,14 +33,15 @@
                             <a href="#job" data-toggle='tab'>Job</a>
 			</li>
                         <li>
-                            <a href="#salary" data-toggle='tab'>Salary</a>
-			</li>
-                        <li>
                             <a href="#report" data-toggle='tab'>Report To</a>
 			</li>
+                     <!--   <li>
+                            <a href="#salary" data-toggle='tab'>Salary</a>
+			</li>-->
+                      <!--  
                         <li>
                             <a href="#qualification" data-toggle='tab'>Qualifications</a>
-			</li>
+			</li>-->
                     </ul>
         <div class="tab-content padding tab-content-inline tab-content-bottom">
             <div class="tab-pane active" id="profile">
@@ -59,11 +60,14 @@
                         <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                 </div>
         </div>
+            
+            <input type="hidden" name='empnumber' id="empnumber"/>
+            
         </div>
                             <div class="span10">
                                     
                                     <div class="control-group">
-                                            <label for="name" class="control-label right">User Role:</label>
+                                            <label for="name" class="control-label right">User Role: * </label>
                                             <div class="controls">
                                              <?php echo CHtml::dropDownList('userrole', '1', CHtml::listData(HrmUserRole::model()->findAll(), 'id',
                                                         'display_name'),   array(
@@ -72,7 +76,7 @@
                                             </div>
                                     </div>
                                     <div class="control-group">
-                                            <label for="name" class="control-label right">First Name:</label>
+                                            <label for="name" class="control-label right">First Name: * </label>
                                             <div class="controls">
                                                 <input type="text" id="fname" name="fname" class='input-xlarge' value="">
                                             </div>
@@ -84,27 +88,27 @@
                                             </div>
                                     </div>
                                     <div class="control-group">
-                                            <label for="name" class="control-label right">Last Name:</label>
+                                            <label for="name" class="control-label right">Last Name: * </label>
                                             <div class="controls">
                                                 <input type="text" id="lname" name="lname" class='input-xlarge' value="">
                                             </div>
                                     </div>
                                     <div class="control-group">
-                                            <label for="email" class="control-label right">Username:</label>
+                                            <label for="email" class="control-label right">Username: * </label>
                                             <div class="controls">
                                                 <input type="text" id="uname" name="uname" data-rule-email="true" class='input-xlarge' value="">
                                                     
                                             </div>
                                     </div>
                                     <div class="control-group">
-                                            <label for="pw" class="control-label right">Password:</label>
+                                            <label for="pw" class="control-label right">Password: * </label>
                                             <div class="controls">
                                                 <input type="password" id="pswd" name="pswd" class='input-xlarge' value="">
                                                     
                                             </div>
                                     </div>
                                     <div class="control-group">
-                                            <label for="pw" class="control-label right">Confirm Password:</label>
+                                            <label for="pw" class="control-label right">Confirm Password: * </label>
                                             <div class="controls">
                                                 <input type="password" id="cpswd" name="cpswd" class='input-xlarge' value="">
                                                     
@@ -242,8 +246,7 @@
                                             <label for="relation" class="control-label right">Relationship:</label>
                                             <div class="controls">
                                                 <select required="" name="relationship" id="relationship" class="input-xlarge">
-                                                    <option value="">Please select</option>
-                                                    
+                                                    <option value="">Please select</option>                                                    
                                                     <option value="father">Father</option>
                                                     <option value="mother">Mother</option>
                                                     <option value="brother">Brother</option>
@@ -251,11 +254,18 @@
                                                     <option value="wife">Wife</option>
                                                     <option value="son">Son</option>
                                                     <option value="daughter">Daughter</option>
-                                                </select>
-                                                    
+                                                    <option value="other">Other</option>
+                                                </select>                                                   
                                             </div>
                                             
-                    </div>   
+                    </div>
+                       <div class="control-group" id="otherdep" style="display: none;">
+                                    <label for="other" class="control-label right">Other Dependent:</label>
+                                    <div class="controls">
+                                        <input type="text" id="odependent" name="odependent" class='input-xlarge' value="">
+                                    </div>
+                    </div>
+                    
                      
                        <div class="control-group">
                             <label for="date" class="control-label right">DOB:</label>
@@ -280,17 +290,18 @@
                 </div>
             
             <div class="tab-pane" id="job">
-                <form action="" class="form-horizontal" id="jobform" method="POST" class="form-horizontal">
+                <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Job" class="form-horizontal" id="jobform" method="POST" class="form-horizontal">
                     
                     <div class="span10">
                         
                         <div class="control-group">
                                     <label for="title" class="control-label right">Job Title:</label>
                                     <div class="controls" id="jtitle">
-                                                <?php echo CHtml::dropDownList('jobtitle', '1', 
+                                                <?php echo CHtml::dropDownList('jobtitle', 'empty',
                                                         CHtml::listData(HrmJobTitle::model()->findAll(),'id','job_title'),
                                                         array(
                                                             'class'=>'input-xlarge',
+                                                            'empty'=>'--Select a job title--',
                                                             )
                                                         ); ?>
                                     </div>                                                                                                          
@@ -312,11 +323,11 @@
                         <div class="control-group">
                                     <label for="job" class="control-label right">Job Category:</label>
                                     <div class="controls" id="jcategory">
-                                         <?php echo CHtml::dropDownList('jobcategory', '1', 
+                                         <?php echo CHtml::dropDownList('jobcategory', 'empty', 
                                                         CHtml::listData(HrmJobCategory::model()->findAll(),'id','job_category'),
                                                         array(
                                                             'class'=>'input-xlarge',
-                                                           
+                                                             'empty'=>'--Select a Job category--',
                                                             )
                                                         ); ?>   
                                         
@@ -347,6 +358,47 @@
                 
                 
             </div>
+            
+            <div class="tab-pane" id="report">
+                <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Reportto" class="form-horizontal" id="reportform" method="POST" class="form-horizontal">
+                    <div class="span10">
+                        <div class="control-group">
+                                    <label for="name" class="control-label right">Name:</label>
+                                    <div class="controls">
+                                        <input type="text" id="rname" name="rname" class='input-xlarge' value="">
+                                    </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"></label>
+                            <div class="controls">
+                                    <label class='radio'>
+                                        <input type="radio" name="reportto1" id="super" value="supervisor"> Supervisor
+                                    </label>
+                                    <label class='radio'>
+                                        <input type="radio" name="reportto1" id="sub" value="subordinate"> Subordinate
+                                    </label>
+                                    
+                            </div>
+                        </div> 
+
+                        
+                        <div class="form-actions">
+                            <input type="button" id="reportbutton" name="reportbutton" class='btn btn-primary' value="Save">
+                            <input type="reset" class='btn' value="Discard changes">
+                        </div>
+                        <div class="alert alert-success span8" id="reportalert" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong>          Success!</strong>
+                        </div>
+                        
+                    </div>
+                    
+                </form>
+                
+                
+            </div>
+            
+            
             
             <div class="tab-pane" id="salary">
                 <form action="" class="form-horizontal" id="salaryform" method="POST" class="form-horizontal">
@@ -407,43 +459,8 @@
                 
             </div>
             
-            <div class="tab-pane" id="report">
-                <form action="" class="form-horizontal" id="reportform" method="POST" class="form-horizontal">
-                    <div class="span10">
-                        <div class="control-group">
-                                    <label for="name" class="control-label right">Name:</label>
-                                    <div class="controls">
-                                        <input type="text" id="rname" name="rname" class='input-xlarge' value="">
-                                    </div>
-                        </div>
-                        <div class="control-group">
-                            
-                            <div class="controls">
-                                    <label class='checkbox'>
-                                        <input type="checkbox" id="assign1" name="assign1"> Supervisor
-                                    </label>
-                                    <label class='checkbox'>
-                                        <input type="checkbox" id="assign2" name="assign2"> Subordinate
-                                    </label>                                    
-                            </div>                            
-                        </div>
-                        
-                        
-                        <div class="form-actions">
-                            <input type="button" id="reportbutton" name="reportbutton" class='btn btn-primary' value="Save">
-                            <input type="reset" class='btn' value="Discard changes">
-                        </div>
-                        <div class="alert alert-success span8" id="reportalert" style="display: none;">
-                                        <button data-dismiss="alert" class="close" type="button"></button>
-                                        <strong>          Success!</strong>
-                        </div>
-                        
-                    </div>
-                    
-                </form>
-                
-                
-            </div>
+            
+            
             
             
             

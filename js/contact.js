@@ -47,10 +47,14 @@ $(document).ready(function(){
                     
                     submitHandler: function(form) 
                         {
-                                              
+                            //var empno =   $('#empnumber').val();                  
                             $(form).ajaxSubmit({
-                                    
+                            data:{empnumber:$('#empnumber').val()},   
+                            
                             success: function(){
+                                
+                               
+
                                  $('#contactalert').fadeIn();
                                  setTimeout(
                                  function(){

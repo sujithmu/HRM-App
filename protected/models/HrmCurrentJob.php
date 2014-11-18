@@ -1,23 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "hrm_dependent".
+ * This is the model class for table "hrm_current_job".
  *
- * The followings are the available columns in table 'hrm_dependent':
+ * The followings are the available columns in table 'hrm_current_job':
  * @property integer $id
  * @property integer $emp_number
- * @property string $dependent_name
- * @property string $dependent_relation
- * @property string $dependent_dob
+ * @property string $job_title
+ * @property string $job_status
+ * @property string $job_category
+ * @property string $join_date
  */
-class HrmDependent extends CActiveRecord
+class HrmCurrentJob extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'hrm_dependent';
+		return 'hrm_current_job';
 	}
 
 	/**
@@ -28,13 +29,12 @@ class HrmDependent extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('emp_number, dependent_name, dependent_relation, dependent_dob', 'required'),
+			array('emp_number, job_title, job_status, job_category, join_date', 'required'),
 			array('emp_number', 'numerical', 'integerOnly'=>true),
-			array('dependent_name', 'length', 'max'=>300),
-			array('dependent_relation', 'length', 'max'=>250),
+			array('job_title, job_status, job_category', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, emp_number, dependent_name, dependent_relation, dependent_dob', 'safe', 'on'=>'search'),
+			array('id, emp_number, job_title, job_status, job_category, join_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,9 +57,10 @@ class HrmDependent extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'emp_number' => 'Emp Number',
-			'dependent_name' => 'Dependent Name',
-			'dependent_relation' => 'Dependent Relation',
-			'dependent_dob' => 'Dependent Dob',
+			'job_title' => 'Job Title',
+			'job_status' => 'Job Status',
+			'job_category' => 'Job Category',
+			'join_date' => 'Join Date',
 		);
 	}
 
@@ -83,9 +84,10 @@ class HrmDependent extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('emp_number',$this->emp_number);
-		$criteria->compare('dependent_name',$this->dependent_name,true);
-		$criteria->compare('dependent_relation',$this->dependent_relation,true);
-		$criteria->compare('dependent_dob',$this->dependent_dob,true);
+		$criteria->compare('job_title',$this->job_title,true);
+		$criteria->compare('job_status',$this->job_status,true);
+		$criteria->compare('job_category',$this->job_category,true);
+		$criteria->compare('join_date',$this->join_date,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -96,7 +98,7 @@ class HrmDependent extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return HrmDependent the static model class
+	 * @return HrmCurrentJob the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

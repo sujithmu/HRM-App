@@ -44,7 +44,7 @@ class ManageuserController extends Controller
                 }
         }
         
-        public function actionReport(){
+       /* public function actionReport(){
             $find = $_REQUEST['rname'];
             $rname = HrmReportTo::model()->findAllByAttributes(array("supervisor_name"=>$find));
             
@@ -62,7 +62,7 @@ class ManageuserController extends Controller
             }
 
         
-
+        */
 
 
 
@@ -74,17 +74,7 @@ class ManageuserController extends Controller
             // $rr->setAttribute("user_name", $_REQUEST['uname']);
               # $rr->setAttribute("user_password", $_REQUEST['pswd']);
               #  $rr->setAttribute("user_role_id", $_REQUEST['myDropdown']);
-                $vip =  new HrmUserMaster();
-                $vip->user_name=$_REQUEST['uname'];
-                $vip->user_password=$_REQUEST['pswd'];
-                $vip->user_role_id=$_REQUEST['userrole'];
-                $vip->status=$_REQUEST['userstatus'];
-                
-               //$rr->attributes = array('user_name'=>$_REQUEST['uname'],'user_password'=>$_REQUEST['pswd'],'user_role_id'=>$_REQUEST['myDropdown']);
-              
-                $vip->save();   
-                
-                $pri = $vip->getPrimaryKey();
+               
             
                $adding = new HrmEmployee();
                 
@@ -92,8 +82,22 @@ class ManageuserController extends Controller
                $adding->emp_firstname=$_REQUEST['fname'];
                $adding->emp_middle_name=$_REQUEST['mname'];
                $adding->emp_lastname=$_REQUEST['lname'];                              
-               $adding->save();   
+               $adding->save();
                 
+              $empno = $adding->getPrimaryKey();
+             
+                $vip =  new HrmUserMaster();
+                $vip->user_name=$_REQUEST['uname'];
+                $vip->user_password=$_REQUEST['pswd'];
+                $vip->user_role_id=$_REQUEST['userrole'];
+                $vip->status=$_REQUEST['userstatus'];
+                $vip->emp_number=$empno;
+                $vip->save();
+               //$rr->attributes = array('user_name'=>$_REQUEST['uname'],'user_password'=>$_REQUEST['pswd'],'user_role_id'=>$_REQUEST['myDropdown']);
+              
+                
+                
+                $pri = $vip->getPrimaryKey();
                #print_r($_FILES);
                /*
                $uploadedimage = CUploadedFile::getInstanceByName('uploadimage');
@@ -157,7 +161,7 @@ class ManageuserController extends Controller
          }
             }
              
-            
+            echo $empno;
                
         }
         
@@ -178,6 +182,7 @@ class ManageuserController extends Controller
                 $n->eec_home_no=$_REQUEST['hnumber'];
                 $n->eec_mobile_no=$_REQUEST['mnumber'];
                 $n->eec_office_no=$_REQUEST['onumber'];
+                $n->emp_number=$_REQUEST['empnumber'];
                 $n->save();
                 
             
@@ -185,10 +190,22 @@ class ManageuserController extends Controller
         public function actionDependent(){
             
             $d = new HrmDependent();
+            $d->emp_number=$_REQUEST['empnumber'];
             $d->dependent_name=$_REQUEST['dname'];
-            $d->dependent_relation=$_REQUEST['relationship'];                
-            $d->dependent_dob=$_REQUEST['dateofbirth'];
+            if($_REQUEST['relationship']=='other'){
+                $d->dependent_relation=$_REQUEST['odependent'];
+            }
+            else {
+                $d->dependent_relation=$_REQUEST['relationship'];
+            }
             
+            unset($_REQUEST['odependent'],$_REQUEST['relationship']);
+          
+            #$d->dependent_dob=$_REQUEST['dateofbirth'];
+            $da = strtotime($_REQUEST['dateofbirth']);
+            $d->dependent_dob=date('Y-m-d', $da);
+            #$d->dependent_dob= date("y-m-d",strtotime($_REQUEST['dateofbirth']));
+            #print_r($d);  
             
             #$from=DateTime::createFromFormat('Y-m-d',$this->dependent_dob);
             #$this->dependent_dob=$from->format('d/m/Y');
@@ -205,21 +222,64 @@ class ManageuserController extends Controller
             $cid=  $record->findAllByAttributes(array("country_id"=>$countryid)); 
             $this->layout=FALSE;
            
-            $this->render('statelist',array('selectarray'=>$cid),FALSE);       
+            $this->render('statelist',array('selectarray'=>$cid),FALSE);
             
         }
         
+        public function actionReport(){
+            
+            $term = $_REQUEST['term'];
+            
+            $c = new CDbCriteria();
+            $term = addcslashes($term, '%_'); 
+            $c->addSearchCondition('emp_firstname', $term, true,'OR','LIKE');
+          # $c->addSearchCondition('emp_middle_name','%$term%', true, 'OR');
+          # $c->addSearchCondition('emp_lastname','%$term%', true, 'OR');
+           # print_r($c);
+            $t = HrmEmployee::model()->findAll($c);
+            
+            print_r($t);
+            
+        }
+        
+        public function actionReportto(){
+            
+            $repo = new HrmReportTo();
+            $repo->emp_number=$_REQUEST['empnumber'];
+            $repo->name = $_REQUEST['rname'];
+            $repo->user_type =$_REQUEST['reportto1'];
+            
+            $repo->save();
+        }
         /*public function actionRole(){
             $role = new HrmUserRole();
             
         }*/
+     public function actionJob(){
+         
+         $job = new HrmCurrentJob();
+         $job->emp_number=$_REQUEST['empnumber'];
+         $job->job_title=$_REQUEST['jobtitle'];
+         $job->job_status=$_REQUEST['estatus'];
+         $job->job_category=$_REQUEST['jobcategory'];
+         
+         
+         
+         $j = strtotime($_REQUEST['joindate']);
+         $job->join_date=date('Y-m-d', $j);
+         
+         
+         
+         #$job->join_date=$_REQUEST['joindate'];
+         $job->save();
+     }
 
 
 
 
 
 
-        // Uncomment the following methods and override them if needed
+     // Uncomment the following methods and override them if needed
 	/*
 	public function filters()
 	{

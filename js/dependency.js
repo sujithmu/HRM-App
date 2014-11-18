@@ -1,5 +1,19 @@
 $(document).ready(function(){
     
+    $("#relationship").change(function () {
+        
+        var va = $("#relationship option:selected").val();
+        if(va ==='other'){
+            
+            $('#otherdep').fadeIn();
+        }
+        else{
+            $('#otherdep').fadeOut();
+        }
+    
+    });
+    
+    
     $('#dependentform').validate({
         
         rules:{
@@ -19,6 +33,7 @@ $(document).ready(function(){
                         {
                                               
                             $(form).ajaxSubmit({
+                                    data:{empnumber:$('#empnumber').val()},
                                     
                             success: function(){
                                  $('#dependentalert').fadeIn();

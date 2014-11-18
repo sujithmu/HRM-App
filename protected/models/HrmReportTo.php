@@ -5,8 +5,9 @@
  *
  * The followings are the available columns in table 'hrm_report_to':
  * @property integer $id
- * @property string $supervisor_name
- * @property string $subordinate_name
+ * @property integer $emp_number
+ * @property string $name
+ * @property string $user_type
  */
 class HrmReportTo extends CActiveRecord
 {
@@ -26,11 +27,13 @@ class HrmReportTo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('supervisor_name, subordinate_name', 'required'),
-			array('supervisor_name, subordinate_name', 'length', 'max'=>300),
+			array('emp_number, name, user_type', 'required'),
+			array('emp_number', 'numerical', 'integerOnly'=>true),
+			array('name', 'length', 'max'=>300),
+			array('user_type', 'length', 'max'=>11),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, supervisor_name, subordinate_name', 'safe', 'on'=>'search'),
+			array('id, emp_number, name, user_type', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,8 +55,9 @@ class HrmReportTo extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'supervisor_name' => 'Supervisor Name',
-			'subordinate_name' => 'Subordinate Name',
+			'emp_number' => 'Emp Number',
+			'name' => 'Name',
+			'user_type' => 'User Type',
 		);
 	}
 
@@ -76,8 +80,9 @@ class HrmReportTo extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('supervisor_name',$this->supervisor_name,true);
-		$criteria->compare('subordinate_name',$this->subordinate_name,true);
+		$criteria->compare('emp_number',$this->emp_number);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('user_type',$this->user_type,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -21,6 +21,7 @@
         
         
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/nicescroll/jquery.nicescroll.min.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/imagesLoaded/jquery.imagesloaded.min.js" type="text/javascript"></script>    
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/jquery-ui/jquery.ui.core.min.js" type="text/javascript"></script>    
@@ -41,12 +42,6 @@
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/tagsinput/jquery.tagsinput.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/fileupload/bootstrap-fileupload.min.js" type="text/javascript"></script>
         
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datatable/jquery.dataTables.min.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datatable/TableTools.min.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datatable/ColReorderWithResize.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datatable/ColVis.min.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datatable/jquery.dataTables.columnFilter.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datatable/jquery.dataTables.grouping.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/chosen/chosen.jquery.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/eakroko.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/application.min.js" type="text/javascript"></script>
@@ -54,7 +49,8 @@
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
         
         
-        
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dataTables.scroller.js" type="text/javascript"></script>
         
         
         

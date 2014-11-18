@@ -62,7 +62,10 @@ $(document).ready(function(){
                                               
                             $(form).ajaxSubmit({
                                     
-                            success: function(){
+                            success: function(empno){
+                                alert(empno);
+                                $('#empnumber').val(empno);
+                               // var empno =   $('#empnumber').val();
                                  $('#profilealert').fadeIn();
                                  setTimeout(
                                  function(){
