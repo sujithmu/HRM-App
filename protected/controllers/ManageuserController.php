@@ -21,9 +21,30 @@ class ManageuserController extends Controller
         public function actionView() {
             #$this->layout=FALSE;
             $obj = new HrmUserRole(); 
-            $this->render('viewprofile',array('model'=>$obj));           
+            
+            if(isset($_REQUEST['emp_number']))
+            {
+               $getalldata = HrmUserMaster::model()->getalldetails($_REQUEST['emp_number']);               
+            }
+            else{
+                
+                $getalldata = array();
+            }
+            
+          
+            if(!isset($_REQUEST['emp_number']))
+            {
+               $emp_number = ""; 
+            }
+ else {
+   $emp_number =  $_REQUEST['emp_number'] ;
+ }
+            
+            $this->render('viewprofile',array('model'=>$obj,'editddata'=>$getalldata,'emp_number'=>$emp_number));           
              
-            Yii::app()->red->redirect();
+           # Yii::app()->red->redirect();
+           
+            
                    
         }
         
@@ -44,7 +65,66 @@ class ManageuserController extends Controller
                 }
         }
         
-       /* public function actionReport(){
+        public function actionUserdisplay(){
+            
+            #$ar = array("aaData"=>array(array("id","day1","months1","year1","acting","name1"),array("id2","day2","months2","year2","acting2","name2")));
+            #echo json_encode($ar);
+             $userdata1 = HrmUserMaster::model()->getuserdetails();
+             
+             
+             if (count($userdata1)>0){
+                  $i=1;
+                 foreach ($userdata1 as $details)
+                 {   
+                     
+                     if($details['status'] == 'Y'){
+                     
+                        $act =  '<span class="label label-satgreen">Active</span>';
+                        }
+                    else{
+                      $act =  '<span class="label label-lightred">Inactive</span>';
+                      
+                        }
+                        if($details['Jdate']!= '' and $details['Jdate']!= "0000-00-00")
+                        {
+                            $da = strtotime($details['Jdate']);
+                            $date = date('D, M d, Y', $da);
+                        }
+                        else{
+                            $date = "";
+                        }
+                         $empid = $details['emp_number'];
+                        $editurl = Yii::app()->request->baseUrl."/index.php?r=Manageuser/View&emp_number=".$empid;
+                       
+                         $option =  '
+                                    <a href="'.$editurl.'" class="btn" rel="'.$empid.'" title="Edit"><i class="icon-edit"></i></a>
+                                    <a href="#" class="btn empremove" rel="'.$empid.'" title="Delete"><i class="icon-remove"></i></a>';
+                        
+                     $array = array($i,$details['Name'],$details['Uname'],$act,$date,$option);
+                     $newarray[] = $array;
+                     $i++;
+                 }
+             }
+            $ar = array("aaData"=> $newarray);
+            
+            
+            #$emp1 = HrmEmployee::model()->findByAttributes();
+           
+            
+            
+            echo json_encode($ar);
+            #$job1 = HrmCurrentJob::model()->findByAttributes();                       
+            
+            
+        }
+
+        public function actionUserdelete(){
+            
+             $userdata1 = HrmUserMaster::model()->deleteUser($_REQUEST['empno']);
+        }
+
+
+        /* public function actionReport(){
             $find = $_REQUEST['rname'];
             $rname = HrmReportTo::model()->findAllByAttributes(array("supervisor_name"=>$find));
             

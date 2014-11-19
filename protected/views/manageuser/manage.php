@@ -6,31 +6,30 @@
 						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
-									Advanced Users
+									Manage Users
 								</h3>                                                                                
 							</div>
                                                         
                                                     
                                                     
 <div class="box-content nopadding">
-<div style="float: right;padding-top: 9px;padding-right: 5px;"><button class="btn btn-success" id='addnew'>ADD USER</button></div>
+    <div style="float: right;padding-top: 9px;padding-right: 5px;"><button class="btn btn-success" id="addnew" name="addnew">ADD USER</button></div>
 <table class="table table-hover table-nomargin table-bordered usertable" id="example">
             <thead>
                  
                     <tr>
-                            <th class='with-checkbox'><input type="checkbox" name="check_all" id="check_all"></th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th class='hidden-350'>Status</th>
-                            <th class='hidden-1024'>Member since</th>
+                            <th style="width: 5%;">ID</th>
+                            <th style="width: 25%;">Name</th>
+                            <th style="width: 25%;">Email</th>
+                            <th style="width: 10%;">Status</th>
+                            <th style="width: 10%;">Member since</th>
                             <th class='hidden-480'>Options</th>
                     </tr>
             </thead>
+            <!--
             <tbody>
                     <tr>
-                            <td class="with-checkbox">
-                                    <input type="checkbox" name="check" value="1">
-                            </td>
+                            <td>1</td>
                             <td>John Doe</td>
                             <td>john.doe@johndoe.com</td>
                             <td class='hidden-350'><span class="label label-satgreen">Active</span></td>
@@ -44,9 +43,9 @@
                     
                     
                     
-                    
+                        
             </tbody>
-								</table>
+		-->						</table>
 							</div>
 						</div>
 					</div>
@@ -55,39 +54,11 @@
 				
 				
 			</div>
-    
 
-
-<script type="text/javascript">
-        
-           $(document).ready(function(){
-
-        
-                 $('#addnew').click(function(){
-            
-                   
-                        location.href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/View";
-                 
-                 });
-                
-                
-                $('#example').DataTable( {
-        ajax:        "data/2500.txt",
-        deferRender: true,
-        dom:         "frtiS",
-        scrollY:     200,
-        scrollCollapse: true,
-        initComplete: function () {
-            var api = this.api();
-            api.scroller().scrollToRow( 1000 );
-        }
-    } );
-                
-                
-        });
-        
-        
-        
-    
-</script>
     </body>
+    
+    <script type="text/javascript">
+    var baseurl="<?php echo Yii::app()->request->baseUrl; ?>";
+    
+    </script>
+    <script src="js/manageuser.js"></script>

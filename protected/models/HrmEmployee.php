@@ -107,6 +107,7 @@ class HrmEmployee extends CActiveRecord
 			'emp_mobile' => 'Emp Mobile',
 			'joined_date' => 'Joined Date',
 			'emp_additional_notes' => 'Emp Additional Notes',
+                        'emp_deleted' => 'Emp Deleted',
 		);
 	}
 
@@ -153,7 +154,8 @@ class HrmEmployee extends CActiveRecord
 		$criteria->compare('emp_home_phone',$this->emp_home_phone);
 		$criteria->compare('emp_mobile',$this->emp_mobile);
 		$criteria->compare('joined_date',$this->joined_date,true);
-		$criteria->compare('emp_additional_notes',$this->emp_additional_notes,true);
+		$criteria->compare('emp_additional_notes',$this->emp_additional_notes,true);             
+                $criteria->compare('emp_deleted',$this->emp_deleted,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

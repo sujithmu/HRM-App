@@ -43,6 +43,8 @@
                             <a href="#qualification" data-toggle='tab'>Qualifications</a>
 			</li>-->
                     </ul>
+                                                    
+           
         <div class="tab-content padding tab-content-inline tab-content-bottom">
             <div class="tab-pane active" id="profile">
     <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/UserReg" id="profileform" method="POST" class="form-horizontal" 
@@ -78,25 +80,31 @@
                                     <div class="control-group">
                                             <label for="name" class="control-label right">First Name: * </label>
                                             <div class="controls">
-                                                <input type="text" id="fname" name="fname" class='input-xlarge' value="">
+                                                <input type="text" id="fname" name="fname" class='input-xlarge' value="<?php  echo $editddata['emp_firstname'];?>">
                                             </div>
                                     </div>
                                     <div class="control-group">
                                             <label for="name" class="control-label right">Middle Name:</label>
                                             <div class="controls">
-                                                <input type="text" id="mname" name="mname" class='input-xlarge' value="">
+                                                <input type="text" id="mname" name="mname" class='input-xlarge' value="<?php  echo $editddata['emp_middle_name'];?>">
                                             </div>
                                     </div>
                                     <div class="control-group">
                                             <label for="name" class="control-label right">Last Name: * </label>
                                             <div class="controls">
-                                                <input type="text" id="lname" name="lname" class='input-xlarge' value="">
+                                                <input type="text" id="lname" name="lname" class='input-xlarge' value="<?php  echo $editddata['emp_lastname'];?>">
                                             </div>
                                     </div>
+                                <?php 
+                                    if($emp_number=="")
+                                    {
+                                        
+                                    ?>
+                                
                                     <div class="control-group">
                                             <label for="email" class="control-label right">Username: * </label>
                                             <div class="controls">
-                                                <input type="text" id="uname" name="uname" data-rule-email="true" class='input-xlarge' value="">
+                                                <input type="text" id="uname" name="uname" data-rule-email="true" class='input-xlarge' value="<?php  echo $editddata['user_name'];?>">
                                                     
                                             </div>
                                     </div>
@@ -114,6 +122,7 @@
                                                     
                                             </div>
                                     </div>
+                                    <?php }       ?>
                                     <div class="control-group">
                                             <label for="stat" class="control-label right">Status:</label>
                                             <div class="controls">
@@ -145,25 +154,25 @@
                             <div class="control-group">
                                             <label for="name" class="control-label right">Contact Name:</label>
                                             <div class="controls">
-                                                <input type="text" id="name" name="name" class='input-xlarge' value="">
+                                                <input type="text" id="name" name="name" class='input-xlarge' value="<?php  echo $editddata['eec_name'];?>">
                                             </div>
                             </div>
                             <div class="control-group">
                                             <label for="relation" class="control-label right">Relation:</label>
                                             <div class="controls">
-                                                <input type="text" id="relation" name="relation" class='input-xlarge' value="">
+                                                <input type="text" id="relation" name="relation" class='input-xlarge' value="<?php  echo $editddata['eec_relationship'];?>">
                                             </div>
                             </div>
                             <div class="control-group">
                                             <label for="address" class="control-label right">Contact Address:</label>
                                             <div class="controls">
-                                                <textarea cols="50" rows="4" id="address" name="address" class='input-xlarge'></textarea>
+                                                <textarea cols="50" rows="4" id="address" name="address" class='input-xlarge'><?php  echo $editddata['eec_address'];?></textarea>
                                             </div>
                             </div>
                             <div class="control-group">
                                             <label for="pin" class="control-label right">Pincode/Zip:</label>
                                             <div class="controls">
-                                                <input type="text" id="pincode" name="pincode" class='input-xlarge' value="" data-rule-number="true" data-rule-minlength="6" data-rule-maxlength="6" data-rule-required="true">
+                                                <input type="text" id="pincode" name="pincode" class='input-xlarge' value="<?php  echo $editddata['eec_pincode'];?>" data-rule-number="true" data-rule-minlength="6" data-rule-maxlength="6" data-rule-required="true">
                                             </div>
                             </div>
                             
@@ -193,7 +202,7 @@
                             <div class="control-group">
                                             <label for="city" class="control-label right">City:</label>
                                             <div class="controls">
-                                                <input type="text" id="city" name="city" class='input-xlarge' value="">
+                                                <input type="text" id="city" name="city" class='input-xlarge' value="<?php  echo $editddata['eec_city'];?>">
                                             </div>
                             </div>
                             
@@ -203,19 +212,19 @@
                             <div class="control-group">
                                             <label for="number" class="control-label right">Home Number:</label>
                                             <div class="controls">
-                                                <input type="text" id="hnumber" name="hnumber" class='input-xlarge' value="" data-rule-number="true" data-rule-required="true">
+                                                <input type="text" id="hnumber" name="hnumber" class='input-xlarge' value="<?php  echo $editddata['eec_home_no'];?>" data-rule-number="true" data-rule-required="true">
                                             </div>
                             </div>
                              <div class="control-group">
                                             <label for="number" class="control-label right">Mobile Number:</label>
                                             <div class="controls">
-                                                <input type="text" id="mnumber" name="mnumber" class='input-xlarge' value="" data-rule-number="true" data-rule-minlength="10" data-rule-maxlength="10" data-rule-required="true">
+                                                <input type="text" id="mnumber" name="mnumber" class='input-xlarge' value="<?php  echo $editddata['eec_mobile_no'];?>" data-rule-number="true" data-rule-minlength="10" data-rule-maxlength="10" data-rule-required="true">
                                             </div>
                             </div>
                             <div class="control-group">
                                             <label for="number" class="control-label right">Office Number:</label>
                                             <div class="controls">
-                                                <input type="text" id="onumber" name="onumber" class='input-xlarge' value="">
+                                                <input type="text" id="onumber" name="onumber" class='input-xlarge' value="<?php  echo $editddata['eec_office_no'];?>">
                                             </div>
                             </div>
                             <div class="form-actions">
@@ -238,7 +247,7 @@
                     <div class="control-group">
                                     <label for="name" class="control-label right">Name:</label>
                                     <div class="controls">
-                                        <input type="text" id="dname" name="dname" class='input-xlarge' value="">
+                                        <input type="text" id="dname" name="dname" class='input-xlarge' value="<?php  echo $editddata['dependent_name'];?>">
                                     </div>
                     </div>                                                                                                  
                     
@@ -262,7 +271,7 @@
                        <div class="control-group" id="otherdep" style="display: none;">
                                     <label for="other" class="control-label right">Other Dependent:</label>
                                     <div class="controls">
-                                        <input type="text" id="odependent" name="odependent" class='input-xlarge' value="">
+                                        <input type="text" id="odependent" name="odependent" class='input-xlarge' value="<?php  echo $editddata['dependent_relation'];?>">
                                     </div>
                     </div>
                     
@@ -270,7 +279,7 @@
                        <div class="control-group">
                             <label for="date" class="control-label right">DOB:</label>
                             <div class="controls">
-                                <input type="text" name="dateofbirth" id="dateofbirth" class="input-medium datepick input-xlarge">				                               
+                                <input type="text" name="dateofbirth" id="dateofbirth" class="input-medium datepick input-xlarge" value="<?php  echo $editddata['dependent_dob'];?>">				                               
                             </div>
                        </div>
                        
@@ -336,7 +345,7 @@
                         <div class="control-group">
                             <label for="date" class="control-label right">Joining Date:</label>
                             <div class="controls">
-                                <input type="text" name="joindate" id="joindate" class="input-medium datepick input-xlarge">                                
+                                <input type="text" name="joindate" id="joindate" class="input-medium datepick input-xlarge" value="<?php  echo $editddata['join_date'];?>">                                
                             </div>
                         </div>
                                                                      
@@ -365,7 +374,7 @@
                         <div class="control-group">
                                     <label for="name" class="control-label right">Name:</label>
                                     <div class="controls">
-                                        <input type="text" id="rname" name="rname" class='input-xlarge' value="">
+                                        <input type="text" id="rname" name="rname" class='input-xlarge' value="<?php  echo $editddata['name'];?>">
                                     </div>
                         </div>
                         <div class="control-group">

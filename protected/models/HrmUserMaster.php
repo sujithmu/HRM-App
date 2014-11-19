@@ -72,10 +72,46 @@ class HrmUserMaster extends CActiveRecord
 			'date_modified' => 'Date Modified',
 			'modified_user_id' => 'Modified User',
 			'created_by' => 'Created By',
+                        'emp_deleted' => 'Emp Deleted',
 		);
 	}
+        
+        public function getuserdetails()
+        {
+            
+        $rawData=Yii::app()->db->createCommand("SELECT concat(a.emp_firstname,' ',a.emp_lastname) as "
+        . "Name,a.emp_number,b.user_name as Uname,b.status,c.join_date as Jdate FROM hrm_employee a "
+                . "LEFT JOIN hrm_user_master b ON "
+                 . "a.emp_number = b.emp_number LEFT JOIN hrm_current_job c ON a.emp_number=c.emp_number WHERE a.emp_deleted != 'Y'")->queryAll();
+         
+        return $rawData;
+        }
+        
+        public function getalldetails($empnumber)
+        {
+            $getall = Yii::app()->db->createCommand("SELECT a.emp_firstname,a.emp_middle_name,a.emp_lastname,"
+                    . "b.user_role_id,b.user_name,b.status,"
+                    . "c.dependent_name,c.dependent_relation,c.dependent_dob,"
+                    . "d.job_title,d.job_status,d.job_category,d.join_date,"
+                    . "e.name,e.user_type,"
+                    . "f.eec_name,f.eec_address,f.eec_city,f.eec_state,f.eec_pincode,f.eec_country,f.eec_relationship,"
+                    . "f.eec_home_no,f.eec_mobile_no,f.eec_office_no "
+                    . "FROM hrm_employee a LEFT JOIN hrm_user_master b ON a.emp_number=b.emp_number "
+                    . "LEFT JOIN hrm_dependent c ON a.emp_number=c.emp_number "
+                    . "LEFT JOIN hrm_current_job d ON a.emp_number=d.emp_number "
+                    . "LEFT JOIN hrm_report_to e ON a.emp_number=e.emp_number "
+                    . "LEFT JOIN hrm_emp_emergency_contacts f ON a.emp_number=f.emp_number WHERE a.emp_number=".$empnumber )->queryRow();
+            return $getall;
+        }
+        
+        public function deleteUser($empno)
+        {
+            
+              $getall = Yii::app()->db->createCommand("UPDATE hrm_employee SET emp_deleted='Y' WHERE emp_number=".$empno)->query();
+            
+        }
 
-	/**
+        /**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
 	 * Typical usecase:
@@ -104,13 +140,16 @@ class HrmUserMaster extends CActiveRecord
 		$criteria->compare('date_modified',$this->date_modified,true);
 		$criteria->compare('modified_user_id',$this->modified_user_id);
 		$criteria->compare('created_by',$this->created_by);
-
+                $criteria->compare('emp_deleted',$this->emp_deleted);
+                
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
+        
+        
 
-	/**
+        /**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
