@@ -5,12 +5,14 @@ $(document).ready(function(){
         rules:{
                     joindate:"required",
                     jobtitle:"required",
+                    jobcategory:"required",
                     
                     
                     },
                 messages:{
                     joindate:"please enter date of joining",
-                    jobtitle:"select a title",                                        
+                    jobtitle:"select a title",
+                    jobcategory:"select category",
                     },
                     
                     submitHandler: function(form) 

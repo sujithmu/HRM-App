@@ -63,15 +63,17 @@
                 </div>
         </div>
             
-            <input type="hidden" name='empnumber' id="empnumber"/>
+            <input type="hidden" name='empnumber' id="empnumber" value="<?php echo $emp_number;?>"/>
             
         </div>
                             <div class="span10">
                                     
                                     <div class="control-group">
+                                        
+                                        
                                             <label for="name" class="control-label right">User Role: * </label>
                                             <div class="controls">
-                                             <?php echo CHtml::dropDownList('userrole', '1', CHtml::listData(HrmUserRole::model()->findAll(), 'id',
+                                             <?php echo CHtml::dropDownList('userrole',$editddata['user_role_id'], CHtml::listData(HrmUserRole::model()->findAll(), 'id',
                                                         'display_name'),   array(
                                                             'class'=>'input-xlarge',)                                        
                                                                               ); ?>
@@ -125,16 +127,20 @@
                                     <?php }       ?>
                                     <div class="control-group">
                                             <label for="stat" class="control-label right">Status:</label>
+                                            
                                             <div class="controls">
+                                                
                                                 <select name="userstatus" id="userstatus" class="input-xlarge">
-                                                    <option value="Y">Active</option>
-                                                    <option value="N">Inactive</option>
+                                                    
+                                                    
+                                                    <option value="Y" <?php if($editddata['status']=='Y')echo 'selected="selected"';?>>Active</option>
+                                                    <option value="N" <?php if($editddata['status']=='N')echo 'selected="selected"';?>>Inactive</option>
                                                 </select>
                                                     
                                             </div>
                                     </div>
                                     <div class="form-actions">
-                                        <input type="button" id="sbtn" name="sbtn" class='btn btn-primary' value="Save">
+                                        <input type="button"  id="sbtn" name="sbtn" class='btn btn-primary' value="Save">
                                             <input type="reset" class='btn' value="Discard changes">
                                     </div>
                                 
@@ -180,7 +186,7 @@
                                             <label for="country" class="control-label right">Country:</label>
                                             
                                             <div class="controls" id="country">
-                                                    <?php echo CHtml::dropDownList('countrylist', '99', 
+                                                    <?php echo CHtml::dropDownList('countrylist', $editddata['eec_country'], 
                                                         CHtml::listData(Countries::model()->findAll(),'id','country_name'),
                                                             array(
                                                             'class'=>'input-xlarge',)
@@ -192,7 +198,7 @@
                             <div class="control-group">
                                             <label for="state" class="control-label right">State:</label>
                                             <div class="controls" id="state">
-                                                <?php echo CHtml::dropDownList('statelist', '17', 
+                                                <?php echo CHtml::dropDownList('statelist', $editddata['eec_state'], 
                                                         CHtml::listData(StateList::model()->findAll(),'id','state'),
                                                         array(
                                                             'class'=>'input-xlarge',)
@@ -254,8 +260,9 @@
                     <div class="control-group">
                                             <label for="relation" class="control-label right">Relationship:</label>
                                             <div class="controls">
+                                                
                                                 <select required="" name="relationship" id="relationship" class="input-xlarge">
-                                                    <option value="">Please select</option>                                                    
+                                                    <option><?php echo $editddata['dependent_relation'];?></option>                                                    
                                                     <option value="father">Father</option>
                                                     <option value="mother">Mother</option>
                                                     <option value="brother">Brother</option>
@@ -279,7 +286,11 @@
                        <div class="control-group">
                             <label for="date" class="control-label right">DOB:</label>
                             <div class="controls">
-                                <input type="text" name="dateofbirth" id="dateofbirth" class="input-medium datepick input-xlarge" value="<?php  echo $editddata['dependent_dob'];?>">				                               
+                                <?php $dated = strtotime($editddata['dependent_dob']);?>
+                                <?php $de=date('m-d-Y', $dated);?>
+                                
+                                <input type="text" name="dateofbirth" id="dateofbirth" class="input-medium datepick input-xlarge" 
+                                       value="<?php echo $de;?>">				                               
                             </div>
                        </div>
                        
@@ -306,11 +317,19 @@
                         <div class="control-group">
                                     <label for="title" class="control-label right">Job Title:</label>
                                     <div class="controls" id="jtitle">
-                                                <?php echo CHtml::dropDownList('jobtitle', 'empty',
+                                        
+                                        
+                                                <?php 
+                                                if($editddata['job_title']!="")
+                                                $sele = $editddata['job_title'];
+                                                else 
+                                                    $sele = 'empty'; 
+                                                
+                                                echo CHtml::dropDownList('jobtitle', $sele,
                                                         CHtml::listData(HrmJobTitle::model()->findAll(),'id','job_title'),
                                                         array(
                                                             'class'=>'input-xlarge',
-                                                            'empty'=>'--Select a job title--',
+                                                            'empty' => '--select--',
                                                             )
                                                         ); ?>
                                     </div>                                                                                                          
@@ -320,10 +339,10 @@
                                     <label for="status" class="control-label right">Employment Status:</label>
                                     <div class="controls">
                                         <select required="" name="estatus" id="estatus" class="input-xlarge">
-                                                    <option value=""></option>
-                                                    <option value="1">Worker</option>
-                                                    <option value="2">Employee</option>
-                                                    <option value="3">Self-Employed</option>
+                                                    <option value="">--select--</option>
+                                                    <option value="1" <?php if($editddata['job_status']=='1')echo 'selected="selected"';?>>Worker</option>
+                                                    <option value="2" <?php if($editddata['job_status']=='2')echo 'selected="selected"';?>>Employee</option>
+                                                    <option value="3" <?php if($editddata['job_status']=='3')echo 'selected="selected"';?>>Self-Employed</option>
                                                     
                                                 </select>                                                                                                
                                         
@@ -332,11 +351,21 @@
                         <div class="control-group">
                                     <label for="job" class="control-label right">Job Category:</label>
                                     <div class="controls" id="jcategory">
-                                         <?php echo CHtml::dropDownList('jobcategory', 'empty', 
+                                         <?php 
+                                         
+                                         if($editddata['job_category']!="")
+                                             $selected = $editddata['job_category'];
+                                         else 
+                                             $selected = 'empty';
+                                             
+                                                
+                                         
+                                         
+                                         echo CHtml::dropDownList('jobcategory', $selected,
                                                         CHtml::listData(HrmJobCategory::model()->findAll(),'id','job_category'),
                                                         array(
                                                             'class'=>'input-xlarge',
-                                                             'empty'=>'--Select a Job category--',
+                                                             'empty'=>'--please select--',
                                                             )
                                                         ); ?>   
                                         
@@ -345,7 +374,9 @@
                         <div class="control-group">
                             <label for="date" class="control-label right">Joining Date:</label>
                             <div class="controls">
-                                <input type="text" name="joindate" id="joindate" class="input-medium datepick input-xlarge" value="<?php  echo $editddata['join_date'];?>">                                
+                                <?php $dis = strtotime($editddata['join_date']);?>
+                                <?php $da=date('m-d-Y', $dis);?>
+                                <input type="text" name="joindate" id="joindate" class="input-medium datepick input-xlarge" value="<?php echo $da;?>">                                
                             </div>
                         </div>
                                                                      
@@ -485,7 +516,7 @@
 </body>
 <script type="text/javascript">
     var baseurl="<?php echo Yii::app()->request->baseUrl; ?>";
-    
+    var empno="<?php echo $emp_number; ?>";
 </script>
 <script src="js/profile.js"></script>
 <script src="js/contact.js"></script>

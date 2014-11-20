@@ -10,7 +10,56 @@ $(document).ready(function(){
                
         
 );
-
+    if(empno>0){
+        
+        $('#profileform').validate({
+            
+                rules:{
+                        fname:{
+                                required:true,
+                                regex:"^[a-zA-Z'.\\s]{1,40}$",
+                            },
+                        lname:{required:true,
+                               regex:"^[a-zA-Z'.\\s]{1,40}$",
+                            },
+                                                
+                        
+                 
+                    },
+                
+                messages:{
+                        fname:"Please enter your firstname",
+                        lname:"Please enter your lastname",
+                        
+                },
+                      submitHandler: function(form) 
+                        {
+                                              
+                            $(form).ajaxSubmit({
+                                    
+                            success: function(empno){
+                                alert(empno);
+                                $('#empnumber').val(empno);
+                               // var empno =   $('#empnumber').val();
+                                 $('#profilealert').fadeIn();
+                                 setTimeout(
+                                 function(){
+                                     
+                                     $('#profilealert').fadeOut();
+                                 },3000
+                                 
+                
+                 );
+                                    
+                            }  });
+                       
+                        
+                        }
+            
+            });
+    }
+    else{
+        
         $('#profileform').validate({
             
                 rules:{
@@ -82,6 +131,7 @@ $(document).ready(function(){
                         }
             
             });
+        }
             
             $('#sbtn').click(function(){
             

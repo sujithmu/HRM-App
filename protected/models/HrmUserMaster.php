@@ -107,8 +107,9 @@ class HrmUserMaster extends CActiveRecord
         public function deleteUser($empno)
         {
             
-              $getall = Yii::app()->db->createCommand("UPDATE hrm_employee SET emp_deleted='Y' WHERE emp_number=".$empno)->query();
-            
+              Yii::app()->db->createCommand("UPDATE hrm_employee SET emp_deleted='Y' WHERE emp_number=".$empno)->query();
+              
+              Yii::app()->db->createCommand("UPDATE hrm_user_master SET emp_deleted='Y' WHERE emp_number=".$empno)->query();
         }
 
         /**

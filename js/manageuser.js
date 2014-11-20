@@ -10,12 +10,11 @@ $(document).ready(function(){
                  });
                 
                 
-               var st =  $('#example').DataTable( {
-                    
-                    
+               st =  $('#example').dataTable( {                                        
                  
                 ajax:        baseurl+"/index.php?r=Manageuser/Userdisplay",
                 deferRender: true,
+                bServerSide: true,
                 dom:         "frtiS",
                 scrollY:     400,
                 scrollCollapse: true,
@@ -26,22 +25,26 @@ $(document).ready(function(){
                 {
         
               
+                deleteuser(st, $(this).attr("rel"));
                 
-                $.ajax({
+                
+                
+                }
+                        
+            );
+                
+                
+ });
+        function deleteuser(st,rel){
+            
+            $.ajax({
                     
                     type: "POST",
                     url: baseurl+"/index.php?r=Manageuser/Userdelete",
-                    data:{ empno: $(this).attr("rel")}, 
+                    data:{ empno:rel}, 
                     success:function(){
                         
                         st.fnDraw();
                     }
                 });
-                
-                
-                }
-            );
-                
-                
- });
-        
+        }

@@ -36,9 +36,10 @@ class ManageuserController extends Controller
             {
                $emp_number = ""; 
             }
- else {
-   $emp_number =  $_REQUEST['emp_number'] ;
- }
+        else {
+            $emp_number =  $_REQUEST['emp_number'] ;
+             }  
+             
             
             $this->render('viewprofile',array('model'=>$obj,'editddata'=>$getalldata,'emp_number'=>$emp_number));           
              
@@ -154,25 +155,36 @@ class ManageuserController extends Controller
             // $rr->setAttribute("user_name", $_REQUEST['uname']);
               # $rr->setAttribute("user_password", $_REQUEST['pswd']);
               #  $rr->setAttribute("user_role_id", $_REQUEST['myDropdown']);
-               
+            
             
                $adding = new HrmEmployee();
+                $vip =  new HrmUserMaster();
                 
                 #$adding->attributes=array($_POST['']); //for adding more fields as array
+               if($_REQUEST['empnumber']>0)
+               {
+                    $adding->updateAll(array('emp_firstname' => $_REQUEST['fname'],'emp_middle_name'=>$_REQUEST['mname'],'emp_lastname'=>$_REQUEST['lname']), 'emp_number='.$_REQUEST['empnumber']);
+               
+                     $vip->updateAll(array('user_role_id' => $_REQUEST['userrole'],'status'=>$_REQUEST['userstatus']),'emp_number='.$_REQUEST['empnumber']);
+               }
+               else{
                $adding->emp_firstname=$_REQUEST['fname'];
                $adding->emp_middle_name=$_REQUEST['mname'];
-               $adding->emp_lastname=$_REQUEST['lname'];                              
+               $adding->emp_lastname=$_REQUEST['lname'];
+               //$adding->emp_number=$_REQUEST['empnumber'];
                $adding->save();
-                
-              $empno = $adding->getPrimaryKey();
+                $empno = $adding->getPrimaryKey();
              
-                $vip =  new HrmUserMaster();
+               
                 $vip->user_name=$_REQUEST['uname'];
                 $vip->user_password=$_REQUEST['pswd'];
                 $vip->user_role_id=$_REQUEST['userrole'];
                 $vip->status=$_REQUEST['userstatus'];
-                $vip->emp_number=$empno;
+               # $vip->emp_number=$empno;
                 $vip->save();
+               }
+                
+              
                //$rr->attributes = array('user_name'=>$_REQUEST['uname'],'user_password'=>$_REQUEST['pswd'],'user_role_id'=>$_REQUEST['myDropdown']);
               
                 
@@ -241,7 +253,7 @@ class ManageuserController extends Controller
          }
             }
              
-            echo $empno;
+         
                
         }
         
@@ -250,8 +262,26 @@ class ManageuserController extends Controller
             #$ss = array();
             #if(count($ss)==0)
                 
-                
+           
+            
                 $n = new HrmEmpEmergencyContacts();
+                
+                $contactarr = $n->find('emp_number=:emp_number', array(':emp_number'=>$_REQUEST['empnumber']));    
+               
+                if(count($contactarr)>0){
+                    
+                  $n->updateAll(array('eec_name' => $_REQUEST['name'],
+                      'eec_relation'=>$_REQUEST['relation'],
+                      'eec_address'=>$_REQUEST['address'],
+                      'eec_pincode'=>$_REQUEST['pincode'],
+                      'eec_country'=>$_REQUEST['countrylist'],
+                      'eec_state'=>$_REQUEST['statelist'],'eec_city'=>$_REQUEST['city'],
+                      'eec_home_no'=>$_REQUEST['hnumber'],'eec_mobile_no'=>$_REQUEST['mnumber'],
+                      'eec_office_no'=>$_REQUEST['onumber']),                        
+                          'emp_number='.$_REQUEST['empnumber']);  
+                    
+                }
+        else {
                 $n->eec_name=$_REQUEST['name'];
                 $n->eec_relationship=$_REQUEST['relation'];
                 $n->eec_address=$_REQUEST['address'];
@@ -264,26 +294,36 @@ class ManageuserController extends Controller
                 $n->eec_office_no=$_REQUEST['onumber'];
                 $n->emp_number=$_REQUEST['empnumber'];
                 $n->save();
-                
+            }
             
         }
         public function actionDependent(){
             
             $d = new HrmDependent();
-            $d->emp_number=$_REQUEST['empnumber'];
-            $d->dependent_name=$_REQUEST['dname'];
-            if($_REQUEST['relationship']=='other'){
-                $d->dependent_relation=$_REQUEST['odependent'];
+            $dependarr = $d->find('emp_number=:emp_number', array(':emp_number'=>$_REQUEST['empnumber']));  
+            if(count($dependarr)>0){
+                 $da = strtotime($_REQUEST['dateofbirth']);
+                    $dob=date('Y-m-d', $da);
+                $d->updateAll(array('dependent_name' => $_REQUEST['dname'],
+                    'dependent_relation'=>$_REQUEST['relationship'],
+                    'dependent_dob'=>$dob),                        
+                     'emp_number='.$_REQUEST['empnumber']);
             }
-            else {
-                $d->dependent_relation=$_REQUEST['relationship'];
-            }
+            else{
+                $d->emp_number=$_REQUEST['empnumber'];
+                $d->dependent_name=$_REQUEST['dname'];
+                if($_REQUEST['relationship']=='other'){
+                    $d->dependent_relation=$_REQUEST['odependent'];
+                    }
+                else {
+                    $d->dependent_relation=$_REQUEST['relationship'];
+                    }
             
-            unset($_REQUEST['odependent'],$_REQUEST['relationship']);
+                 unset($_REQUEST['odependent'],$_REQUEST['relationship']);
           
             #$d->dependent_dob=$_REQUEST['dateofbirth'];
-            $da = strtotime($_REQUEST['dateofbirth']);
-            $d->dependent_dob=date('Y-m-d', $da);
+                    $da = strtotime($_REQUEST['dateofbirth']);
+                    $d->dependent_dob=date('Y-m-d', $da);
             #$d->dependent_dob= date("y-m-d",strtotime($_REQUEST['dateofbirth']));
             #print_r($d);  
             
@@ -291,7 +331,8 @@ class ManageuserController extends Controller
             #$this->dependent_dob=$from->format('d/m/Y');
             
             
-            $d->save();
+                    $d->save();
+            }
             
         }
 
@@ -338,6 +379,21 @@ class ManageuserController extends Controller
      public function actionJob(){
          
          $job = new HrmCurrentJob();
+         $jobarr = $job->find('emp_number=:emp_number', array(':emp_number'=>$_REQUEST['empnumber'])); 
+         if(count($jobarr)>0){            
+             
+             $j = strtotime($_REQUEST['joindate']);
+         
+            $jaa=date('Y-m-d', $j);
+             
+             $job->updateAll(array('job_title' => $_REQUEST['jobtitle'],
+                 'job_status'=>$_REQUEST['estatus'],
+                 'job_category'=>$_REQUEST['jobcategory'],'join_date'=>$jaa),                        
+                     'emp_number='.$_REQUEST['empnumber']);
+             
+         }
+         else{
+         
          $job->emp_number=$_REQUEST['empnumber'];
          $job->job_title=$_REQUEST['jobtitle'];
          $job->job_status=$_REQUEST['estatus'];
@@ -346,12 +402,13 @@ class ManageuserController extends Controller
          
          
          $j = strtotime($_REQUEST['joindate']);
+         #$job->join_date=date('Y-m-d', $j);
          $job->join_date=date('Y-m-d', $j);
-         
          
          
          #$job->join_date=$_REQUEST['joindate'];
          $job->save();
+         }
      }
 
 
