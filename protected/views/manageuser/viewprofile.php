@@ -52,7 +52,21 @@
         <div class="row-fluid">
         <div class="span2">
         <div class="fileupload fileupload-new" data-provides="fileupload">
-                <div class="fileupload-new thumbnail" style="max-width: 100px; max-height: 150px;"><img src="img/demo/profile.jpg" /></div>
+                <div class="fileupload-new thumbnail" style="max-width: 100px; max-height: 150px;">
+                    <?php 
+                    if(file_exists(Yii::app()->request->baseUrl.'/profilepictures/main-'.$editddata['userid'].'jpg'))
+                    {
+                        $im = Yii::app()->request->baseUrl.'/profilepictures/main-'.$editddata['userid'].'.jpg';
+                        
+                    }
+                    else
+                    {                            
+                        $im = Yii::app()->request->baseUrl.'/profilepictures/default.jpg';
+                    }
+                    ?>
+                    <img src="<?php echo $im ;?>" />
+                
+                </div>
                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 100px; max-height: 150px; line-height: 20px;"></div>
                 <div>
                     <span class="btn btn-file"><span class="fileupload-new">Select image</span>
@@ -290,7 +304,9 @@
                                 <?php $de=date('m-d-Y', $dated);?>
                                 
                                 <input type="text" name="dateofbirth" id="dateofbirth" class="input-medium datepick input-xlarge" 
-                                       value="<?php echo $de;?>">				                               
+                                       value="<?php 
+                                       if($editddata['dependent_dob']!="")
+                                       echo $de;?>">				                               
                             </div>
                        </div>
                        
@@ -376,7 +392,9 @@
                             <div class="controls">
                                 <?php $dis = strtotime($editddata['join_date']);?>
                                 <?php $da=date('m-d-Y', $dis);?>
-                                <input type="text" name="joindate" id="joindate" class="input-medium datepick input-xlarge" value="<?php echo $da;?>">                                
+                                <input type="text" name="joindate" id="joindate" class="input-medium datepick input-xlarge" value="<?php 
+                                if($editddata['join_date']!="")
+                                echo $da;?>">                                
                             </div>
                         </div>
                                                                      

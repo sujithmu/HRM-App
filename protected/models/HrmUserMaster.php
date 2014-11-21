@@ -90,7 +90,7 @@ class HrmUserMaster extends CActiveRecord
         public function getalldetails($empnumber)
         {
             $getall = Yii::app()->db->createCommand("SELECT a.emp_firstname,a.emp_middle_name,a.emp_lastname,"
-                    . "b.user_role_id,b.user_name,b.status,"
+                    . "b.id as userid,b.user_role_id,b.user_name,b.status,"
                     . "c.dependent_name,c.dependent_relation,c.dependent_dob,"
                     . "d.job_title,d.job_status,d.job_category,d.join_date,"
                     . "e.name,e.user_type,"

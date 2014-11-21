@@ -21,8 +21,8 @@ class LoginregisterController extends Controller
         public function actionLoginValidation()
         {
                 $record = new HrmUserMaster();
-                
-                $store = $record->findByAttributes(array('user_name'=>$_REQUEST['uemail'],'user_password'=>$_REQUEST['upw'],'status'=>'Y'));
+                $pass = crypt($_REQUEST['upw'],Yii::app()->params['encrptpass']);
+                $store = $record->findByAttributes(array('user_name'=>$_REQUEST['uemail'],'user_password'=>$pass,'status'=>'Y'));
                 #print_r($store);
                 if (count($store)>0){
                 #$add = new HrmLoginHistory();
@@ -34,6 +34,7 @@ class LoginregisterController extends Controller
                 $session=new CHttpSession;
                 $session->open();
                 $session['memberid']=$store->id;
+                $session['empnumber']=$store->emp_number;
                 $session['user_role']=$store->user_role_id;
                 $session['username']=$store->user_name;
                 #echo $session['id'];               
@@ -46,6 +47,7 @@ class LoginregisterController extends Controller
                 $add->ip_address=Yii::app()->request->getUserHostAddress();
                 
                 $add->save();
+                echo "success";
                 #print_r($add);
                 #header("Location: index.php");
                 }else{

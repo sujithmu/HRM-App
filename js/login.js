@@ -3,7 +3,7 @@ $(document).ready(function(){
          
          $.post(baseurl+"/index.php?r=Loginregister/LoginValidation",{uemail:$('#uemail').val(),upw:$('#upw').val()}).done(function(data)
          {
-             if (data=='fail')
+             if (data!='success')
              {
                   $('#error_msg').html("Invalid username or password");
                  $('#error_msg').show();

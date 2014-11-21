@@ -21,10 +21,19 @@ class ManageuserController extends Controller
         public function actionView() {
             #$this->layout=FALSE;
             $obj = new HrmUserRole(); 
-            
-            if(isset($_REQUEST['emp_number']))
-            {
-               $getalldata = HrmUserMaster::model()->getalldetails($_REQUEST['emp_number']);               
+            $session=new CHttpSession;
+            $session->open();
+            if(isset($_REQUEST['emp_number']) or $session['user_role']!='1')
+            {    
+               
+               if($_REQUEST['emp_number']>0 and $session['user_role']==1){ 
+                    $getalldata = HrmUserMaster::model()->getalldetails($_REQUEST['emp_number']); 
+                     $emp_number = $_REQUEST['empnumber'];
+               }
+               else{
+                     $getalldata = HrmUserMaster::model()->getalldetails($session['empnumber']);
+                  $emp_number = $session['empnumber'];
+               }               
             }
             else{
                 
@@ -32,19 +41,15 @@ class ManageuserController extends Controller
             }
             
           
-            if(!isset($_REQUEST['emp_number']))
-            {
-               $emp_number = ""; 
-            }
-        else {
-            $emp_number =  $_REQUEST['emp_number'] ;
-             }  
-             
+           
+             #echo "ddd".$emp_number;
             
             $this->render('viewprofile',array('model'=>$obj,'editddata'=>$getalldata,'emp_number'=>$emp_number));           
              
            # Yii::app()->red->redirect();
-           
+          
+            
+            
             
                    
         }
@@ -166,22 +171,29 @@ class ManageuserController extends Controller
                     $adding->updateAll(array('emp_firstname' => $_REQUEST['fname'],'emp_middle_name'=>$_REQUEST['mname'],'emp_lastname'=>$_REQUEST['lname']), 'emp_number='.$_REQUEST['empnumber']);
                
                      $vip->updateAll(array('user_role_id' => $_REQUEST['userrole'],'status'=>$_REQUEST['userstatus']),'emp_number='.$_REQUEST['empnumber']);
-               }
+               $userdetails = $vip->find('emp_number=:emp_number', array(':emp_number'=>$_REQUEST['empnumber']));    
+                 $pri = $userdetails['id'];
+                     }
                else{
                $adding->emp_firstname=$_REQUEST['fname'];
                $adding->emp_middle_name=$_REQUEST['mname'];
                $adding->emp_lastname=$_REQUEST['lname'];
                //$adding->emp_number=$_REQUEST['empnumber'];
+               
+               
                $adding->save();
                 $empno = $adding->getPrimaryKey();
              
                
                 $vip->user_name=$_REQUEST['uname'];
-                $vip->user_password=$_REQUEST['pswd'];
+                $pass = crypt($_REQUEST['pswd'],Yii::app()->params['encrptpass']);
+                $vip->user_password=$pass;
                 $vip->user_role_id=$_REQUEST['userrole'];
                 $vip->status=$_REQUEST['userstatus'];
                # $vip->emp_number=$empno;
                 $vip->save();
+                 $pri = $vip->getPrimaryKey();
+              
                }
                 
               
@@ -189,7 +201,7 @@ class ManageuserController extends Controller
               
                 
                 
-                $pri = $vip->getPrimaryKey();
+               
                #print_r($_FILES);
                /*
                $uploadedimage = CUploadedFile::getInstanceByName('uploadimage');
@@ -212,10 +224,10 @@ class ManageuserController extends Controller
             $img->file_new_name_body = 'main-'.$pri;
             $img->process(dirname(Yii::app()->request->scriptFile).'/profilepictures/');
             if ($img->processed) {
-              echo 'image resized';
+              #echo 'image resized';
               $img->clean(); //delete original image
             } else {
-              echo 'error : ' . $img->error;
+           #   echo 'error : ' . $img->error;
             }
             
             chmod(dirname(Yii::app()->request->scriptFile).'/profilepictures/main-'.$pri.'.jpg', 0777);
@@ -227,10 +239,10 @@ class ManageuserController extends Controller
             $img->file_new_name_body = 'profile-'.$pri;
             $img->process(dirname(Yii::app()->request->scriptFile).'/profilepictures/');
             if ($img->processed) {
-              echo 'image resized';
+              #echo 'image resized';
             
             } else {
-              echo 'error : ' . $img->error;
+            #  echo 'error : ' . $img->error;
             }
             
             $img = Yii::app()->imagemod->load(dirname(Yii::app()->request->scriptFile).'/profilepictures/main-'.$pri.'.jpg');
@@ -241,10 +253,10 @@ class ManageuserController extends Controller
             $img->file_new_name_body = 'thumbimg-'.$pri;
             $img->process(dirname(Yii::app()->request->scriptFile).'/profilepictures/');
             if ($img->processed) {
-              echo 'image resized';
+             # echo 'image resized';
              
             } else {
-              echo 'error : ' . $img->error;
+             # echo 'error : ' . $img->error;
             } 
             
            

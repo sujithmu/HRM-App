@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 14, 2014 at 04:54 PM
+-- Generation Time: Nov 21, 2014 at 04:18 PM
 -- Server version: 5.5.40-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -308,6 +308,55 @@ CREATE TABLE IF NOT EXISTS `hrm_countries` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `hrm_current_job`
+--
+
+CREATE TABLE IF NOT EXISTS `hrm_current_job` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `emp_number` int(11) NOT NULL,
+  `job_title` varchar(200) NOT NULL,
+  `job_status` varchar(200) NOT NULL,
+  `job_category` varchar(200) NOT NULL,
+  `join_date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `hrm_current_job`
+--
+
+INSERT INTO `hrm_current_job` (`id`, `emp_number`, `job_title`, `job_status`, `job_category`, `join_date`) VALUES
+(1, 158, '2', '3', '1', '2014-10-07'),
+(2, 159, '4', '1', '1', '2014-11-10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hrm_dependent`
+--
+
+CREATE TABLE IF NOT EXISTS `hrm_dependent` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `emp_number` int(11) NOT NULL,
+  `dependent_name` varchar(300) NOT NULL,
+  `dependent_relation` varchar(250) NOT NULL,
+  `dependent_dob` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+
+--
+-- Dumping data for table `hrm_dependent`
+--
+
+INSERT INTO `hrm_dependent` (`id`, `emp_number`, `dependent_name`, `dependent_relation`, `dependent_dob`) VALUES
+(13, 0, 'sajaja', 'brother', '2014-11-05'),
+(19, 0, 'sdddd', 'brother', '2014-11-04'),
+(20, 155, 'pala', 'brother', '2014-11-12'),
+(21, 158, 'rathlalb', 'father', '2000-02-02');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `hrm_employee`
 --
 
@@ -338,23 +387,61 @@ CREATE TABLE IF NOT EXISTS `hrm_employee` (
   `emp_mobile` int(11) NOT NULL,
   `joined_date` date DEFAULT NULL,
   `emp_additional_notes` text NOT NULL,
+  `emp_deleted` enum('Y','N') NOT NULL DEFAULT 'N',
   PRIMARY KEY (`emp_number`),
   UNIQUE KEY `emp_number` (`emp_number`),
   KEY `job_title_code` (`job_title_code`),
   KEY `emp_status` (`emp_status`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=147 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=178 ;
 
 --
 -- Dumping data for table `hrm_employee`
 --
 
-INSERT INTO `hrm_employee` (`emp_number`, `employee_id`, `emp_lastname`, `emp_firstname`, `emp_middle_name`, `emp_nick_name`, `emp_primary_address`, `emp_primary_city`, `emp_primary_state`, `emp_primary_country`, `emp_primary_pincode`, `emp_permanent_address`, `emp_permanent_city`, `emp_permanent_state`, `emp_permanent_country`, `emp_permanent_pincode`, `emp_gender`, `emp_dob`, `emp_marital_status`, `emp_dri_lice_num`, `emp_status`, `job_title_code`, `emp_home_phone`, `emp_mobile`, `joined_date`, `emp_additional_notes`) VALUES
-(141, NULL, 'naeel', 'nabeel', '', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, ''),
-(142, NULL, 'naeel', 'nabeel', '', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, ''),
-(143, NULL, 'ba', 'nabee', '', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, ''),
-(144, NULL, 'ba', 'nabee', '', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, ''),
-(145, NULL, 's', 'suresh', '', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, ''),
-(146, NULL, 'sudhakar', 'sajith', 'su', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '');
+INSERT INTO `hrm_employee` (`emp_number`, `employee_id`, `emp_lastname`, `emp_firstname`, `emp_middle_name`, `emp_nick_name`, `emp_primary_address`, `emp_primary_city`, `emp_primary_state`, `emp_primary_country`, `emp_primary_pincode`, `emp_permanent_address`, `emp_permanent_city`, `emp_permanent_state`, `emp_permanent_country`, `emp_permanent_pincode`, `emp_gender`, `emp_dob`, `emp_marital_status`, `emp_dri_lice_num`, `emp_status`, `job_title_code`, `emp_home_phone`, `emp_mobile`, `joined_date`, `emp_additional_notes`, `emp_deleted`) VALUES
+(144, NULL, 'ba', 'nabee', '', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(145, NULL, 's', 'suresh', '', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(146, NULL, 'sudhakar', 'sajith', 'su', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(148, NULL, 'mu', 'sujith', '', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(149, NULL, 'maa', 'ajith', 'sasasa', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(152, NULL, 'aaa', 'rithesh', 'asasas', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(155, NULL, 'm', 'vijeesh', '', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(156, NULL, 'gg', 'ganesh', 'skajsk', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(157, NULL, 'hh', 'gagg', 'hhh', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(158, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(159, NULL, 'nn', 'nabel', 'nn', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(160, NULL, 'dhaneesh', 'dhaeesh', 'hh', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'Y'),
+(161, NULL, 'm', 'akosh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(162, NULL, 'm', 'akoshkkk', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(163, NULL, 'm', 'akoshkkk', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(164, NULL, 'asas', 'aasasas', 'asas', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(165, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(166, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(167, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(168, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(169, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(170, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(171, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(172, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(173, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(174, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(175, NULL, 'm', 'akoshhhh', 'k', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(176, NULL, 'aaa', 'KASM', 'aaa', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N'),
+(177, NULL, 'mala', 'films', 'ss', '', '', '', '', '', 0, '', '', '', '', 0, NULL, '0000-00-00', NULL, '', NULL, NULL, 0, 0, NULL, '', 'N');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hrm_employee_leave`
+--
+
+CREATE TABLE IF NOT EXISTS `hrm_employee_leave` (
+  `id` int(11) NOT NULL,
+  `emp_number` int(11) NOT NULL,
+  `leave_type` int(11) NOT NULL,
+  `leave_number` int(11) NOT NULL,
+  `active` enum('Y','N') NOT NULL DEFAULT 'Y'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -413,19 +500,17 @@ CREATE TABLE IF NOT EXISTS `hrm_emp_emergency_contacts` (
   `eec_mobile_no` varchar(100) DEFAULT '',
   `eec_office_no` varchar(100) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `hrm_emp_emergency_contacts`
 --
 
 INSERT INTO `hrm_emp_emergency_contacts` (`id`, `emp_number`, `eec_seqno`, `eec_name`, `eec_address`, `eec_city`, `eec_state`, `eec_pincode`, `eec_country`, `eec_relationship`, `eec_home_no`, `eec_mobile_no`, `eec_office_no`) VALUES
-(1, 0, 0, 'nabeelichur', '', 'trichur', '43', '232323', '1', 'brother', '2331231312', '8945334599', ''),
-(2, 0, 0, 'unnikrishnan', 'sopana\r\naluva', 'kochi', 'asasas', '684102', '81', 'asasas', '04842609016', '7293310700', '23232323'),
-(3, 0, 0, 'sreed', 'sopana\r\naluva', 'kochi', '17', '684102', '99', 'mother', '04842609016', '7293310700', '23232323'),
-(4, 0, 0, 'sujith', 'asdasdasddsa', 'trichur', '17', '232323', '99', 'akshhkHSK', '2331231312', '8945334599', '2232334444'),
-(5, 0, 0, 'jabong', 'asdasdjasdj', 'kochi', '17', '232323', '99', 'faaa', '2331231312', '8945334599', '2232334444'),
-(9, 0, 0, 'SUJITH', 'asdsdasdsad', 'kochi', 'ssadasdsa', '232323', '96', 'brother', '222222222', '7338383221', '343434');
+(10, 152, 0, 'ravi', 'aasasasasas', 'trichur', '17', '343434', '99', 'brother', '222222222', '7338383221', '12123123'),
+(11, 153, 0, 'dhanu', 'asdaskds', 'kochi', '17', '232323', '99', 'brother', '2331231312', '8945334599', '2232334444'),
+(13, 154, 0, 'sujith', 'sdsdds', 'trichur', '17', '232323', '99', 'friend', '2331231312', '8945334599', '2232334444'),
+(14, 158, 0, 'rahull', 'aluva', 'kochi', '16', '232323', '98', 'brother', '3334343444', '8945334599', '1222222222');
 
 -- --------------------------------------------------------
 
@@ -444,6 +529,44 @@ CREATE TABLE IF NOT EXISTS `hrm_emp_history_of_ealier_pos` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `hrm_holidays`
+--
+
+CREATE TABLE IF NOT EXISTS `hrm_holidays` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(250) NOT NULL,
+  `holiday_date` datetime NOT NULL,
+  `active` enum('Y','N') NOT NULL DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hrm_job_category`
+--
+
+CREATE TABLE IF NOT EXISTS `hrm_job_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_category` varchar(300) NOT NULL,
+  `status` enum('active','inactive') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `hrm_job_category`
+--
+
+INSERT INTO `hrm_job_category` (`id`, `job_category`, `status`) VALUES
+(1, 'Officials & Managers', 'active'),
+(2, 'Product Developement Team', 'active'),
+(3, 'Web Team', 'active'),
+(4, 'Others', 'active');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `hrm_job_title`
 --
 
@@ -452,7 +575,7 @@ CREATE TABLE IF NOT EXISTS `hrm_job_title` (
   `job_title` varchar(250) NOT NULL,
   `status` enum('active','inactive') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `hrm_job_title`
@@ -461,7 +584,8 @@ CREATE TABLE IF NOT EXISTS `hrm_job_title` (
 INSERT INTO `hrm_job_title` (`id`, `job_title`, `status`) VALUES
 (1, 'Senior Developer', 'active'),
 (2, 'Junior Developer', 'active'),
-(3, 'Trainee', 'active');
+(3, 'Trainee', 'active'),
+(4, 'Others', 'active');
 
 -- --------------------------------------------------------
 
@@ -478,6 +602,36 @@ CREATE TABLE IF NOT EXISTS `hrm_language` (
   PRIMARY KEY (`emp_number`,`lang_id`,`fluency`),
   KEY `lang_id` (`lang_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hrm_leave_types`
+--
+
+CREATE TABLE IF NOT EXISTS `hrm_leave_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(250) NOT NULL,
+  `leave_max_no` int(11) NOT NULL,
+  `emp_appliable` enum('Y','N') NOT NULL DEFAULT 'Y',
+  `probation_period` int(11) NOT NULL,
+  `custom_leave_type` enum('Y','N') NOT NULL DEFAULT 'N',
+  `active` enum('Y','N') NOT NULL DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `hrm_leave_types`
+--
+
+INSERT INTO `hrm_leave_types` (`id`, `name`, `leave_max_no`, `emp_appliable`, `probation_period`, `custom_leave_type`, `active`) VALUES
+(1, 'Casual leave (CL)', 6, 'Y', 6, 'N', 'Y'),
+(2, 'Sick Leave (SL)', 6, 'Y', 0, 'N', 'Y'),
+(3, 'Privileged Leave (Vacation) (PL)', 12, 'Y', 6, 'N', 'Y'),
+(4, 'Maternity Leave (ML)', 0, 'Y', 3, 'N', 'Y'),
+(6, 'Paternity Leave ', 0, 'Y', 3, 'N', 'Y'),
+(8, 'Compassionate Leave', 0, 'N', 0, 'N', 'Y');
 
 -- --------------------------------------------------------
 
@@ -506,7 +660,7 @@ CREATE TABLE IF NOT EXISTS `hrm_login_history` (
   `ip_address` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `hrm_login_history`
@@ -521,7 +675,23 @@ INSERT INTO `hrm_login_history` (`id`, `user_id`, `user_name`, `login_time`, `ip
 (6, 2, 'sujithmu@netstratum.com', '2014-10-30 12:52:43', '127.0.0.1'),
 (7, 2, 'sujithmu@netstratum.com', '2014-10-30 12:57:38', '127.0.0.1'),
 (8, 2, 'sujithmu@netstratum.com', '2014-10-30 13:08:41', '127.0.0.1'),
-(9, 2, 'sujithmu@netstratum.com', '2014-10-30 13:08:50', '127.0.0.1');
+(9, 2, 'sujithmu@netstratum.com', '2014-10-30 13:08:50', '127.0.0.1'),
+(10, 120, 'nabell@yahoo.com', '2014-11-21 12:00:03', '127.0.0.1'),
+(11, 120, 'nabell@yahoo.com', '2014-11-21 12:09:04', '127.0.0.1'),
+(12, 120, 'nabell@yahoo.com', '2014-11-21 12:09:59', '127.0.0.1'),
+(13, 120, 'nabell@yahoo.com', '2014-11-21 12:10:52', '127.0.0.1'),
+(14, 119, 'akosh@yahoo.com', '2014-11-21 12:22:00', '127.0.0.1'),
+(15, 119, 'akosh@yahoo.com', '2014-11-21 12:37:25', '127.0.0.1'),
+(16, 121, 'dhaneesh@gmail.com', '2014-11-21 12:39:19', '127.0.0.1'),
+(17, 120, 'nabell@yahoo.com', '2014-11-21 12:41:29', '127.0.0.1'),
+(18, 120, 'nabell@yahoo.com', '2014-11-21 13:32:22', '127.0.0.1'),
+(19, 117, 'ganesh@yahoo.com', '2014-11-21 13:35:17', '127.0.0.1'),
+(20, 120, 'nabell@yahoo.com', '2014-11-21 14:30:54', '127.0.0.1'),
+(21, 117, 'ganesh@yahoo.com', '2014-11-21 14:59:49', '127.0.0.1'),
+(22, 121, 'dhaneesh@gmail.com', '2014-11-21 15:00:41', '127.0.0.1'),
+(23, 144, 'film@gmail.com', '2014-11-21 15:17:23', '127.0.0.1'),
+(24, 144, 'film@gmail.com', '2014-11-21 15:17:49', '127.0.0.1'),
+(25, 144, 'film@gmail.com', '2014-11-21 15:18:05', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -561,6 +731,30 @@ CREATE TABLE IF NOT EXISTS `hrm_module` (
   `status` enum('0','1') NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hrm_report_to`
+--
+
+CREATE TABLE IF NOT EXISTS `hrm_report_to` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `emp_number` int(11) NOT NULL,
+  `name` varchar(300) NOT NULL,
+  `user_type` enum('supervisor','subordinate') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `hrm_report_to`
+--
+
+INSERT INTO `hrm_report_to` (`id`, `emp_number`, `name`, `user_type`) VALUES
+(1, 0, 'Nazeer', ''),
+(2, 0, 'vipin', ''),
+(3, 157, 'jineed', 'supervisor'),
+(4, 158, 'sreeni', 'supervisor');
 
 -- --------------------------------------------------------
 
@@ -636,28 +830,52 @@ CREATE TABLE IF NOT EXISTS `hrm_user_master` (
   `user_role_id` int(11) NOT NULL,
   `emp_number` int(11) NOT NULL,
   `user_name` varchar(200) NOT NULL,
-  `user_password` varchar(200) NOT NULL,
+  `user_password` varchar(300) NOT NULL,
   `deleted` tinyint(4) NOT NULL,
   `status` enum('Y','N') NOT NULL,
   `date_entered` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   `modified_user_id` int(11) NOT NULL,
   `created_by` int(11) NOT NULL,
+  `emp_deleted` enum('Y','N') NOT NULL DEFAULT 'N',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=109 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=145 ;
 
 --
 -- Dumping data for table `hrm_user_master`
 --
 
-INSERT INTO `hrm_user_master` (`id`, `user_role_id`, `emp_number`, `user_name`, `user_password`, `deleted`, `status`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`) VALUES
-(103, 2, 0, 'nabeel@gmail.com', 'nabeel', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
-(104, 2, 0, 'nabeel@gmail.com', 'nabeel', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
-(105, 2, 0, 'bana@gmil.cm', 'nabeel', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
-(106, 2, 0, 'bana@gmil.cm', 'nabeel', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
-(107, 3, 0, 'suresh@gmail.com', 'suresh', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0),
-(108, 1, 0, 'sajith@gmail.com', 'sajith', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0);
+INSERT INTO `hrm_user_master` (`id`, `user_role_id`, `emp_number`, `user_name`, `user_password`, `deleted`, `status`, `date_entered`, `date_modified`, `modified_user_id`, `created_by`, `emp_deleted`) VALUES
+(116, 3, 155, 'vijeesh@gmail.com', 'vijeesh', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'Y'),
+(117, 3, 156, 'ganesh@yahoo.com', 'ganesh', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'Y'),
+(118, 3, 157, 'hh@gmail.com', 'gggggg', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'Y'),
+(119, 2, 158, 'akosh@yahoo.com', 'akosh', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(120, 2, 159, 'nabell@yahoo.com', 'nabeel', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'Y'),
+(121, 1, 160, 'dhaneesh@gmail.com', 'ddddd', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'Y'),
+(122, 2, 161, '', '', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(123, 2, 0, '', '', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(124, 2, 0, '', '', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(125, 2, 0, '', '', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(126, 1, 0, '', '', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(127, 1, 0, '', '', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(128, 1, 0, '', '', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(129, 1, 0, '', '', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(130, 2, 0, '', '', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(131, 1, 0, 'abdul@gmail.com', 'addddd', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(132, 2, 0, '', '', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(133, 2, 0, '', '', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(134, 2, 0, '', '', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(135, 2, 0, '', '', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(136, 2, 0, '', '', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(137, 2, 0, '', '', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(138, 2, 0, '', '', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(139, 2, 0, '', '', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(140, 2, 0, '', '', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(141, 2, 0, '', '', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(142, 2, 0, '', '', 0, 'N', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(143, 3, 0, 'kasm@gmail.com', 'afBg99CRnYN5Q', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N'),
+(144, 3, 0, 'film@gmail.com', 'afWNXZ42O0i8A', 0, 'Y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 'N');
 
 -- --------------------------------------------------------
 
