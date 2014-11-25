@@ -5,7 +5,11 @@ $(document).ready(function(){
         
                  $('#addnew').click(function(){
                         
+<<<<<<< HEAD
                        
+=======
+                        alert("asss");
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                         location.href=baseurl+"/index.php?r=Manageuser/View";                 
                  });
                 

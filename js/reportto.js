@@ -1,4 +1,5 @@
 $(document).ready(function(){
+<<<<<<< HEAD
    
         st =  $('#super_table').dataTable( {                                        
                  
@@ -45,11 +46,23 @@ $(document).ready(function(){
                         $('#report_user_id').val(ui.item.id);
 
                     }
+=======
+    
+               $( "#rname" ).autocomplete({
+                    source: baseurl+"/index.php?r=Manageuser/Report",
+                    minLength: 2,
+                    select: function( event, ui ) {
+                        log( ui.item ?
+                         "Selected: " + ui.item.value + " aka " + ui.item.id :
+                        "Nothing selected, input was " + this.value );
+                       }
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                     });
     
     
     
     
+<<<<<<< HEAD
     $( "#super" ).click(function(){
 
         
@@ -115,6 +128,15 @@ $(document).ready(function(){
                    required:"Employee Name required", 
                    validempname:"Please Select a Valid Employee Name", 
                    ordercheck:"Please Select an order number"
+=======
+    $('#reportform').validate({
+        
+        rules:{
+                    rname:"required",                                                          
+                    },
+                messages:{                    
+                   rname:"field required",                                      
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                           },
                     
                     submitHandler: function(form) 

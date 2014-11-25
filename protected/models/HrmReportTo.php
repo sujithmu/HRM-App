@@ -27,6 +27,7 @@ class HrmReportTo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+<<<<<<< HEAD
 			array('emp_number, user_id, user_type', 'required'),
 			array('emp_number', 'numerical', 'integerOnly'=>true),
 			array('user_id', 'length', 'max'=>11),
@@ -35,6 +36,15 @@ class HrmReportTo extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, emp_number, user_id, user_type', 'safe', 'on'=>'search'),
+=======
+			array('emp_number, name, user_type', 'required'),
+			array('emp_number', 'numerical', 'integerOnly'=>true),
+			array('name', 'length', 'max'=>300),
+			array('user_type', 'length', 'max'=>11),
+			// The following rule is used by search().
+			// @todo Please remove those attributes that should not be searched.
+			array('id, emp_number, name, user_type', 'safe', 'on'=>'search'),
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
 		);
 	}
 
@@ -57,9 +67,14 @@ class HrmReportTo extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'emp_number' => 'Emp Number',
+<<<<<<< HEAD
 			'user_id' => 'user_id',
 			'user_type' => 'User Type',
 			'order_no' => 'Order No'
+=======
+			'name' => 'Name',
+			'user_type' => 'User Type',
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
 		);
 	}
 
@@ -83,7 +98,11 @@ class HrmReportTo extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('emp_number',$this->emp_number);
+<<<<<<< HEAD
 		$criteria->compare('user_id',$this->user_id,true);
+=======
+		$criteria->compare('name',$this->name,true);
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
 		$criteria->compare('user_type',$this->user_type,true);
 
 		return new CActiveDataProvider($this, array(
@@ -91,6 +110,7 @@ class HrmReportTo extends CActiveRecord
 		));
 	}
 
+<<<<<<< HEAD
 
 	public function getSupervisor($empnumber)
         {
@@ -125,6 +145,8 @@ class HrmReportTo extends CActiveRecord
 
        }
 
+=======
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

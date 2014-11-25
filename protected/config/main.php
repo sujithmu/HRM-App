@@ -75,7 +75,11 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=netstrat_hrm',
 			'emulatePrepare' => true,
 			'username' => 'root',
+<<<<<<< HEAD
 			'password' => '1234567',
+=======
+			'password' => '',
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
 			'charset' => 'utf8',
 		),
 		

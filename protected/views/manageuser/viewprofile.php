@@ -20,6 +20,7 @@
 						</div>
 						<div class="box-content nopadding">
                         <ul class="tabs tabs-inline tabs-top">
+<<<<<<< HEAD
                              <li class='active'  >
                                  <a href="#profile" data-toggle='tab'><i class="icon-user"></i> Profile</a>
                              </li>
@@ -33,6 +34,21 @@
                             <a href="#job" data-toggle='tab'>Job</a>
 			</li>
                         <li <?php if ($_REQUEST['emp_number']==''){?>style="display:none;"<?php }?>>
+=======
+                             <li class='active'>
+                                 <a href="#profile" data-toggle='tab'><i class="icon-user"></i> Profile</a>
+                                </li>
+                                <li>
+                                <a href="#econtact" data-toggle='tab'>Emergency Contact</a>
+			</li>
+                         <li>
+                            <a href="#dependent" data-toggle='tab'>Dependency</a>
+			</li>
+                        <li>
+                            <a href="#job" data-toggle='tab'>Job</a>
+			</li>
+                        <li>
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                             <a href="#report" data-toggle='tab'>Report To</a>
 			</li>
                      <!--   <li>
@@ -81,7 +97,11 @@
             
         </div>
                             <div class="span10">
+<<<<<<< HEAD
                                     <?php if ($user_role == 1){ ?>
+=======
+                                    
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                                     <div class="control-group">
                                         
                                         
@@ -93,8 +113,11 @@
                                                                               ); ?>
                                             </div>
                                     </div>
+<<<<<<< HEAD
 
                                     <?php } ?>
+=======
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                                     <div class="control-group">
                                             <label for="name" class="control-label right">First Name: * </label>
                                             <div class="controls">
@@ -202,6 +225,7 @@
                                             <label for="country" class="control-label right">Country:</label>
                                             
                                             <div class="controls" id="country">
+<<<<<<< HEAD
                                             
                                                     <?php 
                                                     if ($editddata['eec_country']!='')
@@ -210,6 +234,9 @@
                                                         $selected_country = 99;
 
                                                     echo CHtml::dropDownList('countrylist', $selected_country, 
+=======
+                                                    <?php echo CHtml::dropDownList('countrylist', $editddata['eec_country'], 
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                                                         CHtml::listData(Countries::model()->findAll(),'id','country_name'),
                                                             array(
                                                             'class'=>'input-xlarge',)
@@ -221,6 +248,7 @@
                             <div class="control-group">
                                             <label for="state" class="control-label right">State:</label>
                                             <div class="controls" id="state">
+<<<<<<< HEAD
                                             
                                                 <?php 
 
@@ -230,6 +258,9 @@
                                                         $selected_state = 17;
 
                                                 echo CHtml::dropDownList('statelist', $selected_state, 
+=======
+                                                <?php echo CHtml::dropDownList('statelist', $editddata['eec_state'], 
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                                                         CHtml::listData(StateList::model()->findAll(),'id','state'),
                                                         array(
                                                             'class'=>'input-xlarge',)
@@ -434,10 +465,14 @@
                 
             </div>
             
+<<<<<<< HEAD
 
 
             <div class="tab-pane" id="report">
                  <?php if ($user_role==1){?>
+=======
+            <div class="tab-pane" id="report">
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                 <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Reportto" class="form-horizontal" id="reportform" method="POST" class="form-horizontal">
                     <div class="span10">
                         <div class="control-group">
@@ -458,6 +493,7 @@
                                     
                             </div>
                         </div> 
+<<<<<<< HEAD
                         <div id="leave_approval_div" style="display:none;">
                          <div class="control-group">
                             <label class="control-label"></label>
@@ -480,6 +516,8 @@
                             </div>
                         </div> 
                         </div>
+=======
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
 
                         
                         <div class="form-actions">
@@ -492,6 +530,7 @@
                         </div>
                         
                     </div>
+<<<<<<< HEAD
                     <input type="hidden" id="report_user_id" name="report_user_id">
                 </form>
                 <?php } ?>
@@ -597,6 +636,11 @@
                 </div>
 
 
+=======
+                    
+                </form>
+                
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                 
             </div>
             
@@ -615,7 +659,11 @@
                             <label class="control-label right">Salary Components:</label>
                             <div class="controls">
                                     <label class='checkbox'>
+<<<<<<< HEAD
                                         <input type="checkbox" id="component1" name="component1" > Basic Salary
+=======
+                                        <input type="checkbox" id="component1" name="component1"> Basic Salary
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                                     </label>
                                     <label class='checkbox'>
                                         <input type="checkbox" id="component2" name="component2"> ipsum eiusmod
@@ -678,10 +726,14 @@
 </body>
 <script type="text/javascript">
     var baseurl="<?php echo Yii::app()->request->baseUrl; ?>";
+<<<<<<< HEAD
 
     var empno="<?php echo $emp_number; ?>";
     //var user_role = "<?php echo $user_role;?>";
 
+=======
+    var empno="<?php echo $emp_number; ?>";
+>>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
 </script>
 <script src="js/profile.js"></script>
 <script src="js/contact.js"></script>
