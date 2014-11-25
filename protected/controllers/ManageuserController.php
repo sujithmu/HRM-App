@@ -2,10 +2,10 @@
 
 class ManageuserController extends Controller
 {
-	public function actionIndex()
-	{
-		$this->render('index');
-	}
+    public function actionIndex()
+    {
+        $this->render('index');
+    }
         
         public function actionManage(){
             
@@ -28,19 +28,11 @@ class ManageuserController extends Controller
                
                if($_REQUEST['emp_number']>0 and $session['user_role']==1){ 
                     $getalldata = HrmUserMaster::model()->getalldetails($_REQUEST['emp_number']); 
-<<<<<<< HEAD
                     $emp_number = $_REQUEST['emp_number'];
                }
                else{
                      $getalldata = HrmUserMaster::model()->getalldetails($session['empnumber']);
                      $emp_number = $session['empnumber'];
-=======
-                     $emp_number = $_REQUEST['empnumber'];
-               }
-               else{
-                     $getalldata = HrmUserMaster::model()->getalldetails($session['empnumber']);
-                  $emp_number = $session['empnumber'];
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                }               
             }
             else{
@@ -50,15 +42,9 @@ class ManageuserController extends Controller
             
           
            
-<<<<<<< HEAD
             
             
             $this->render('viewprofile',array('model'=>$obj,'editddata'=>$getalldata,'emp_number'=>$emp_number,'user_role'=>$session['user_role']));           
-=======
-             #echo "ddd".$emp_number;
-            
-            $this->render('viewprofile',array('model'=>$obj,'editddata'=>$getalldata,'emp_number'=>$emp_number));           
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
              
            # Yii::app()->red->redirect();
           
@@ -182,7 +168,6 @@ class ManageuserController extends Controller
                 #$adding->attributes=array($_POST['']); //for adding more fields as array
                if($_REQUEST['empnumber']>0)
                {
-<<<<<<< HEAD
                   
                     $adding->updateAll(array('emp_firstname' => $_REQUEST['fname'],'emp_middle_name'=>$_REQUEST['mname'],'emp_lastname'=>$_REQUEST['lname']), 'emp_number='.$_REQUEST['empnumber']);
                     $vip->updateAll(array('user_role_id' => $_REQUEST['userrole'],'status'=>$_REQUEST['userstatus']),'emp_number='.$_REQUEST['empnumber']);
@@ -208,35 +193,6 @@ class ManageuserController extends Controller
                     $pri = $vip->getPrimaryKey();
               
                 }
-=======
-                    $adding->updateAll(array('emp_firstname' => $_REQUEST['fname'],'emp_middle_name'=>$_REQUEST['mname'],'emp_lastname'=>$_REQUEST['lname']), 'emp_number='.$_REQUEST['empnumber']);
-               
-                     $vip->updateAll(array('user_role_id' => $_REQUEST['userrole'],'status'=>$_REQUEST['userstatus']),'emp_number='.$_REQUEST['empnumber']);
-               $userdetails = $vip->find('emp_number=:emp_number', array(':emp_number'=>$_REQUEST['empnumber']));    
-                 $pri = $userdetails['id'];
-                     }
-               else{
-               $adding->emp_firstname=$_REQUEST['fname'];
-               $adding->emp_middle_name=$_REQUEST['mname'];
-               $adding->emp_lastname=$_REQUEST['lname'];
-               //$adding->emp_number=$_REQUEST['empnumber'];
-               
-               
-               $adding->save();
-                $empno = $adding->getPrimaryKey();
-             
-               
-                $vip->user_name=$_REQUEST['uname'];
-                $pass = crypt($_REQUEST['pswd'],Yii::app()->params['encrptpass']);
-                $vip->user_password=$pass;
-                $vip->user_role_id=$_REQUEST['userrole'];
-                $vip->status=$_REQUEST['userstatus'];
-               # $vip->emp_number=$empno;
-                $vip->save();
-                 $pri = $vip->getPrimaryKey();
-              
-               }
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                 
               
                //$rr->attributes = array('user_name'=>$_REQUEST['uname'],'user_password'=>$_REQUEST['pswd'],'user_role_id'=>$_REQUEST['myDropdown']);
@@ -253,16 +209,11 @@ class ManageuserController extends Controller
                
                #echo dirname(Yii::app()->request->scriptFile).'/profilepictures';
                */
-<<<<<<< HEAD
             if(isset($_FILES['uploadimage'])){
-=======
-               if(isset($_FILES['uploadimage'])){
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                    
              
                
                $img = Yii::app()->imagemod->load($_FILES['uploadimage']);
-<<<<<<< HEAD
                if ($img->uploaded) {
                
                     $img->image_resize          = FALSE;
@@ -309,59 +260,6 @@ class ManageuserController extends Controller
                     chmod(dirname(Yii::app()->request->scriptFile).'/profilepictures/thumbimg-'.$pri.'.jpg', 0777);
                 }
             }
-=======
-           if ($img->uploaded) {
-            $img->image_resize          = FALSE;
-            $img->image_ratio_y         = FALSE;
-  
-            $img->image_convert         = 'jpg';
-            $img->file_new_name_body = 'main-'.$pri;
-            $img->process(dirname(Yii::app()->request->scriptFile).'/profilepictures/');
-            if ($img->processed) {
-              #echo 'image resized';
-              $img->clean(); //delete original image
-            } else {
-           #   echo 'error : ' . $img->error;
-            }
-            
-            chmod(dirname(Yii::app()->request->scriptFile).'/profilepictures/main-'.$pri.'.jpg', 0777);
-            $img = Yii::app()->imagemod->load(dirname(Yii::app()->request->scriptFile).'/profilepictures/main-'.$pri.'.jpg');
-            $img->image_resize          = true;
-            $img->image_ratio_y         = true;
-            $img->image_x               = 150;
-            $img->image_convert         = 'jpg';
-            $img->file_new_name_body = 'profile-'.$pri;
-            $img->process(dirname(Yii::app()->request->scriptFile).'/profilepictures/');
-            if ($img->processed) {
-              #echo 'image resized';
-            
-            } else {
-            #  echo 'error : ' . $img->error;
-            }
-            
-            $img = Yii::app()->imagemod->load(dirname(Yii::app()->request->scriptFile).'/profilepictures/main-'.$pri.'.jpg');
-             $img->image_resize         = true;
-            $img->image_ratio_y         = true;
-            $img->image_x               = 50;
-            $img->image_convert         = 'jpg';
-            $img->file_new_name_body = 'thumbimg-'.$pri;
-            $img->process(dirname(Yii::app()->request->scriptFile).'/profilepictures/');
-            if ($img->processed) {
-             # echo 'image resized';
-             
-            } else {
-             # echo 'error : ' . $img->error;
-            } 
-            
-           
-            chmod(dirname(Yii::app()->request->scriptFile).'/profilepictures/profile-'.$pri.'.jpg', 0777);
-            chmod(dirname(Yii::app()->request->scriptFile).'/profilepictures/thumbimg-'.$pri.'.jpg', 0777);
-         }
-            }
-             
-         
-               
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
         }
         
         public function actionEcontact() {
@@ -456,7 +354,6 @@ class ManageuserController extends Controller
         
         public function actionReport(){
             
-<<<<<<< HEAD
             $repo = new HrmReportTo();
             $term = $_REQUEST['term'];
             
@@ -465,26 +362,12 @@ class ManageuserController extends Controller
             echo json_encode($suggestions);
             
             
-=======
-            $term = $_REQUEST['term'];
-            
-            $c = new CDbCriteria();
-            $term = addcslashes($term, '%_'); 
-            $c->addSearchCondition('emp_firstname', $term, true,'OR','LIKE');
-          # $c->addSearchCondition('emp_middle_name','%$term%', true, 'OR');
-          # $c->addSearchCondition('emp_lastname','%$term%', true, 'OR');
-           # print_r($c);
-            $t = HrmEmployee::model()->findAll($c);
-            
-            print_r($t);
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
             
         }
         
         public function actionReportto(){
             
             $repo = new HrmReportTo();
-<<<<<<< HEAD
             
             $repo->emp_number=$_REQUEST['empnumber'];
             $repo->user_id = $_REQUEST['report_user_id'];
@@ -570,14 +453,6 @@ class ManageuserController extends Controller
         }
 
 
-=======
-            $repo->emp_number=$_REQUEST['empnumber'];
-            $repo->name = $_REQUEST['rname'];
-            $repo->user_type =$_REQUEST['reportto1'];
-            
-            $repo->save();
-        }
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
         /*public function actionRole(){
             $role = new HrmUserRole();
             
@@ -623,29 +498,29 @@ class ManageuserController extends Controller
 
 
      // Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
+    /*
+    public function filters()
+    {
+        // return the filter configuration for this controller, e.g.:
+        return array(
+            'inlineFilterName',
+            array(
+                'class'=>'path.to.FilterClass',
+                'propertyName'=>'propertyValue',
+            ),
+        );
+    }
 
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
+    public function actions()
+    {
+        // return external action classes, e.g.:
+        return array(
+            'action1'=>'path.to.ActionClass',
+            'action2'=>array(
+                'class'=>'path.to.AnotherActionClass',
+                'propertyName'=>'propertyValue',
+            ),
+        );
+    }
+    */
 }

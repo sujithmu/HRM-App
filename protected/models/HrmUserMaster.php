@@ -93,20 +93,12 @@ class HrmUserMaster extends CActiveRecord
                     . "b.id as userid,b.user_role_id,b.user_name,b.status,"
                     . "c.dependent_name,c.dependent_relation,c.dependent_dob,"
                     . "d.job_title,d.job_status,d.job_category,d.join_date,"
-<<<<<<< HEAD
-=======
-                    . "e.name,e.user_type,"
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                     . "f.eec_name,f.eec_address,f.eec_city,f.eec_state,f.eec_pincode,f.eec_country,f.eec_relationship,"
                     . "f.eec_home_no,f.eec_mobile_no,f.eec_office_no "
                     . "FROM hrm_employee a LEFT JOIN hrm_user_master b ON a.emp_number=b.emp_number "
                     . "LEFT JOIN hrm_dependent c ON a.emp_number=c.emp_number "
                     . "LEFT JOIN hrm_current_job d ON a.emp_number=d.emp_number "
-<<<<<<< HEAD
                     
-=======
-                    . "LEFT JOIN hrm_report_to e ON a.emp_number=e.emp_number "
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                     . "LEFT JOIN hrm_emp_emergency_contacts f ON a.emp_number=f.emp_number WHERE a.emp_number=".$empnumber )->queryRow();
             return $getall;
         }
