@@ -92,6 +92,30 @@ class HrmDependent extends CActiveRecord
 		));
 	}
 
+	public function getDepedent_list($empnumber,$start,$display_length)
+        {
+        	
+            $getall = Yii::app()->db->createCommand("SELECT * from hrm_dependent "
+                    . "WHERE  emp_number=".$empnumber." limit ".$start.",".$display_length )->queryAll();
+            return $getall;
+        }
+
+        public function getDepedent_list_cnt($empnumber)
+        {
+        	
+            $getall = Yii::app()->db->createCommand(" SELECT id from hrm_dependent "
+                    . "WHERE emp_number=".$empnumber)->queryAll();
+            return count($getall);
+        }
+
+        public function DeleteDependent($dp_id)
+        {
+        	
+            $getall = Yii::app()->db->createCommand(" Delete from hrm_dependent WHERE id=".$dp_id)->query();
+            
+        }
+	
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

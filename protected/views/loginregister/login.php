@@ -2,8 +2,9 @@
 
 <body class='login'>
 	<div class="wrapper">
-		<h1><a href="index.html"><img src="img/logo-big.png" alt="" class='retina-ready' width="59" height="49"></a></h1>
+		<h1><a href="index.php"><img src="img/Logo.png" alt="" class='retina-ready' > HRM</a></h1>
 		<div class="login-body">
+			<div id="loginform" >   
 			<h2>SIGN IN</h2>
                         
                         <div  class="alert alert-error logerror" id="error_msg">
@@ -11,8 +12,8 @@
                      
                     </div>
                         
-                        
-			<form action="index.html" method='get' class='form-validate' id="test">
+                     
+			<form  method='post' class='form-validate' id="test">
 				<div class="control-group">
 					<div class="email controls">
 						<input type="text" name='uemail' id="uemail" placeholder="Email address" class='input-block-level' data-rule-required="true" data-rule-email="true">
@@ -32,7 +33,31 @@
                                
 			</form>
 			<div class="forget">
-				<a href="#"><span>Forgot password?</span></a>
+				<a href="#" id="forgotpass"><span>Forgot password?</span></a>
+			</div>
+			</div>
+			<div id="forgotpassform" style="display:none;">
+			<h2>FORGOT PASSWORD</h2>
+                        
+                        <div  class="alert alert-error logerror" id="error_msg">
+			
+                     
+                    </div>
+                        
+                        <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Mailsend" 
+                              method='POST' class='form-validate' id="forgotpswdform" >
+                            <div class="control-group">
+                                <div class="email controls">
+                                    <input type="text" name='loginemail' id="loginemail" placeholder="Email address" 
+                                           class='input-block-level' data-rule-required="true" data-rule-email="true">                                    
+                                </div>
+                                <div class="form-actions">
+                                <input type="button" id="forgotbtn" value="SUBMIT" class='btn btn-primary'>
+                                
+                                </div>
+                                
+                            </div>
+                        </form>
 			</div>
 		</div>
 	</div>

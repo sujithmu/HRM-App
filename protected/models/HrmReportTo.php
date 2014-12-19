@@ -92,38 +92,72 @@ class HrmReportTo extends CActiveRecord
 	}
 
 
-	public function getSupervisor($empnumber)
+	public function getSupervisor($empnumber,$start,$display_length)
         {
-
+        	
             $getall = Yii::app()->db->createCommand("SELECT concat(a.emp_firstname,' ',a.emp_middle_name,' ',a.emp_lastname) as name,"
-                    . "b.id as userid,b.user_role_id,c.leave_approval,c.order_no "
+                    . "b.id as userid,b.user_role_id,c.leave_approval,c.order_no,c.id as reportid "
                     . "FROM hrm_employee a INNER JOIN hrm_user_master b ON a.emp_number=b.emp_number "
                     . "INNER JOIN hrm_report_to c ON a.emp_number=c.user_id "
-                    . "WHERE c.user_type = 'supervisor' and a.emp_number=".$empnumber )->queryAll();
+                    . "WHERE c.user_type = 'supervisor' and c.emp_number=".$empnumber." order by order_no desc limit ".$start.",".$display_length )->queryAll();
             return $getall;
         }
 
-
-      public function getSubordinate($empnumber)
+        public function getSupervisor_cnt($empnumber)
         {
-            $getall = Yii::app()->db->createCommand("SELECT concat(a.emp_firstname,' ',a.emp_middle_name,' ',a.emp_lastname) as name,"
-                    . "b.id as userid,b.user_role_id "
+        	
+            $getall = Yii::app()->db->createCommand("SELECT c.id "
                     . "FROM hrm_employee a INNER JOIN hrm_user_master b ON a.emp_number=b.emp_number "
                     . "INNER JOIN hrm_report_to c ON a.emp_number=c.user_id "
-                    . "WHERE c.user_type = 'subordinate' and a.emp_number=".$empnumber )->queryAll();
+                    . "WHERE c.user_type = 'supervisor' and c.emp_number=".$empnumber)->queryAll();
+            return count($getall);
+        }
+
+
+
+      public function getSubordinate($empnumber,$start,$display_length)
+        {
+            $getall = Yii::app()->db->createCommand("SELECT concat(a.emp_firstname,' ',a.emp_middle_name,' ',a.emp_lastname) as name,"
+                    . "b.id as userid,b.user_role_id,c.id as reportid "
+                    . "FROM hrm_employee a INNER JOIN hrm_user_master b ON a.emp_number=b.emp_number "
+                    . "INNER JOIN hrm_report_to c ON a.emp_number=c.user_id "
+                    . "WHERE c.user_type = 'subordinate' and c.emp_number=".$empnumber." order by order_no desc limit ".$start.",".$display_length )->queryAll();
             return $getall;
+        }
+
+        public function getSubordinate_cnt($empnumber)
+        {
+            $getall = Yii::app()->db->createCommand("SELECT c.id "
+                    . "FROM hrm_employee a INNER JOIN hrm_user_master b ON a.emp_number=b.emp_number "
+                    . "INNER JOIN hrm_report_to c ON a.emp_number=c.user_id "
+                    . "WHERE c.user_type = 'subordinate' and c.emp_number=".$empnumber )->queryAll();
+            return count($getall);
         }
 
 
        public function getAllSuggestions($term)
        {
        		$getall = Yii::app()->db->createCommand("SELECT concat(emp_firstname,' ',emp_middle_name,' ',emp_lastname) as label, emp_number as id from hrm_employee "
-                  
-                    . "WHERE status = 'Y' and emp_deleted = 'N' and concat(emp_firstname,' ',emp_middle_name,' ',emp_lastname) like '%{$term}%'")->queryAll();
+                 // emp_status = 'Y' and  emp_deleted = 'N' and
+                    . "WHERE  concat(emp_firstname,' ',emp_middle_name,' ',emp_lastname) like '%{$term}%'")->queryAll();
             return $getall;
 
 
        }
+
+         public function Deletesubordinte($report_id)
+        {
+        	
+            $getall = Yii::app()->db->createCommand(" Delete from hrm_report_to WHERE id=".$report_id)->query();
+            
+        }
+
+        public function Deletesupervisor($report_id)
+        {
+        	
+            $getall = Yii::app()->db->createCommand(" Delete from hrm_report_to WHERE id=".$report_id)->query();
+            
+        }
 
 	/**
 	 * Returns the static model of the specified AR class.

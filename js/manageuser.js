@@ -1,15 +1,11 @@
 var st = "";
 $(document).ready(function(){
-                
-                
+                     
         
                  $('#addnew').click(function(){
                         
-<<<<<<< HEAD
-                       
-=======
-                        alert("asss");
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
+
+
                         location.href=baseurl+"/index.php?r=Manageuser/View";                 
                  });
                 
@@ -17,11 +13,10 @@ $(document).ready(function(){
                st =  $('#example').dataTable( {                                        
                  
                 ajax:        baseurl+"/index.php?r=Manageuser/Userdisplay",
-                deferRender: true,
-                bServerSide: true,
-                dom:         "frtiS",
-                scrollY:     400,
-                scrollCollapse: true,
+                 
+       "serverSide": true,
+       "lengthChange": true,
+        "searching": true
                
                 });
                 
@@ -36,7 +31,44 @@ $(document).ready(function(){
                 }
                         
             );
-                
+
+       $('#userlist').on('click','.status_active',function(){
+
+        $.ajax({
+        
+            type: "POST",
+            url: baseurl+"/index.php?r=Manageuser/StatusChange", 
+            data: { status: "Y",userid:$(this).attr('rel')}
+        
+        })
+        .done(function( msg ) {
+        
+             st.fnDraw();
+        
+        });
+
+
+    });
+
+     $('#userlist').on('click','.status_deactive',function(){
+
+         $.ajax({
+        
+            type: "POST",
+            url: baseurl+"/index.php?r=Manageuser/StatusChange", 
+            data: { status: "N",userid:$(this).attr('rel')}
+        
+        })
+        .done(function( msg ) {
+        
+             st.fnDraw();
+        
+        });
+
+    });
+
+         
+
                 
  });
         function deleteuser(st,rel){
@@ -52,3 +84,5 @@ $(document).ready(function(){
                     }
                 });
         }
+
+

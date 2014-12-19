@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+    $('#joindate').datepicker();
     $('#jobform').validate({
         
         rules:{

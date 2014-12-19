@@ -98,4 +98,7 @@ class HrmUserRole extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+
+	
 }

@@ -111,4 +111,19 @@ class HrmMenuItem extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function getmenu($parent_id,$role_id,$top)
+	{
+
+		$getall = Yii::app()->db->createCommand("SELECT id,parent_id,menu_title,url_extras from hrm_menu_item
+       		Where FIND_IN_SET('$role_id',role_id )>0 and parent_id = $parent_id  and status = '1' and menu_type = '$top' order by order_hint asc ")->queryAll();
+ 
+		
+
+
+        return $getall;
+           
+
+    }
+
 }

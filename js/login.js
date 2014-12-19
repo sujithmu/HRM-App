@@ -1,4 +1,18 @@
 $(document).ready(function(){
+    
+    $('#forgotpass').click(function(){
+
+
+     $('#forgotpassform').show();
+     $('#loginform').hide();
+//loginform 
+    });
+
+     $('#forgotbtn').click(function(){
+        $('#forgotpswdform').submit();   
+    });
+
+
      $('#btnsubmit').click(function(){
          
          $.post(baseurl+"/index.php?r=Loginregister/LoginValidation",{uemail:$('#uemail').val(),upw:$('#upw').val()}).done(function(data)

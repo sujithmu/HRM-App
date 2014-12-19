@@ -1,11 +1,7 @@
 $(document).ready(function(){
-    
-<<<<<<< HEAD
    
 
 
-=======
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
     $.validator.addMethod(
         "regex",
         function(value, element, regexp) {
@@ -44,11 +40,10 @@ $(document).ready(function(){
                             $(form).ajaxSubmit({
                                     
                             success: function(empno){
-<<<<<<< HEAD
+
                                
-=======
-                                alert(empno);
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
+
+
                                 $('#empnumber').val(empno);
                                // var empno =   $('#empnumber').val();
                                  $('#profilealert').fadeIn();
@@ -122,37 +117,20 @@ $(document).ready(function(){
                             $(form).ajaxSubmit({
                                     
                             success: function(empno){
-<<<<<<< HEAD
-                               
+
+                                 getTabs();
                                 $('#empnumber').val(empno);
                                // var empno =   $('#empnumber').val();
                                 $('#profilealert').fadeIn();
                                  setTimeout(
                                  function(){
-                                     
-                                     getTabs();
+                                    
+                                   
                                     
                                  },4000);
                                     
+                                                                    
 
-                                 
-
-
-=======
-                                alert(empno);
-                                $('#empnumber').val(empno);
-                               // var empno =   $('#empnumber').val();
-                                 $('#profilealert').fadeIn();
-                                 setTimeout(
-                                 function(){
-                                     
-                                     $('#profilealert').fadeOut();
-                                 },3000
-                                 
-                
-                 );
-                                    
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
                             }  });
                        
                         
@@ -170,13 +148,15 @@ $(document).ready(function(){
     
     
     
-<<<<<<< HEAD
+
 });
 
 function getTabs(){
 
     $('#profilealert').fadeOut();
+    
                                  $('.tabs-top > li').each(function(){
+
                                    $(this).show();
                                  });
 
@@ -192,6 +172,6 @@ function getTabs(){
 
     
 }
-=======
-});
->>>>>>> 42f330eb744fe1d25bac6a230657af11bb26c84f
+
+
+

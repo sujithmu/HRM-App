@@ -12,14 +12,15 @@
                                                         
                                                     
                                                     
-<div class="box-content nopadding">
+<div class="box-content nopadding" id="userlist">
     <div style="float: right;padding-top: 9px;padding-right: 5px;"><button class="btn btn-success" id="addnew" name="addnew">ADD USER</button></div>
 <table class="table table-hover table-nomargin table-bordered usertable" id="example">
             <thead>
                  
                     <tr>
-                            <th style="width: 5%;">ID</th>
+                            <th style="width: 5%;">Employee ID</th>
                             <th style="width: 25%;">Name</th>
+                            <th style="width: 25%;">Job Title</th>
                             <th style="width: 25%;">Email</th>
                             <th style="width: 10%;">Status</th>
                             <th style="width: 10%;">Member since</th>

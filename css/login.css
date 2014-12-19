@@ -15,7 +15,11 @@ and open the template in the editor.
     margin-left: 31px;
     
 }
-
+ select.ui-datepicker-year {
+   
+    width: 130px !important;
+ }
+       
 .error{
     color:#d21b1b !important;
     border-color: #d21b1b !important;

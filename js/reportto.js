@@ -1,6 +1,8 @@
+var re_sup = '';
+var re_sub = '';
 $(document).ready(function(){
    
-        st =  $('#super_table').dataTable( {                                        
+        re_sup =  $('#super_table').dataTable( {                                        
                  
                 ajax:        {"url":baseurl+"/index.php?r=Manageuser/supervisor",
                                "data":  function ( d ) {
@@ -9,16 +11,18 @@ $(document).ready(function(){
 
                                 // etc
                                  } },
-                deferRender: true,
-                bServerSide: true,
-                dom:         "frtiS",
-                scrollY:     150,
-                scrollCollapse: true,
+              
+                "processing": true,
+                "serverSide": true,
+                paging: false,
+                searching: false,
+                "info": false,
+                "ordering": false
                
                 });
 
 
-        st =  $('#sub_table').dataTable( {                                        
+        re_sub =  $('#sub_table').dataTable( {                                        
                  
                  ajax:        {"url":baseurl+"/index.php?r=Manageuser/subordinate",
                                "data":  function ( d ) {
@@ -27,12 +31,13 @@ $(document).ready(function(){
 
                                 // etc
                                  } },
-                deferRender: true,
-                bServerSide: true,
-                dom:         "frtiS",
-                scrollY:     150,
-                scrollCollapse: true,
                
+                "processing": true,
+                "serverSide": true,
+                 paging: false,
+                 searching: false,
+                 "info": false,
+                  "ordering": false 
                 });
 
 
@@ -77,7 +82,38 @@ $(document).ready(function(){
 
     });
 
+     $('#report').on('click','.supremove',function(){
 
+
+       $.ajax({
+         type:"POST",
+         url:baseurl+"/index.php?r=Manageuser/Deletesupervisor",
+         data:{report_id:$(this).attr('rel')}
+       }).done(function(msg)
+       {
+           
+           re_sup.fnDraw();
+                             
+       });  
+
+     });
+
+
+      $('#report').on('click','.subremove',function(){
+
+
+       $.ajax({
+         type:"POST",
+         url:baseurl+"/index.php?r=Manageuser/Deletesubordinate",
+         data:{report_id:$(this).attr('rel')}
+       }).done(function(msg)
+       {
+           
+           re_sub.fnDraw();
+                             
+       });  
+
+     });
    
 
     
@@ -115,7 +151,7 @@ $(document).ready(function(){
                    required:"Employee Name required", 
                    validempname:"Please Select a Valid Employee Name", 
                    ordercheck:"Please Select an order number"
-                          },
+                          },  
                     
                     submitHandler: function(form) 
                         {
@@ -129,6 +165,8 @@ $(document).ready(function(){
                                  function(){
                                      
                                      $('#reportalert').fadeOut();
+                                      re_sub.fnDraw();
+                                      re_sup.fnDraw();
                                  },3000
                                                 
                                      );

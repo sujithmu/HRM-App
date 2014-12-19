@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/plugins/chosen/chosen.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/login.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/plugins/datepicker/datepicker.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.dataTables.css" media="screen, projection" />
         
         
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js" type="text/javascript"></script>
@@ -43,14 +44,12 @@
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/fileupload/bootstrap-fileupload.min.js" type="text/javascript"></script>
         
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/chosen/chosen.jquery.min.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/eakroko.min.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/application.min.js" type="text/javascript"></script>
         
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/ckeditor/ckeditor.js" type="text/javascript"></script>
+
         
         
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/dataTables.scroller.js" type="text/javascript"></script>
         
         
         
@@ -74,85 +73,26 @@
 <body>
     		<div id="navigation">
 			<div class="container-fluid">
-				<a href="#" id="brand">FLAT</a>
-				<a href="#" class="toggle-nav" rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+				<a href="#" id="brand">HRM</a>
+				<a href="#"  rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
 
-         
-                       
+         		<ul id="yw0" class="main-nav">
+				<?php 
+
+				$session=new CHttpSession;
+             	$session->open();
+             
+				$myInfo = Yii::app()->menu->getMenu(0, $session['user_role']); 
+				
+
+				?>
+					
+				
+
+				</ul> 
                       
                                         
-                      <?php $this->widget('zii.widgets.CMenu', array(
-                'items' => array(
-                    array(
-                        'label' => '<span class="username">Admin</span> <i class="icon-angle-down"></i>',
-                        'url' => '#',
-                        'linkOptions'=> array(
-                            'class' => 'dropdown-toggle',
-                            'data-toggle' => 'dropdown',
-                            ),
-                        'itemOptions' => array('class'=>'dropdown user'),
-                        'items' => array(
-                            array(
-                                'label' => 'Manage Users',
-                                'url' => '#',
-                            ),
-                            array(
-                                'label' => 'Add Users',
-                                'url' => "#",
-                            ),
-                            /*array(
-                                'label' => 'Manage Skills',
-                                'url' => '#',
-                            ),
-                            array(
-                                'label' => 'Manage Education',
-                                'url' => '#',
-                            ),
-                            array(
-                                'label' => '',
-                                array(
-                                    'class' => 'divider',
-                                )
-                            ),
-                            array(
-                                'label' => 'Manage Email',
-                                'url' => '#',
-                            ),*/
-                        )
-                    ),
-                    
-                    array(
-                        'label' => '<span class="username">Employee</span> <i class="icon-angle-down"></i>',
-                        'url' => '#',
-                        'linkOptions'=> array(
-                            'class' => 'dropdown-toggle',
-                            'data-toggle' => 'dropdown',
-                            ),
-                        'itemOptions' => array('class'=>'dropdown user'),
-                        'items' => array(
-                            array(
-                                'label' => 'Manage Employee',
-                                'url' => '#'
-                            ),
-                            array(
-                                'label' => 'Reports',
-                                'url' => '#',
-                            ),
-                            
-                        )
-                    ),
-                    
-                    
-                    
-                ),
-                'encodeLabel' => false,
-                'htmlOptions' => array(
-                    'class'=>'main-nav',
-                        ),
-                'submenuHtmlOptions' => array(
-                    'class' => 'dropdown-menu',
-                )
-            ));?>         
+                      
                                 
                                 
                                                    
@@ -163,7 +103,7 @@
                                 
 				<div class="user">
 					<ul class="icon-nav">
-						<li class='dropdown'>
+						<!--<li class='dropdown'>
 							<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
 							<ul class="dropdown-menu pull-right message-ul">
 								<li>
@@ -207,9 +147,9 @@
 									<a href="components-messages.html" class='more-messages'>Go to Message center <i class="icon-arrow-right"></i></a>
 								</li>
 							</ul>
-						</li>
+						</li>-->
 
-						<li class="dropdown sett">
+						<!--<li class="dropdown sett">
 							<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-cog"></i></a>
 							<ul class="dropdown-menu pull-right theme-settings">
 								<li>
@@ -234,34 +174,9 @@
 									</div>
 								</li>
 							</ul>
-						</li>
-						<li class='dropdown colo'>
-							<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-tint"></i></a>
-							<ul class="dropdown-menu pull-right theme-colors">
-								<li class="subtitle">
-									Predefined colors
-								</li>
-								<li>
-									<span class='red'></span>
-									<span class='orange'></span>
-									<span class='green'></span>
-									<span class="brown"></span>
-									<span class="blue"></span>
-									<span class='lime'></span>
-									<span class="teal"></span>
-									<span class="purple"></span>
-									<span class="pink"></span>
-									<span class="magenta"></span>
-									<span class="grey"></span>
-									<span class="darkblue"></span>
-									<span class="lightred"></span>
-									<span class="lightgrey"></span>
-									<span class="satblue"></span>
-									<span class="satgreen"></span>
-								</li>
-							</ul>
-						</li>
-						<li class='dropdown language-select'>
+						</li>-->
+						
+						<!--<li class='dropdown language-select'>
 						<a href="#" class='dropdown-toggle' data-toggle="dropdown"><img src="img/demo/flags/us.gif" alt=""><span>US</span></a>
 						<ul class="dropdown-menu pull-right">
 							<li>
@@ -277,22 +192,42 @@
 								<a href="#"><img src="img/demo/flags/fr.gif" alt=""><span>France</span></a>
 							</li>
 						</ul>
-					</li>
+					</li>-->
 					</ul>
 					<div class="dropdown">
-						<a href="#" class='dropdown-toggle' data-toggle="dropdown">John Doe <img src="img/demo/user-avatar.jpg" alt=""></a>
+						<?php  
+							$session=new CHttpSession;
+               				 $session->open();
+
+							if(file_exists(Yii::app()->request->baseUrl.'/profilepictures/thumpimg-'.$session['memberid'].'.jpg'))
+							{
+								$thumpimage = Yii::app()->request->baseUrl.'/profilepictures/thumpimg-'.$session['memberid'].'.jpg';
+							}
+							else{
+								$thumpimage = Yii::app()->request->baseUrl.'/profilepictures/default.jpg';
+							}
+							
+						?>
+						<a  href="#" class='dropdown-toggle' data-toggle="dropdown"><?php echo $session['name'];?> <img src="<?php echo $thumpimage;?>" alt="" width="30"></a>
 						<ul class="dropdown-menu pull-right">
 							<li>
-								<a href="more-userprofile.html">Edit profile</a>
+							<?php if ($session['user_role'] == 1 or $session['user_role'] == 2){ ?>
+								<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php?r=Manageuser/View&emp_number=<?php echo $session['memberid']; ?>">Edit profile</a>
+							<?php }else{ ?>
+								<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php?r=Manageuser/View">Edit profile</a>
+							<?php	} ?>
 							</li>
 							<li>
-								<a href="#">Account settings</a>
+								<a href="javascript:void(0);" id="changepswdlink">Change Password</a>
 							</li>
 							<li>
-								<a href="more-login.html">Sign out</a>
+								<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php?r=Loginregister/Logout">Sign out</a>
 							</li>
 						</ul>
 					</div>
+
+					
+					
 				</div>
 			</div>
 		</div>
@@ -326,5 +261,48 @@
     
     
 </body>
+
+ <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Updatepassword" id="changepswdform" method="POST" class="form-horizontal">
+        <div class="span6">
+            <div style="display:none;" class="modal fade popup" id="changepswdmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+
+                        </button>
+                        <h4 class="modal-title" id="otherlabel">Change Password</h4>
+                      </div>
+                      <div class="modal-body">
+                         <div class="control-group">
+                            <label for="pswd" class="control-label right span4">New Password:</label>
+                            <div class="controls span6">
+                                <input type="password" id="newpassword" name="newpassword" class="input-xlarge" value="">
+                            </div>
+                         </div>
+                         <div class="control-group">
+                            <label for="pswd" class="control-label right span4">Confirm Password:</label>
+                            <div class="controls span6">
+                                <input type="password" id="confirmpassword" name="confirmpassword" class="input-xlarge" value="">
+                            </div>
+                         </div>
+                      </div>
+                      <div class="modal-footer">
+                         <input type="button" id="passwordbtn" name="passwordbtn" class='btn btn-primary' value="Save">
+                         <input type="reset" class='btn' value="Discard changes">
+                         <div class="alert alert-success span4" id="passwordalert" style="display: none;">
+                                <button data-dismiss="alert" class="close" type="button"></button>
+                                <strong>Success!</strong>
+                         </div>
+                      </div>
+                    </div> 
+                </div>
+            </div> 
+        </div> 
+    </form>
+
 </html>
+
+ <script src="js/common.js"></script>
 

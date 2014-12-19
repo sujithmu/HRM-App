@@ -43,6 +43,18 @@ return array(
                 'red'=>array(
                      'class' => 'application.extensions.Redirect.redirect',
                 ),
+                'menu'=>array(
+                     'class' => 'application.extensions.menu.menu',
+                ),
+                 'Smtpmail'=>array(
+                    'class'=>'application.extensions.smtpmail.PHPMailer',
+                    'Host'=>"smtp.sendgrid.net",
+                    'Username'=>'netstratum',
+                    'Password'=>'asdf123!@#',
+                    'Mailer'=>'smtp',
+                    'Port'=>25,
+                    'SMTPAuth'=>true, 
+                ),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(

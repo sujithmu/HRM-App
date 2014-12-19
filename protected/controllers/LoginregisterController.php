@@ -9,22 +9,29 @@ class LoginregisterController extends Controller
         
         public function actionLogin()
         {   
-                #$session=new CHttpSession;
+               $session=new CHttpSession;
 
-                #$session->open();
-                #echo $session['id'];
-                $this->layout = '//layouts/loginlayout';
+               $session->open();
+              if (isset($session['memberid']))
+                 header('Location:'.Yii::app()->getBaseUrl(TRUE)."/index.php"); // to redirect to index if loggedin
+                
+                $this->layout = '/layouts/loginlayout';
                 $this->render('login');
             
                                               
         }
         public function actionLoginValidation()
-        {
+        {      
                 $record = new HrmUserMaster();
+
                 $pass = crypt($_REQUEST['upw'],Yii::app()->params['encrptpass']);
-                $store = $record->findByAttributes(array('user_name'=>$_REQUEST['uemail'],'user_password'=>$pass,'status'=>'Y'));
+                #$store = $record->findByAttributes(array('user_name'=>$_REQUEST['uemail'],'user_password'=>$pass,'status'=>'Y'));
                 #print_r($store);
-                if (count($store)>0){
+                
+                $store = $record->getUsercheck($_REQUEST['uemail'],$pass);
+               
+
+                if ($store['id']>0){
                 #$add = new HrmLoginHistory();
                 #$add->attributes=$_POST;
                 #$add->save();
@@ -33,15 +40,17 @@ class LoginregisterController extends Controller
                 
                 $session=new CHttpSession;
                 $session->open();
-                $session['memberid']=$store->id;
-                $session['empnumber']=$store->emp_number;
-                $session['user_role']=$store->user_role_id;
-                $session['username']=$store->user_name;
+                $session['memberid']=$store['id'];
+                $session['empnumber']=$store['emp_number'];
+                $session['user_role']=$store['user_role_id'];
+                $session['username']=$store['user_name'];
+                $session['name']=$store['name'];
+                
                 #echo $session['id'];               
                 
                 $add = new HrmLoginHistory();
-                $add->user_id=$store->id;
-                $add->user_name=$store->user_name;
+                $add->user_id=$store['id'];
+                $add->user_name=$store['user_name'];
                 $add->login_time=date('Y:m:d H:i:s');
                 
                 $add->ip_address=Yii::app()->request->getUserHostAddress();
@@ -57,7 +66,16 @@ class LoginregisterController extends Controller
         }
         
         
-        
+        public function actionLogout(){
+
+            $session=new CHttpSession;
+            $session->open();
+
+            unset(Yii::app()->session['memberid'],Yii::app()->session['empnumber'],Yii::app()->session['user_role'],Yii::app()->session['username'],Yii::app()->session['name']);
+             Yii::app()->session->clear();
+            Yii::app()->session->destroy();
+            $this->redirect(Yii::app()->getBaseUrl(TRUE)."/index.php?r=Loginregister/Login");
+        }
 
 
 

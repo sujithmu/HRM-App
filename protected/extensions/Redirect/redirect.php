@@ -26,17 +26,33 @@ class redirect extends CApplicationComponent
         $session->open();
         if (!isset($session['memberid']))
             {
-           #echo Yii::app()->getBaseUrl(TRUE)."/index.php?r=Loginregister/Login";
-           #exit();
-           # $this->redirect(array("Loginregister/Login"));
+
+          
+           // $this->redirect('Loginregister/Login');
            # echo "asfdf";
-           # header('Location:/index.php?r=Loginregister/Login');
+          header('Location:'.Yii::app()->getBaseUrl(TRUE)."/index.php?r=Loginregister/Login");
             
             
         }
         
         
     }
+
+    public function ajax_redirect(){
+        
+        $session = new CHttpSession;
+        $session->open();
+        if (!isset($session['memberid']))
+        {
+
+           echo "sess_fail";
+           exit;
+            
+        }
+        
+        
+    }
+
 }
 
 ?>
