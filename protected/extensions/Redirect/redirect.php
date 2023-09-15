@@ -31,7 +31,7 @@ class redirect extends CApplicationComponent
            // $this->redirect('Loginregister/Login');
            # echo "asfdf";
           header('Location:'.Yii::app()->getBaseUrl(TRUE)."/index.php?r=Loginregister/Login");
-            
+            exit;
             
         }
         

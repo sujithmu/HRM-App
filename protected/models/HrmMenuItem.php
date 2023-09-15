@@ -116,14 +116,24 @@ class HrmMenuItem extends CActiveRecord
 	{
 
 		$getall = Yii::app()->db->createCommand("SELECT id,parent_id,menu_title,url_extras from hrm_menu_item
-       		Where FIND_IN_SET('$role_id',role_id )>0 and parent_id = $parent_id  and status = '1' and menu_type = '$top' order by order_hint asc ")->queryAll();
- 
-		
-
-
+       		Where FIND_IN_SET('$role_id',role_id )>0 and parent_id = $parent_id  and status = '1' and menu_type = '$top' order by order_hint asc ")->queryAll();		
         return $getall;
-           
+        }
+        
+         public function getmenu_app($parent_id,$role_id,$top)
+	{
 
-    }
+        $getall = Yii::app()->db->createCommand("SELECT id,parent_id,menu_title,url_extras,children from hrm_menu_item
+        Where FIND_IN_SET('$role_id',role_id )>0 and parent_id = $parent_id  and status = '1' and menu_type = '$top' order by order_hint asc ")->queryAll();		
+        return $getall;
+        }
+        
+        
+//        public function getfooter_app($empno)
+//        {
+//            $getfooter = Yii::app()->db->createCommand("SELECT a.id,a.menu_title,a.url_extras,b.user_role_id from hrm_menu_item a INNER JOIN hrm_user_master b ON b.emp_number = '$empno'")->queryAll();
+//            return $getfooter;
+//        }
+//        
 
 }

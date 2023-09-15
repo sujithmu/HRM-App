@@ -5,18 +5,17 @@
                 <div class="box box-color box-bordered">
                     <div class="box-title">
                         <h3>
-                            EMAIL TEMPLATE
+                            Email Template
                         </h3>
                     </div>
                     <div class="box-content nopadding">
                         <table class="table table-hover table-nomargin table-bordered usertable" id="emailtable">
                             <thead>
                                 <tr>
-                                    <th style="width: 5%;">ID</th>
-                                    <th style="width: 15%;">FROM ADDRESS</th>
-                                    <th style="width: 15%;">BCC</th>
-                                    <th style="width: 15%;">DISPLAY NAME</th>
-                                    <th style="width: 20%;">CONTENT</th>
+                                    
+                                    <th style="width: 25%;">From Address</th>
+                                    <th style="width: 25%;">Bcc</th>
+                                    <th style="width: 25%;">Display Name</th>
                                     <th class='hidden-480'>Options</th>
                                 </tr>
                             </thead>
@@ -52,6 +51,12 @@
                                             <label for="mail" class="control-label right span4">BCC Mail:</label>
                                             <div class="controls span6">
                                                 <input type="text" id="bccmail" name="bccmail" class="" value="">
+                                            </div>
+                                        </div>   
+                                        <div class="control-group">
+                                            <label for="mail" class="control-label right span4">Subject:</label>
+                                            <div class="controls span6">
+                                                <textarea  cols="50" rows="4" style="width:205px;" id="subjectmail" name="subjectmail" class="" value=""></textarea> 
                                             </div>
                                         </div>                                        
                                     </div>

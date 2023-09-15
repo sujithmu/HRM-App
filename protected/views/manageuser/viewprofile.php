@@ -11,21 +11,21 @@
             
             <div class="row-fluid">
                 <div class="span12 prof">
-                    <div class="box box-color box-bordered">
-                        <div class="box-title">
+                    <div class="box box-color box-bordered leavecolor">
+                        <div class="box-title leavecolor">
                             <h3>
                                 <i class="icon-user"></i>
                                 Edit user profile
                             </h3>
                         </div>
-                        <div class="box-content nopadding">
+                        <div class="box-content nopadding bordercolor">
                         <ul class="tabs tabs-inline tabs-top">
                              <li class='active' >
                                  <a href="#profile" data-toggle='tab'><i class="icon-user"></i> Profile</a>
                              </li>
-                                <li  <?php if ($_REQUEST['emp_number']=='' and $user_role<3){?>style="display:none;"<?php }?>>
+                            <li  <?php if ($_REQUEST['emp_number']=='' and $user_role<3){?>style="display:none;"<?php }?>>
                                 <a href="#econtact" data-toggle='tab'>Emergency Contact</a>
-            </li>
+                            </li>
                          <li <?php if ($_REQUEST['emp_number']=='' and $user_role<3){?>style="display:none;"<?php }?>>
                             <a href="#dependent" data-toggle='tab'>Dependency</a>
             </li>
@@ -34,6 +34,10 @@
             </li>
                         <li <?php if ($_REQUEST['emp_number']=='' and $user_role<3){?>style="display:none;"<?php }?>>
                             <a href="#report" data-toggle='tab'>Report To</a>
+            </li>
+
+            <li <?php if ($_REQUEST['emp_number']=='' or $user_role>2){?>style="display:none;"<?php }?>>
+                          <a href="#leavedays" data-toggle='tab'>Add Week Holidays</a>
             </li>
                      <!--   <li>
                             <a href="#salary" data-toggle='tab'>Salary</a>
@@ -53,15 +57,16 @@
         <div class="span2">
         <div class="fileupload fileupload-new" data-provides="fileupload">
                 <div class="fileupload-new thumbnail" style="max-width: 100px; max-height: 150px;">
-                    <?php 
-                    if(file_exists(Yii::app()->request->baseUrl.'/profilepictures/main-'.$editddata['userid'].'jpg'))
+                    <?php
+//                     $dateadded = date('Y-m-d');
+                    if(file_exists('profilepictures/main-'.$editddata['userid'].'.jpg') and $editddata['userid']>0)
                     {
-                        $im = Yii::app()->request->baseUrl.'/profilepictures/main-'.$editddata['userid'].'.jpg';
+                        $im = Yii::app()->request->baseUrl.'/profilepictures/main-'.$editddata['userid'].'.jpg?'.time();
                         
                     }
                     else
                     {                            
-                        $im = Yii::app()->request->baseUrl.'/profilepictures/default.jpg';
+                        $im = Yii::app()->request->baseUrl.'/profilepictures/default.jpg?'.time();
                     }
                     ?>
                     <img src="<?php echo $im ;?>" />
@@ -113,12 +118,31 @@
                                                 <input type="text" id="lname" name="lname" class='input-xlarge' value="<?php  echo $editddata['emp_lastname'];?>">
                                             </div>
                                     </div>
+                                      <div class="control-group">
+                                            <label for="pw" class="control-label right">Date of Birth:  </label>
+                                            <div class="controls">
+                                                <input type="text" id="emp_dob" name="emp_dob" class='input-xlarge' value="<?php  if ($editddata['emp_dob']!='0000-00-00' and $editddata['emp_dob']!='' ){echo date('m/d/Y',strtotime($editddata['emp_dob'])); }?>">
+                                                    
+                                            </div>
+                                    </div>
+                                    <div class="control-group">
+                                            <label for="phone" class="control-label right">Mobile Number:  </label>
+                                            <div class="controls">
+                                                <input type="text" id="mobilenumber" name="mobilenumber" class='input-xlarge' value="<?php  echo $editddata['mobile_number'];?>">
+                                            </div>
+                                    </div>
                                 <?php 
                                     if($emp_number=="")
                                     {
                                         
                                     ?>
-                                
+                                     <div class="control-group">
+                                            <label for="email" class="control-label right">Gender: * </label>
+                                            <div class="controls">
+                                            <div style="float:left;padding:5px;">   <input type="radio" id="gender1" name="gender"  class='input-xlarge' value="M" <?php  if($editddata['emp_gender']=='M'){echo "checked=checked";}?>> </div>  <label style="padding:5px;float:left;"> Male</label> <div style="float:left;margin-left:10px;padding:5px;"><input type="radio" id="gender2" name="gender"  class='input-xlarge' value="F" <?php  if($editddata['emp_gender']=='F'){echo "checked=checked";}?>></div> <label style="padding:5px;float:left;">Female</label>
+                                               <div id="emp_gender" style="padding-top:5px;padding-left:20px;"> </div>    
+                                            </div>
+                                    </div>
                                     <div class="control-group">
                                             <label for="email" class="control-label right">Username: * </label>
                                             <div class="controls">
@@ -142,6 +166,15 @@
                                     </div>
                                     <?php }  
                                     if ($user_role==1 or $user_role==2){    ?>
+
+                                    <div class="control-group">
+                                            <label for="pw" class="control-label right">Employee Id:  </label>
+                                            <div class="controls">
+                                                <input type="text" id="employee_id" name="employee_id" class='input-xlarge' value="<?php  echo $editddata['employee_id'];?>">
+                                                    
+                                            </div>
+                                    </div>
+                                    
                                     <div class="control-group">
                                             <label for="stat" class="control-label right">Status:</label>
                                             
@@ -166,7 +199,7 @@
                                 
                                 <div class="alert alert-success span8" id="profilealert" style="display: none;">
                                         <button data-dismiss="alert" class="close" type="button"></button>
-                                        <strong>          Success!</strong>
+                                        <strong><span id="disp_message"> Success!</span></strong>
                                 </div>
                                 
                                     </div>
@@ -274,7 +307,7 @@
                             </div>
                                <div class="alert alert-success span8" id="contactalert" style="display: none;">
                                         <button data-dismiss="alert" class="close" type="button"></button>
-                                        <strong>          Success!</strong>
+                                        <strong><span id="contact_message">Success!</span></strong>
                                 </div>
                           </div>                                                                                               
                     </form>
@@ -332,11 +365,11 @@
                        
                     <div class="form-actions">
                         <input type="button" id="depbutton" name="depbutton" class='btn btn-primary' value="Save">
-                        <input type="reset" class='btn' value="Discard changes">
+                        <input type="reset" class='btn' value="Discard changes" id="depreset">
                     </div>   
-                    <div class="alert alert-success span8" id="dependentalert" style="display: none;">
+                    <div class="alert alert-success span12" id="dependentalert" style="display: none;">
                                         <button data-dismiss="alert" class="close" type="button"></button>
-                                        <strong>          Success!</strong>
+                                        <strong><span id="dependency_message">Success!</span></strong>
                     </div>
                         
                   </div>    
@@ -402,7 +435,7 @@
                                                         CHtml::listData(HrmJobTitle::model()->findAll(),'id','job_title'),
                                                         array(
                                                             'class'=>'input-xlarge',
-                                                            'empty' => '--select--',
+                                                            'empty' => '--Select--',
                                                             )
                                                         ); 
 
@@ -425,24 +458,28 @@
                                     <div class="controls">
                                    
                                         <select required="" name="estatus" id="estatus" class="input-xlarge">
-                                                    <option value="">--select--</option>
-                                                    <option value="1" <?php if($editddata['job_status']=='1')echo 'selected="selected"';?>>Worker</option>
-                                                    <option value="2" <?php if($editddata['job_status']=='2')echo 'selected="selected"';?>>Employee</option>
-                                                    <option value="3" <?php if($editddata['job_status']=='3')echo 'selected="selected"';?>>Self-Employed</option>
+                                                    <option value="">--Select--</option>
+                                                    <option value="1" <?php if($editddata['job_status']=='1')echo 'selected="selected"';?>>Probation</option>
+                                                    <option value="2" <?php if($editddata['job_status']=='2')echo 'selected="selected"';?>>Part time</option>
+                                                    <option value="3" <?php if($editddata['job_status']=='3')echo 'selected="selected"';?>>Full time</option>
+                                                    <option value="4" <?php if($editddata['job_status']=='4')echo 'selected="selected"';?>>Remote</option>
+                                                    <option value="5" <?php if($editddata['job_status']=='5')echo 'selected="selected"';?>>Consultant</option>
                                                     
                                                 </select>                                                                                                
                                        
                                     </div>
                                      <?php }else{ ?>
                                     <div class="controls pd">
-                                      <?php   if($editddata['job_status']=='1')echo 'Worker';
-                                        elseif($editddata['job_status']=='2')echo 'Employee';
-                                        elseif($editddata['job_status']=='3')echo 'Self-Employed'; ?>
+                                      <?php   if($editddata['job_status']=='1')echo 'Probation';
+                                        elseif($editddata['job_status']=='2')echo 'Part time';
+                                        elseif($editddata['job_status']=='3')echo 'Full time';
+                                        elseif($editddata['job_status']=='4')echo 'Remote'; 
+                                        elseif($editddata['job_status']=='5')echo 'Consultant';  ?>
                                          </div>
                                    <?php  }?>
                         </div>
                         <div class="control-group">
-                                    <label for="job" class="control-label right">Job Category:</label>
+                                    <label for="job" class="control-label right">Team:</label>
                                      <?php 
                                           if ($user_role == 1 or $user_role == 2){?>
                                     <div class="controls" id="jcategory">
@@ -459,7 +496,7 @@
                                                         CHtml::listData(HrmJobCategory::model()->findAll(),'id','job_category'),
                                                         array(
                                                             'class'=>'input-xlarge',
-                                                             'empty'=>'--please select--',
+                                                             'empty'=>'--Select--',
                                                             )
                                                         ); 
                                                         ?>
@@ -506,7 +543,7 @@
                         </div>
                         <div class="alert alert-success span8" id="jobalert" style="display: none;">
                                         <button data-dismiss="alert" class="close" type="button"></button>
-                                        <strong>          Success!</strong>
+                                        <strong><span id="job_message"></span></strong>
                         </div>
 
                         <?php } ?>
@@ -519,7 +556,34 @@
                 
             </div>
             
-
+            <div class="tab-pane" id="leavedays">
+                <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Manageuser/Leavedays" class="form-horizontal" id="leavedayform" method="POST" class="form-horizontal">
+                    <div class="span5">
+                        <div class="control-group">
+                            <label for="leave" class="control-label right">Select Week Holidays:</label>
+                            <div class="controls">
+                                <select required="" name="leavelistbox[]" id="leavelistbox" size=7 multiple>                                    
+                                    <option value='1' <?php if(in_array("1", $getleavedata)){?> selected="selected" <?php }  ?>>Monday</option>                                    
+                                    <option value='2' <?php if(in_array("2", $getleavedata)){?> selected="selected" <?php } ?>>Tuesday</option>
+                                    <option value='3' <?php if(in_array("3", $getleavedata)){?> selected="selected" <?php } ?>>Wednesday</option>
+                                    <option value='4' <?php if(in_array("4", $getleavedata)){?> selected="selected" <?php } ?>>Thursday</option>
+                                    <option value='5' <?php if(in_array("5", $getleavedata)){?> selected="selected" <?php } ?>>Friday</option>
+                                    <option value='6' <?php if(in_array("6", $getleavedata)){?> selected="selected" <?php } ?>>Saturday</option>
+                                    <option value='7' <?php if(in_array("7", $getleavedata)){?> selected="selected" <?php } ?>>Sunday</option>
+                                </select>                           
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <input type="button" id="leavebtn" name="leavebtn" class='btn btn-primary' value="Save">
+                            <input type="reset" class='btn' value="Unselect">
+                        </div> 
+                        <div class="alert alert-success span8" id="leaveformalert" style="display: none;">
+                            <button data-dismiss="alert" class="close" type="button"></button>
+                            <strong><span id="leaveday_message">Success!</span></strong>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
             <div class="tab-pane" id="report">
                  <?php if ($user_role==1 or $user_role==2){?>
@@ -569,11 +633,11 @@
                         
                         <div class="form-actions">
                             <input type="button" id="reportbutton" name="reportbutton" class='btn btn-primary' value="Save">
-                            <input type="reset" class='btn' value="Discard changes">
+                            <input type="reset" class='btn' value="Discard changes" id="report_reset">
                         </div>
                         <div class="alert alert-success span8" id="reportalert" style="display: none;">
                                         <button data-dismiss="alert" class="close" type="button"></button>
-                                        <strong>          Success!</strong>
+                                        <strong><span id="report_message">Success!</span></strong>
                         </div>
                         
                     </div>
@@ -602,7 +666,9 @@
                             <th style="width: 40%;">Name</th>
                         
                             <th style="width: 20%;">Leave Approval Needed?</th>
+                            <?php if ($user_role==1 or $user_role==2){?>
                             <th class='hidden-480'>Options</th>
+                            <?php } ?>
                     </tr>
             </thead>
             <!--
@@ -653,7 +719,9 @@
                             <th style="width: 25%;">Name</th>
                             
                          
+                            <?php if ($user_role==1 or $user_role==2){?>
                             <th class='hidden-480'>Options</th>
+                            <?php } ?>
                     </tr>
             </thead>
             <!--
@@ -753,6 +821,9 @@
         
                         </div>
                 </div>
+
+
+
     
 </body>
 <script type="text/javascript">
@@ -768,3 +839,5 @@
 <script src="js/job.js"></script>
 <script src="js/salary.js"></script>
 <script src="js/reportto.js"></script>
+<script src="js/leavedays.js"></script>
+

@@ -1,6 +1,33 @@
+var dep = '';
 $(document).ready(function(){
    
+     dep =  $('#dependent_table').dataTable( {                                        
+                 
+                ajax:        {"url":baseurl+"/index.php?r=Manageuser/Dependentlist",
+                               "data":  function ( d ) {
+                              
+                                 d.emp_number = $('#empnumber').val();
 
+                                // etc
+                                 } },
+              
+                "processing": true,
+                "serverSide": true,
+                "paging":false,
+                "searching": false,
+                "pageLength":false,
+                 "ordering": false, 
+                    "info": false,
+                });
+    var d = new Date();
+var n = d.getFullYear(); 
+     $('#emp_dob').datepicker({ changeMonth: true,changeYear: true,yearRange: '1940:'+n});
+     $('#emp_dob').click(function(){
+        $('.ui-datepicker-year').css( 'width','80px');
+        $('.ui-datepicker-month').css( 'width','80px');
+      
+
+     });
 
     $.validator.addMethod(
         "regex",
@@ -34,22 +61,24 @@ $(document).ready(function(){
                         lname:"Please enter your lastname",
                         
                 },
-                      submitHandler: function(form) 
+                      submitHandler: function(form)
                         {
-                                              
+                            $('#sbtn').prop("disabled", true);
+                            $('#sbtn').val("Saving...");               
                             $(form).ajaxSubmit({
                                     
                             success: function(empno){
-
                                
 
-
                                 $('#empnumber').val(empno);
+                                dep.fnDraw();
                                // var empno =   $('#empnumber').val();
+                                 $('#disp_message').html('Profile information updated successfully');
                                  $('#profilealert').fadeIn();
                                  setTimeout(
                                  function(){
-                                     
+                                       $('#sbtn').prop("disabled", '');
+                                     $('#sbtn').val("Save"); 
                                      $('#profilealert').fadeOut();
                                  },3000
                                  
@@ -75,6 +104,7 @@ $(document).ready(function(){
                         lname:{required:true,
                                regex:"^[a-zA-Z'.\\s]{1,40}$",
                             },
+                        gender:{required:true},
                                                 
                         uname:  {
                                 required:true,
@@ -96,6 +126,7 @@ $(document).ready(function(){
                 messages:{
                         fname:"Please enter your firstname",
                         lname:"Please enter your lastname",
+                        gender:"Please select your gender",
                         uname:{
                                 required: "Please enter a username",
                                 minlength: "Your username must consist of at least 2 characters",
@@ -111,21 +142,39 @@ $(document).ready(function(){
                                  equalTo: "Please enter the same password as above"   
                         },
                 },
+                   
+                errorPlacement: function (error, element) {
+            if(element.attr("name") =='gender'){
+            error.insertAfter($("#emp_gender"));
+            error.css('padding-left','190px');
+            }else{
+           error.insertAfter(element);
+            }
+          
+       
+    
+},
                       submitHandler: function(form) 
                         {
-                                              
+                             $('#sbtn').prop("disabled", true);
+                            $('#sbtn').val("Saving...");                       
                             $(form).ajaxSubmit({
                                     
                             success: function(empno){
-
-                                 getTabs();
+                                
+                                 
                                 $('#empnumber').val(empno);
+                                 dep.fnDraw();
                                // var empno =   $('#empnumber').val();
-                                $('#profilealert').fadeIn();
+                                
+                                 $('#disp_message').html('User has been registered successfully');
+                                 $('#profilealert').fadeIn();
                                  setTimeout(
                                  function(){
-                                    
-                                   
+                                    getTabs();
+                                      $('#sbtn').prop("disabled", '');
+                                     $('#sbtn').val("Save"); 
+                                     $('#profilealert').fadeOut();
                                     
                                  },4000);
                                     

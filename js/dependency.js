@@ -1,7 +1,8 @@
 $(document).ready(function(){
-    var dep = '';
-
-     $('#dateofbirth').datepicker({ changeYear: true});
+    
+    var d = new Date();
+    var n = d.getFullYear(); 
+     $('#dateofbirth').datepicker({ changeMonth: true,changeYear: true,yearRange: '1920:'+n});
      $('#dateofbirth').click(function(){
         $('.ui-datepicker-year').css( 'width','80px');
 
@@ -21,24 +22,7 @@ $(document).ready(function(){
     
     });
     
-     dep =  $('#dependent_table').dataTable( {                                        
-                 
-                ajax:        {"url":baseurl+"/index.php?r=Manageuser/Dependentlist",
-                               "data":  function ( d ) {
-                               
-                                 d.emp_number = $('#empnumber').val();
-
-                                // etc
-                                 } },
-              
-                "processing": true,
-                "serverSide": true,
-                "paging":false,
-                "searching": false,
-                "pageLength":false,
-                 "ordering": false, 
-                    "info": false,
-                });
+    
 
     $('#dependent_div').on('click','.depremove',function(){
 
@@ -73,20 +57,26 @@ $(document).ready(function(){
                     
                     submitHandler: function(form) 
                         {
-                                              
+                            $('#depbutton').prop("disabled", true);
+                            $('#depbutton').val("Saving...");        
+
                             $(form).ajaxSubmit({
                                     data:{empnumber:$('#empnumber').val()},
                                     
                             success: function(){
                                  $('#dependentalert').fadeIn();
+                                 $('#dependency_message').html('Dependency information added successfully');
                                  setTimeout(
                                  function(){
-                                     
+                                     $('#depbutton').prop("disabled", '');
+                            $('#depbutton').val("Save");
+                               $('#depreset').trigger('click');
+                                 dep.fnDraw();
                                      $('#dependentalert').fadeOut();
                                  },3000
                                                 
                                      );
-                                 dep.fnDraw();
+                              
                                      }  });
                        
                         

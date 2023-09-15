@@ -101,6 +101,13 @@ class HrmEmployeeLeave1 extends CActiveRecord
 	}
     
 
+	public function deleteEmpLeaveCron($empid){
+
+		$getall = Yii::app()->db->createCommand("delete from hrm_employee_leave where emp_number = '{$empid}' " )->query();
+           
+
+	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

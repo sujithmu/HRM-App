@@ -16,19 +16,32 @@ $(document).ready(function(){
         
         submitHandler: function(form) 
                         {                            
+                            
+                            $('#popupbtn').prop("disabled", true);
+                            $('#popupbtn').val("Saving...");        
+
                             $(form).ajaxSubmit({                                                        
-                            success: function(){                                                               
+                            success: function(){       
+                                    
+                                $('#popup_leave_mess').html('You have added the leave successfully');                                                    
                                  $('#leavealert').fadeIn();
                                  setTimeout(
-                                 function(){                                     
+                                 function(){   
+                                     $('#popupbtn').val("Save");                                    
                                      $('#leavealert').fadeOut();
+                                      $('#popupbtn').prop("disabled", '');
+                                     
+                                     $('#myModal').modal("hide"); 
+                             leavetable.fnDraw();
+
+                             $('#leavename').val('');
+                             $('#leavemax').val('');
+                             $('#leaveprobation').val('');
+                             $('#expiry_date').val('');
+                             
                                  },3000                                                
                                      );
-                             $('#myModal').modal("hide"); 
-                             leavetable.fnDraw();
-                             $('#leavename').val();
-                             $('#leavemax').val();
-                             $('#leaveprobation').val();
+                             
                                      }  });                                              
                         }    
                  
@@ -38,6 +51,9 @@ $(document).ready(function(){
     $('#popupbtn').click(function(){
                 $('#leavepopupform').submit();
               });
+
+    $('#expiry_date').datepicker();
+    $('#edit_expiry_date').datepicker();
               
     
 });

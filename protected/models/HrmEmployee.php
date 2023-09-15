@@ -162,6 +162,13 @@ class HrmEmployee extends CActiveRecord
 		));
 	}
 
+	public function getMaxEmpId(){
+
+		  $maxdata = Yii::app()->db->createCommand("SELECT max(employee_id) as emp_id FROM hrm_employee ")->queryRow();
+            return $maxdata['emp_id'];
+	}
+
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

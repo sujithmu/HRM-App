@@ -3,7 +3,7 @@ var mailid = "";
 var tadata = "";
 var dis = "";
 $(document).ready(function(){
-  tadata =  $('#temptable').DataTable({
+  tadata =  $('#temptable').dataTable({
         "lengthChange": false,
         "searching": false,
         "paging": false,
@@ -21,11 +21,13 @@ $(document).ready(function(){
    m = $('#emailtable').dataTable({
        ajax: baseurl+"/index.php?r=Manageuser/Allmail",
       
-       deferRender: true,
-       bServerSide: true,
-       dom:         "frtiS",
-       scrollY:     400,
-       scrollCollapse: true
+      "serverSide": true,
+       "lengthChange": true,
+        "searching": true,
+        "aoColumnDefs": [
+         
+            { 'bSortable': false, 'aTargets': [ 3 ] }
+       ],
    });
    
    $('#content').on('click','.editemail',function()
@@ -41,14 +43,16 @@ $(document).ready(function(){
        }).done(function(msg)
        {
             var dataval = JSON.parse(msg);
-            
+          
             $('#frommail').val(dataval.from_address);
             $('#bccmail').val(dataval.mail_bcc);
+             $('#subjectmail').val(dataval.subject);
             CKEDITOR.instances['ck'].setData(dataval.mail_content);
             ///CKEDITOR.instances.ck.insertText(dataval.mail_content);
            // $('#ck').val(dataval.mail_content);
             arr = dataval.dynamic_variable.split('|');
-            if(arr.length>0 && dis!=1){
+            if(arr.length>0 ){
+                tadata.fnClearTable();
                 arr.forEach(function(data)
                 {
                      displaydata = data.split('~');
@@ -68,13 +72,14 @@ $(document).ready(function(){
    {
       var fmail = $('#frommail').val();
       var bmail = $('#bccmail').val();
+      var smail = $('#subjectmail').val();
       //var messagebody = $('#ck').val();
       var messagebody = CKEDITOR.instances.ck.getData();
       
       $.ajax({
           type:"POST",
           url:baseurl+"/index.php?r=Manageuser/Updatemail",
-          data:{mailid:mailid,fmail:fmail,bmail:bmail,messagebody:messagebody}
+          data:{mailid:mailid,fmail:fmail,bmail:bmail,messagebody:messagebody,smail:smail}
       }).done(function(msg)              
        {
            $('#mailalert').fadeIn();
@@ -102,9 +107,9 @@ $(document).ready(function(){
 
 function adddata(data){
      
-             tadata.row.add([ 
+             tadata.fnAddData([ 
             data[0],
             data[1]
 
-             ]  ).draw();
+             ]  );
 }

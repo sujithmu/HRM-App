@@ -48,18 +48,23 @@ $(document).ready(function(){
                     submitHandler: function(form) 
                         {
                             //var empno =   $('#empnumber').val();                  
+                            
+                            $('#sbutton').prop("disabled", true);
+                            $('#sbutton').val("Saving...");
                             $(form).ajaxSubmit({
                             data:{empnumber:$('#empnumber').val()},   
                             
                             success: function(){
                                 
                                
-
+                                 $('#contact_message').html('Emergency contact information saved successfully');
                                  $('#contactalert').fadeIn();
                                  setTimeout(
                                  function(){
                                      
                                      $('#contactalert').fadeOut();
+                                      $('#sbutton').prop("disabled", '');
+                                     $('#sbutton').val("Save");
                                  },3000
                                                 
                                      );

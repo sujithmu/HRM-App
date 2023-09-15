@@ -20,7 +20,7 @@
                     <tr>
                             <th style="width: 5%;">Employee ID</th>
                             <th style="width: 25%;">Name</th>
-                            <th style="width: 25%;">Job Title</th>
+                            <th style="width: 25%;">User Role</th>
                             <th style="width: 25%;">Email</th>
                             <th style="width: 10%;">Status</th>
                             <th style="width: 10%;">Member since</th>

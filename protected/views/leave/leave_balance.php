@@ -24,8 +24,12 @@
 	</div>
 </div>
 </body>
+<?php 
+   $session=new CHttpSession;
+   $session->open();
+?>
 <script type="text/javascript">
-
+var user_role = "<?php  echo $session[user_role];?>"; 
 
     var baseurl="<?php echo Yii::app()->request->baseUrl; ?>"; 
  </script>

@@ -4,34 +4,309 @@ class HolidayController extends Controller
 {
         public function actionHolidayForm(){
 
-
-          $this->render('holidayform',"");
+            Yii::app()->red->redirect();  // for session redirection
+          $this->render('holidayform',"",false);
         }
-
-
+  
+       
         public function actionShowHolidays(){
 
-            $holidays = new holiday();
-           
-           $allholidays = $holidays->getAllHolidays_Calendar();
+            $holidays    = new holiday();
+            $start_date  = $_REQUEST['start'];
+            $end_date    = $_REQUEST['end'];
            
 
-           if (count($allholidays)>0){
+            $allholidays = $holidays->getAllHolidays_Calendar($start_date,$end_date);
+
+            $associateLeave = $holidays->getAllAssociateLeave($start_date,$end_date);
+
+            $allLeaves   = $holidays->getAllLeaves($start_date,$end_date,$_REQUEST['emp_number']);
+            $getweekdays = $holidays->getWeekdays($_REQUEST['emp_number']);
+            $empnumber = $_REQUEST['emp_number'];
+            $weekarray  = array();
+            $weekendarray = array();
+            foreach ($getweekdays as $key => $value) {
+              $weekarray[] = $value['week_days'];
+            }
+            $j = 0;
+
+            for ($startday=strtotime($start_date); $startday<=strtotime($end_date); $startday=strtotime(' +1 day ',$startday))
+            {
+                
+                if (in_array(date('N', $startday),$weekarray)){
+                     $weekendarray[$j]['start'] = date('Y-m-d',$startday);
+                    // $weekendarray[$j]['end'] =date('Y-m-d',$startday);
+                     $weekendarray[$j]['typename'] = 'weekend';
+                    // $weekendarray[$j]['title'] = 'Week End';
+                  }
+                
+                  $j++;
+             }
+           
+
+
+            $holiday_time_array = array();
+            $json_array = array();
+            if (count($allholidays)>0){
 
               foreach ($allholidays as $holidays)
               {
 
                   $array =  array('title' => $holidays['name'],"typename"=>$holidays['holiday_type'],"time"=>"00:00","start"=> $holidays['holiday_date'],"end"=> $holidays['holiday_date']);
                   $json_array[] = $array;
+                  $holiday_time_array[] = strtotime($holidays['holiday_date']);
               }
 
            }
+
+          $leaveArray = array();
+            if (count($allLeaves)>0)
+            {
+            
+              $i=0;
+                foreach ($allLeaves as $key => $leaves) {
+
+                   $startdate = strtotime($leaves['start_date']);
+                   $enddate = strtotime($leaves['end_date']);
+                   for ($startdate_inc = $startdate; $startdate_inc<=$enddate; $startdate_inc = strtotime(date('Y-m-d',strtotime('+1 day',$startdate_inc))))
+                   {
+                       $weekday =  date('N',$startdate_inc);
+
+                      if (!in_array($weekday,$weekarray) and !in_array($startdate_inc, $holiday_time_array))
+                      { 
+                         $leaveArray[$i]['start'] = date('Y-m-d',$startdate_inc);
+                         
+                         $session = new CHttpSession;
+                         $session->open();
+
+                        if (($session['user_role'] == 1 or $session['user_role'] == 2) and file_exists('img/thumbimg-'.$leaves['userid'].'.jpg') ){
+                          $img_tag = '<img src="profilepictures/thumbimg-'.$leaves['userid'].'.jpg">';
+                        }
+                        else
+                          $img_tag = '';
+
+
+                         //$leaveArray[$i]['end'] = date('Y-m-d',$startdate_inc);
+                         if ($startdate_inc<strtotime(date('Y-m-d')) and $leaves['approval']!='reject'){
+
+                            // $leaveArray[$i]['title'] = 'Leave Taken';
+                             $leaveArray[$i]['typename'] = 'taken';
+                            // $leaveArray[$i]['img'] = $img_tag;
+
+                          }elseif ($leaves['approval']!='reject'){
+                           // $leaveArray[$i]['title'] = 'Leave Scheduled';
+                            $leaveArray[$i]['typename'] = $leaves['approval'];
+                           //  $leaveArray[$i]['img'] = $img_tag;
+                         }else{
+
+                            //$leaveArray[$i]['title'] =  'Leave Pending';
+                            $leaveArray[$i]['typename'] = $leaves['approval'];
+                            // $leaveArray[$i]['img'] = $img_tag;
+
+
+                         }
+                         $i++;
+                      }
+
+                  }
+
+
+                }
+
+            }
+ 
+          
+
+            
+
+        
+
+        $json_array = array_merge($leaveArray,$json_array,$weekendarray);
+         
         echo json_encode($json_array);
 
          // echo '[{"title":"All Day Event","start":"2014-12-01"},{"id":"999","typename":"Holiday","title":"HOLIDAY","start":"2014-11-09T16:00:00-05:00","color": "#ED1317"},{"id":"999","title":"Repeating Event","start":"2014-11-16T16:00:00-05:00"},{"title":"Conference","start":"2014-11-11","end":"2014-11-13"},{"title":"Meeting","start":"2014-11-12T10:30:00-05:00","end":"2014-11-12T12:30:00-05:00"},{"title":"Lunch","start":"2014-11-12T12:00:00-05:00"},{"title":"Meeting","start":"2014-11-12T14:30:00-05:00"},{"title":"Happy Hour","start":"2014-11-12T17:30:00-05:00"},{"title":"Dinner","start":"2014-11-12T20:00:00+00:00"},{"title":"Birthday Party","start":"2014-11-13T07:00:00-05:00"},{"url":"http:\/\/google.com\/","title":"Click for Google","start":"2014-11-28"}]';
 
         }
+        
+          public function actionDashcalendar(){
 
+            $holidays    = new holiday();
+            $start_date  = $_REQUEST['start'];
+            $end_date    = $_REQUEST['end'];
+           
+
+           // $allholidays = $holidays->getAllHolidays_Calendar($start_date,$end_date);
+
+            $associateLeave = $holidays->getAllAssociateLeave($start_date,$end_date);
+
+           // $allLeaves   = $holidays->getAllLeaves($start_date,$end_date,$_REQUEST['emp_number']);
+          //  $getweekdays = $holidays->getWeekdays($_REQUEST['emp_number']);
+            //$empnumber = $_REQUEST['emp_number'];
+            $weekarray  = array();
+            $weekendarray = array();
+            foreach ($getweekdays as $key => $value) {
+              $weekarray[] = $value['week_days'];
+            }
+            $j = 0;
+
+            for ($startday=strtotime($start_date); $startday<=strtotime($end_date); $startday=strtotime(' +1 day ',$startday))
+            {
+                
+                if (in_array(date('N', $startday),$weekarray)){
+                     $weekendarray[$j]['start'] = date('Y-m-d',$startday);
+                    // $weekendarray[$j]['end'] =date('Y-m-d',$startday);
+                     $weekendarray[$j]['typename'] = 'weekend';
+                    // $weekendarray[$j]['title'] = 'Week End';
+                  }
+                
+                  $j++;
+             }
+           
+
+
+            $holiday_time_array = array();
+            $json_array = array();
+            if (count($allholidays)>0){
+
+              foreach ($allholidays as $holidays)
+              {
+
+                  $array =  array('title' => $holidays['name'],"typename"=>$holidays['holiday_type'],"time"=>"00:00","start"=> $holidays['holiday_date'],"end"=> $holidays['holiday_date']);
+                  $json_array[] = $array;
+                  $holiday_time_array[] = strtotime($holidays['holiday_date']);
+              }
+
+           }
+
+          $leaveArray = array();
+            if (count($allLeaves)>0)
+            {
+            
+              $i=0;
+                foreach ($allLeaves as $key => $leaves) {
+
+                   $startdate = strtotime($leaves['start_date']);
+                   $enddate = strtotime($leaves['end_date']);
+                   for ($startdate_inc = $startdate; $startdate_inc<=$enddate; $startdate_inc = strtotime(date('Y-m-d',strtotime('+1 day',$startdate_inc))))
+                   {
+                       $weekday =  date('N',$startdate_inc);
+
+                      if (!in_array($weekday,$weekarray) and !in_array($startdate_inc, $holiday_time_array))
+                      { 
+                         $leaveArray[$i]['start'] = date('Y-m-d',$startdate_inc);
+                         
+                         $session = new CHttpSession;
+                         $session->open();
+
+                        if (($session['user_role'] == 1 or $session['user_role'] == 2) and file_exists('img/thumbimg-'.$leaves['userid'].'.jpg') ){
+                          $img_tag = '<img src="profilepictures/thumbimg-'.$leaves['userid'].'.jpg">';
+                        }
+                        else
+                          $img_tag = '<img src="profilepictures/default.jpg">';
+
+
+                         //$leaveArray[$i]['end'] = date('Y-m-d',$startdate_inc);
+                         if ($startdate_inc<strtotime(date('Y-m-d')) and $leaves['approval']!='reject'){
+
+                            // $leaveArray[$i]['title'] = 'Leave Taken';
+                             $leaveArray[$i]['typename'] = 'taken';
+                            // $leaveArray[$i]['img'] = $img_tag;
+
+                          }elseif ($leaves['approval']!='reject'){
+                           // $leaveArray[$i]['title'] = 'Leave Scheduled';
+                            $leaveArray[$i]['typename'] = $leaves['approval'];
+                           //  $leaveArray[$i]['img'] = $img_tag;
+                         }else{
+
+                            //$leaveArray[$i]['title'] =  'Leave Pending';
+                            $leaveArray[$i]['typename'] = $leaves['approval'];
+                            // $leaveArray[$i]['img'] = $img_tag;
+
+
+                         }
+                         $i++;
+                      }
+
+                  }
+
+
+                }
+
+            }
+ 
+            $associativeArray = array();
+
+            if (count($associateLeave)>0)
+            { 
+                
+
+                $mand_holidays = holiday::model()->getHolidays();
+
+                $t = 0;
+
+                $j=0;
+                foreach($associateLeave as $associate_value) {
+                  
+
+                  $startdate = strtotime($associate_value['start_date']);
+                  $enddate = strtotime($associate_value['end_date']);
+
+
+                   $emp_weekdays = holiday::model()->getWeekdays_employee($associate_value['emp_number']);
+                   $emp_weekdays_arr = explode(',',$emp_weekdays);
+                   //print_r($emp_weekdays);
+
+                   
+                   for ($startdate_inc = $startdate; $startdate_inc<=$enddate; $startdate_inc = strtotime(date('Y-m-d',strtotime('+1 day',$startdate_inc))))
+                   {   // echo date('N',$startdate_inc);
+                       //print_r($emp_weekdays_arr);
+                       //echo in_array(date('N',$startdate_inc), $emp_weekdays_arr);
+                       //echo "<br>";
+                      if(!in_array(date('Y-m-d',$startdate_inc), $mand_holidays) and in_array(date('N',$startdate_inc), $emp_weekdays_arr)!=1)
+                      { 
+                        $associativeArray[$j]['typename'] = 'leave_scheduler';
+                        $associativeArray[$j]['start'] = date('Y-m-d',$startdate_inc);
+                       // $associativeArray[$t]['end']   = date('Y-m-d',$startdate_inc);
+                        $associativeArray[$j]['title'] = $associate_value['emp_firstname'];
+                        $associativeArray[$j]['description'] = $associate_value['emp_firstname']." ".$associate_value['emp_lastname'];
+                        
+                        $associativeArray[$j]['backgroundColor'] = '#D10A02';
+                        $associativeArray[$j]['textColor'] = '#aaaa';
+                        if(file_exists('profilepictures/thumbimg-'.$associate_value['userid'].'.jpg') and $associate_value['userid']>0){
+                        $img_tag = '<img src="profilepictures/thumbimg-'.$associate_value['userid'].'.jpg">';
+                        }
+                        else{
+                            $img_tag = '<img src="profilepictures/default.jpg">';
+                        }
+                        $associativeArray[$j]['profileimg'] = $img_tag;
+
+
+                        
+                       
+                        $j++;
+                      }
+
+                      $t++;
+
+                  }
+                
+                 
+                }
+
+            }
+
+        
+
+      //  $json_array = array_merge($leaveArray,$json_array,$weekendarray,$associativeArray);
+         $json_array = $associativeArray;
+         //print_r($json_array);
+        echo json_encode($json_array);
+
+         // echo '[{"title":"All Day Event","start":"2014-12-01"},{"id":"999","typename":"Holiday","title":"HOLIDAY","start":"2014-11-09T16:00:00-05:00","color": "#ED1317"},{"id":"999","title":"Repeating Event","start":"2014-11-16T16:00:00-05:00"},{"title":"Conference","start":"2014-11-11","end":"2014-11-13"},{"title":"Meeting","start":"2014-11-12T10:30:00-05:00","end":"2014-11-12T12:30:00-05:00"},{"title":"Lunch","start":"2014-11-12T12:00:00-05:00"},{"title":"Meeting","start":"2014-11-12T14:30:00-05:00"},{"title":"Happy Hour","start":"2014-11-12T17:30:00-05:00"},{"title":"Dinner","start":"2014-11-12T20:00:00+00:00"},{"title":"Birthday Party","start":"2014-11-13T07:00:00-05:00"},{"url":"http:\/\/google.com\/","title":"Click for Google","start":"2014-11-28"}]';
+//        $this->layout = FALSE;
+//        echo $this->render('dashboardcalendar',array('dashcalendar'=>$associativeArray),true);
+        }
         public function actionAddholiday(){
              $holidays = new holiday();
             
@@ -146,5 +421,89 @@ class HolidayController extends Controller
 
 
        }
+       
+      public function actionLeaveToAllMembers()
+        {
+            $holidays    = new holiday();
+            $start_date  = date('Y-m-d');
+            $end_date    = date('Y-m-d');
+            $userMaster = new HrmUserMaster();
+            $session = new CHttpSession;
+            $session->open();
+            
 
+            $users = $userMaster->AllActiveUsers_cron();
+
+             $gcm = Yii::app()->gcm;
+
+
+            foreach ($users as $keylist => $userlist) {
+            
+              $session['user_role'] = $userlist['user_role_id'];
+              $session['empnumber'] = $userlist['emp_number'];
+
+              $associateLeave = $holidays->getAllAssociateLeave($start_date,$end_date);
+
+              $getweekdays = $holidays->getWeekdays($session['empnumber']);
+              $empnumber = $session['empnumber'];
+              $weekarray  = array();
+            
+              $weekendarray = array();
+            
+              $j = 0;
+
+           
+ 
+              $associativeArray = array();
+
+              if (count($associateLeave)>0)
+              { 
+                
+
+                $mand_holidays = holiday::model()->getHolidays();
+
+                $t = 0;
+
+
+                foreach($associateLeave as $associate_value) {
+                  
+
+                  $startdate = strtotime($associate_value['start_date']);
+                  $enddate = strtotime($associate_value['end_date']);
+
+
+                   $emp_weekdays = holiday::model()->getWeekdays_employee($associate_value['emp_number']);
+                   
+
+
+                   for ($startdate_inc = $startdate; $startdate_inc<=$enddate; $startdate_inc = strtotime(date('Y-m-d',strtotime('+1 day',$startdate_inc))))
+                   {
+
+                      if(!in_array(date('Y-m-d',$startdate_inc), $mand_holidays) and !in_array(date('N',$startdate_inc), $emp_weekdays))
+                      {
+                        
+                        $associativeArray[$t]['title'] = $associate_value['emp_firstname'];
+                        $associativeArray[$t]['description'] = $associate_value['emp_firstname']." ".$associate_value['emp_lastname'];
+                        
+                       
+                        $gcm->send(array($userlist['google_push_id']), $associate_value['emp_firstname'].' is on Leave Today');
+
+                      }
+
+                      $t++;
+
+                  }
+                
+                 
+                }
+
+              }
+
+     
+            
+          }
+
+
+        } 
+       
 }

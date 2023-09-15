@@ -42,15 +42,30 @@ $(document).ready(function(){
 
 
 
-        $( "#rname" ).autocomplete({
-                    source: baseurl+"/index.php?r=Manageuser/Report",
-                    minLength: 2,
-                    select: function( event, ui ) {
+
+
+        $("#rname").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: baseurl+"/index.php?r=Manageuser/Report",
+                dataType: "json",
+                data: {
+                    term : request.term,
+                    "emp_number" :  $('#empnumber').val()
+                },
+                success: function(data) {
+                    response(data);
+                }
+            });
+        },
+        min_length: 2,
+        delay: 300,
+        select: function( event, ui ) {
                         //ui.item.id;
                         $('#report_user_id').val(ui.item.id);
 
                     }
-                    });
+    });
     
     
     
@@ -75,9 +90,9 @@ $(document).ready(function(){
 
         if ($(this).prop('checked'))
         {
-            $( "#order_div" ).show(); 
+            //$( "#order_div" ).show(); 
         }else{
-            $( "#order_div" ).hide(); 
+            //$( "#order_div" ).hide(); 
         }
 
     });
@@ -155,16 +170,22 @@ $(document).ready(function(){
                     
                     submitHandler: function(form) 
                         {
-                                              
+                            $('#reportbutton').prop("disabled", true);
+                            $('#reportbutton').val("Saving");                  
                             $(form).ajaxSubmit({
                                 data:{empnumber:$('#empnumber').val()},
                                     
                             success: function(){
+                                 $('#report_message').html('Supervisor/Subordinate information updated successfully')
                                  $('#reportalert').fadeIn();
                                  setTimeout(
                                  function(){
                                      
                                      $('#reportalert').fadeOut();
+                                    $('#sub').trigger('click');
+                                     $('#report_reset').trigger('click');
+                                    $('#reportbutton').prop("disabled", '');
+                                    $('#reportbutton').val("Save");  
                                       re_sub.fnDraw();
                                       re_sup.fnDraw();
                                  },3000

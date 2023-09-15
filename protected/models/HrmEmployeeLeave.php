@@ -9,7 +9,7 @@
  * @property integer $leave_type
  * @property string $leave_number
  * @property string $active
- */
+ */ 
 class HrmEmployeeLeave extends CActiveRecord
 {
 	/**
@@ -100,6 +100,54 @@ class HrmEmployeeLeave extends CActiveRecord
 
 	}
     
+
+
+	public function getLeaveType($leave_type_id)
+	{
+
+		$getall = Yii::app()->db->createCommand("SELECT T1.* from hrm_leave_types T1
+		inner join hrm_employee_leave T2 on T1.id = T2.leave_type  Where T2.id = '$leave_type_id'" )->queryRow();
+            return $getall;
+
+	}
+
+
+	public function getAllSupervisorsAndAdmin($empid)
+	{
+
+        $getall = Yii::app()->db->createCommand(" SELECT T1 . *,T3.google_push_id,T3.apple_push_id FROM hrm_user_master T1 
+			INNER JOIN hrm_employee T3 on T3.emp_number = T1.emp_number
+			LEFT JOIN hrm_report_to T2 
+			ON T1.emp_number = T2.user_id and T2.emp_number = '$empid' AND T2.user_type = 'supervisor' WHERE T2.emp_number = '$empid'
+            OR T1.user_role_id <'3' GROUP BY T1.id" )->queryAll();
+            return $getall;
+
+	}
+
+		public function getAllHRAdmin($empid)
+	{
+            $getall = Yii::app()->db->createCommand("SELECT T1 . *,T2.google_push_id,T2.apple_push_id FROM hrm_user_master T1 
+            inner join hrm_employee T2 on T1.emp_number = T1.emp_number where T1.user_role_id <'3' GROUP BY T1.id" )->queryAll();
+            return $getall;
+	}
+
+
+
+	public function getmyleaveDetails($leave_id)
+	{   
+            
+            $getall = Yii::app()->db->createCommand("SELECT T4.emp_number,T5.user_name,T4.emp_firstname as first_name,
+                    T3.name,T2.start_date,T2.end_date,T2.start_type,T2.end_type,T2.leave_days,T2.leave_comments,T2.remarks,T4.google_push_id,T4.apple_push_id
+                    from hrm_employee_leave T1
+            inner join hrm_leave T2 on T2.emp_leave_id = T1.id
+            inner join hrm_leave_types T3 on T3.id = T1.leave_type
+            inner join hrm_employee T4 on T4.emp_number = T2.emp_number
+            inner join hrm_user_master T5 on T5.emp_number = T4.emp_number
+              Where T2.id = '$leave_id'" )->queryRow();
+            return $getall;
+
+	}
+
 
 	/**
 	 * Returns the static model of the specified AR class.

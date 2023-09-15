@@ -19,7 +19,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/login.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/plugins/datepicker/datepicker.css" media="screen, projection" />
         <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.dataTables.css" media="screen, projection" />
-        
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" media="screen, projection" />
+        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/pnotify.custom.min.css" media="screen, projection" />
         
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js" type="text/javascript"></script>
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui.min.js" type="text/javascript"></script>
@@ -51,7 +52,7 @@
         
         <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.dataTables.js" type="text/javascript"></script>
         
-        
+        <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/pnotify.custom.min.js" type="text/javascript"></script>
         
         
         
@@ -73,14 +74,19 @@
 <body>
     		<div id="navigation">
 			<div class="container-fluid">
-				<a href="#" id="brand">HRM</a>
+				<a href="<?php echo Yii::app()->request->baseUrl; ?>" id="brand">HRM</a>
 				<a href="#"  rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
-
+                        
+                        <a class="toggle-nav" title="" data-placement="bottom" rel="tooltip" href="#" data-original-title="Toggle navigation">
+                            <i class="icon-reorder"></i>
+                        </a>        
+                                
+                                
          		<ul id="yw0" class="main-nav">
 				<?php 
 
 				$session=new CHttpSession;
-             	$session->open();
+                                $session->open();
              
 				$myInfo = Yii::app()->menu->getMenu(0, $session['user_role']); 
 				
@@ -196,15 +202,17 @@
 					</ul>
 					<div class="dropdown">
 						<?php  
+                                                
+                                                $dateadded = date('Y-m-d');
 							$session=new CHttpSession;
-               				 $session->open();
+                                                        $session->open();
 
-							if(file_exists(Yii::app()->request->baseUrl.'/profilepictures/thumpimg-'.$session['memberid'].'.jpg'))
+							if(file_exists('profilepictures/thumbimg-'.$session['memberid'].'.jpg'))
 							{
-								$thumpimage = Yii::app()->request->baseUrl.'/profilepictures/thumpimg-'.$session['memberid'].'.jpg';
+								$thumpimage = Yii::app()->request->baseUrl.'/profilepictures/thumbimg-'.$session['memberid'].'.jpg?'.time();
 							}
 							else{
-								$thumpimage = Yii::app()->request->baseUrl.'/profilepictures/default.jpg';
+								$thumpimage = Yii::app()->request->baseUrl.'/profilepictures/default.jpg?'.time();
 							}
 							
 						?>
@@ -212,7 +220,7 @@
 						<ul class="dropdown-menu pull-right">
 							<li>
 							<?php if ($session['user_role'] == 1 or $session['user_role'] == 2){ ?>
-								<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php?r=Manageuser/View&emp_number=<?php echo $session['memberid']; ?>">Edit profile</a>
+								<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php?r=Manageuser/View&emp_number=<?php echo $session['empnumber']; ?>">Edit profile</a>
 							<?php }else{ ?>
 								<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php?r=Manageuser/View">Edit profile</a>
 							<?php	} ?>
@@ -249,7 +257,7 @@
 			</div>
             <div id="footer">
                         <p>
-				FLAT - Responsive Admin Template <span class="font-grey-4">|</span> <a href="#">Contact</a> <span class="font-grey-4">|</span> <a href="#">Imprint</a> 
+			   &copy Netstratum Technologies Pvt Ltd. 
 			</p>
 			<a href="#" class="gototop"><i class="icon-arrow-up"></i></a>
                      </div>

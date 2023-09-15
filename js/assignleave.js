@@ -1,3 +1,4 @@
+var empnoo = "";
 $(document).ready(function(){
     
  $("#assfromleave").datepicker({          
@@ -30,13 +31,35 @@ $('#assleave').validate({
             assendto:""
         },
          submitHandler: function(form) 
-                        {                            
+                        {         
+
+                            
+                             $('#assibutton').prop("disabled", true);
+                            $('#assibutton').val("Saving...");        
+
                             $(form).ajaxSubmit({                                                        
-                            success: function(){                                                               
-                                 $('#assialert').fadeIn();
+                            success: function(data){  
+                                 if (data =='holiday_error'){
+
+                                    
+                                    $('#assign_error_message').html('Please select some other dates');                                                       
+                                    $('#assierror').fadeIn();
+
+                                 }else{
+                                 
+                                    $('#assign_message').html('You have successfully assigned the leave');                                                       
+                                    $('#assialert').fadeIn();
+
+                                 
+                                 }
                                  setTimeout(
                                  function(){                                     
                                      $('#assialert').fadeOut();
+                                     $('#assierror').fadeOut();
+                                     if (data !='holiday_error')
+                                     $('#assignreset').trigger('click');
+                                        $('#assibutton').prop("disabled", '');
+                                         $('#assibutton').val("Save");        
                                  },3000                                                
                                      );
                                      }  });                                               
@@ -82,13 +105,32 @@ $('#assleave').validate({
             $('#assendduration').val(0);
         
     });
-    
-    $('#assileavetype').change(function(){
-        if($('#assileavetype').val()>0)
-        $('#asslbalance').show();    
-    else 
-        $('#asslbalance').hide();
-        
+   
+    $('#leavelist').on('change','#assileavetype',function(){
+        if($(this).val()>0)                 
+            $('#asslbalance').show();    
+        else 
+            $('#asslbalance').hide();
+        var assltype = $(this).val();
+        if(assltype==="")
+            return false;
+        jQuery.ajax({
+                    type:"POST",
+                    url:baseurl+"/index.php?r=Leave/Assignforbalance",
+                    data:{assleavetype: assltype,empnum:empnoo}
+                    }).done(function(msg) {
+                                            balvalues = msg.split('|');
+                                           $('#albalance').val(balvalues[0]);
+                                           if (balvalues[1]!=''){
+                                                   balance = balvalues[1].split(',');
+                                                   availableDates= [];
+                                                   for (i=0; i<balance.length; i++)
+                                                   {
+                                                      availableDates.push('"'+balance[i]+'"');                              
+                                                   }
+                                                }
+                    });
+                        
     });
     
     $('#assiemp').autocomplete({
@@ -97,6 +139,7 @@ $('#assleave').validate({
                 select:function( event, ui ) {
                         //ui.item.id;
                         $('#emp_id').val(ui.item.id);
+                        empnoo = ui.item.id;
                         if($('#assiemp').val()!=0)
             $('#assleavetype').show();
         else

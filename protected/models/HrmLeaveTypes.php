@@ -108,7 +108,7 @@ class HrmLeaveTypes extends CActiveRecord
 
         public function editleave($id)
         {   
-            $editleave = Yii::app()->db->createCommand("SELECT name,leave_max_no,probation_period FROM hrm_leave_types WHERE id = ".$id)->queryRow();
+            $editleave = Yii::app()->db->createCommand("SELECT name,leave_max_no,probation_period,expiry_date FROM hrm_leave_types WHERE id = ".$id)->queryRow();
            # print_r($editleave);
             return $editleave;
         }
@@ -125,7 +125,7 @@ class HrmLeaveTypes extends CActiveRecord
        		else
        			$append = '';	
 
-            $custom = Yii::app()->db->createCommand("SELECT id,name,leave_max_no FROM  
+            $custom = Yii::app()->db->createCommand("SELECT id,name,leave_max_no,expiry_date FROM  
             	hrm_leave_types WHERE active='Y' and custom_leave_type = 'Y' $append $orderby limit $limit,$display_length ")->query();
             return $custom;
         }
@@ -197,6 +197,8 @@ class HrmLeaveTypes extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+	 
 
 	/**
 	 * Returns the static model of the specified AR class.

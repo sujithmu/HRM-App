@@ -135,11 +135,16 @@ class HrmReportTo extends CActiveRecord
         }
 
 
-       public function getAllSuggestions($term)
+       public function getAllSuggestions($term,$empnumber)
        {
+
+       		$session=new CHttpSession;
+            $session->open();
+            if ($empnumber=='')
+            	$empnumber = $session['empnumber'];
        		$getall = Yii::app()->db->createCommand("SELECT concat(emp_firstname,' ',emp_middle_name,' ',emp_lastname) as label, emp_number as id from hrm_employee "
                  // emp_status = 'Y' and  emp_deleted = 'N' and
-                    . "WHERE  concat(emp_firstname,' ',emp_middle_name,' ',emp_lastname) like '%{$term}%'")->queryAll();
+                    . "WHERE emp_number !={$empnumber} and emp_number not in (select user_id from hrm_report_to where emp_number = {$empnumber}) and  concat(emp_firstname,' ',emp_middle_name,' ',emp_lastname) like '%{$term}%'")->queryAll();
             return $getall;
 
 
@@ -148,14 +153,18 @@ class HrmReportTo extends CActiveRecord
          public function Deletesubordinte($report_id)
         {
         	
-            $getall = Yii::app()->db->createCommand(" Delete from hrm_report_to WHERE id=".$report_id)->query();
-            
+        	$geRow  = Yii::app()->db->createCommand(" select emp_number,user_id from hrm_report_to WHERE id=".$report_id)->queryRow();
+        	Yii::app()->db->createCommand(" Delete from hrm_report_to WHERE id=".$report_id)->query();
+            Yii::app()->db->createCommand(" Delete from hrm_report_to WHERE user_id = '{$geRow['emp_number']}' and emp_number =  '{$geRow['user_id']}'")->query();
+           // Yii::app()->db->createCommand(" Delete from hrm_leave_approval WHERE supervisor_id = '{$geRow['emp_number']}' and user_id =  '{$geRow['user_id']}'".$report_id)->query();
         }
 
         public function Deletesupervisor($report_id)
         {
         	
-            $getall = Yii::app()->db->createCommand(" Delete from hrm_report_to WHERE id=".$report_id)->query();
+           $geRow  = Yii::app()->db->createCommand(" select emp_number,user_id from hrm_report_to WHERE id=".$report_id)->queryRow();
+        	Yii::app()->db->createCommand(" Delete from hrm_report_to WHERE id=".$report_id)->query();
+            Yii::app()->db->createCommand(" Delete from hrm_report_to WHERE user_id = '{$geRow['emp_number']}' and emp_number =  '{$geRow['user_id']}'")->query();
             
         }
 

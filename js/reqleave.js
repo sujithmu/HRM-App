@@ -1,6 +1,9 @@
 $(document).ready(function(){
     
-    $("#fromleave").datepicker({          
+    $("#fromleave").datepicker({   
+    minDate:mindate,  
+    maxDate:maxdate,
+    beforeShowDay: available,     
     onSelect:function(selected){
         $('#toleave').datepicker("option","minDate", selected);
         }        
@@ -8,7 +11,8 @@ $(document).ready(function(){
     
     $("#toleave").datepicker({   
      onSelect: function(selected) {
-         $("#fromleave").datepicker("option","maxDate", selected);
+         //$("#fromleave").datepicker("option","maxDate", selected);
+         //maxdate =  "'"+selected+"'";
         }
     });
             
@@ -44,6 +48,8 @@ $(document).ready(function(){
     $('#leavetype').change(function()            
     {
         var ltype = $('#leavetype option:selected').val();
+
+
         
         if(ltype==="")
             return false;
@@ -54,8 +60,25 @@ $(document).ready(function(){
         })
              .done(function(msg) {
                             
-                           $('#lbalance').val(msg);
-                
+                           getvalues = msg.split('|'); 
+
+                           $('#lbalance').val(getvalues[0]);
+                       if (getvalues[1]!=''){
+                           
+                           aldates = getvalues[1].split(',');
+                           availableDates= [];
+                           for (i=0; i<aldates.length; i++)
+                           {
+
+                              availableDates.push('"'+aldates[i]+'"');
+                              
+                           }
+
+                       
+                          
+
+
+                        }
                        });
            
     });
@@ -155,19 +178,26 @@ $(document).ready(function(){
             endto:"",            
         },
         submitHandler: function(form) 
-                        {                            
+                        {
+
+                       $('#reqbutton').prop("disabled", true);
+                       $('#reqbutton').val("Saving...");
+                          
                             $(form).ajaxSubmit({ 
                             data:{'leave_balance':$('#lbalance').val()},                                                       
-                            success: function(msg){ 
-                            alert(msg);  
+                            success: function(msg){
+                           
                               if (msg == 'balance_error')
                               {
                                  $('#req_alert').html('Leave applied exceeds leave balance');   
                                   $('#reqalert').fadeIn(); 
                                  setTimeout(
-                                 function(){   
+                                 function(){
                                    
-                                                             
+                                    // business logic...
+   $('#reqbutton').prop("disabled", false);
+   $('#reqbutton').val("Apply");   
+                                                    
                                      
                                  },3000                                                
                                      );
@@ -178,19 +208,25 @@ $(document).ready(function(){
                                  $('#reqalert').fadeIn();
                                  setTimeout(
                                  function(){   
-                                                                   
+                                       // business logic...
+    $('#reqbutton').prop("disabled", false);
+   $('#reqbutton').val("Apply");   
+    // $('#rleave').reset();                           
                                      
                                  },3000                                                
                                      );
 
 
-                              } else{                                                        
+                              } else{
                                 
                                  $('#req_alert').html('Successfully applied for the leave'); 
                                   $('#reqalert').fadeIn();
                                  setTimeout(
                                  function(){                                     
                                      $('#reqalert').fadeOut();
+                                   $('#reqbutton').prop("disabled", false);
+                                    $('#reqbutton').val("Apply");  
+                                    $('#req_discard').trigger('click');
                                  },3000                                                
                                      );
                                }

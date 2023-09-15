@@ -9,19 +9,21 @@
         </div>
         <div class="row-fluid">
             <div class="span12">
-                <div class="box box-color box-bordered">
-                    <div class="box-title">
+                <div class="box box-color box-bordered leavecolor">
+                    <div class="box-title leavecolor">
 			<h3>
                             <i class="icon-user"></i>
                                 Leave Modules
 			</h3>
                     </div>
-                    <div class="box-content nopadding">
+                    <div class="box-content nopadding bordercolor">
                        <?php 
                         $session=new CHttpSession;
                         $session->open();
 
-                        $myInfo = Yii::app()->menu->getOtherMenu(0, $session['user_role'],'leave'); 
+                        $myInfo = Yii::app()->menu->getOtherMenu(0, $session['user_role'],'leave',$superviser_cnt); 
+                        
+
                         ?>
                         
                         <div class="tab-content padding tab-content-inline tab-content-bottom">
@@ -171,8 +173,8 @@
                                         </div>
                                         <div class="form-actions">
                                             <input type="button" id="reqbutton" name="reqbutton" class='btn btn-primary' 
-                                                   value="Save">
-                                            <input type="reset" class='btn' value="Discard changes">
+                                                   value="Apply">
+                                            <input id="req_discard" type="reset" class='btn' value="Discard Changes">
                                         </div>
                                         <div class="alert alert-success span8" id="reqalert" style="display: none;">
                                             <button data-dismiss="alert" class="close" type="button"></button>
@@ -325,11 +327,15 @@
                                     <div class="form-actions">
                                         <input type="button" id="assibutton" name="assibutton" class='btn btn-primary' 
                                                value="Save">
-                                        <input type="reset" class='btn' value="Discard changes">
+                                        <input id="assignreset" type="reset" class='btn' value="Discard changes">
                                     </div>
                                     <div class="alert alert-success span8" id="assialert" style="display: none;">
                                         <button data-dismiss="alert" class="close" type="button"></button>
-                                        <strong>          Success!</strong>
+                                        <strong> <span id="assign_message"> Success!</span></strong>
+                                    </div>
+                                    <div class="alert alert-error span8" id="assierror" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong> <span id="assign_error_message"> Success!</span></strong>
                                     </div>
                                 </div>
                                 <input type="hidden" id="emp_id" name="emp_id">
@@ -369,7 +375,7 @@
                             </form>
                         </div>
                             
-                         <div class="tab-pane active" id="myleave" >
+                         <div class="tab-pane active" id="myleave">
                             <form action="" id="myleaveform" method="POST" class="form-horizontal">
                               <div class="container-fluid">
                                <div class="row-fluid"> 
@@ -379,7 +385,8 @@
                                             <h3>My Leave Report</h3>                                                                                                                    
                                        </div>
                                     <div class="box-content nopadding">
-                                          <div id="display_search_myreport" class="datatable_custom"><label class="custom_label"  >Date From:</label>  <div class="custom_label" ><input type="text" id="datefrom_myreport" name="datefrom_myreport" class='span10' value="" ></div> <label  class="custom_label">  Date To:</label><div class="custom_label" ><input type="text" id="dateto_myreport" name="dateto_myreport" class='span10' value="" ></div> <label  class="custom_label"> Leave Status:</label><div class="custom_label" > <select name="leave_status_myreport" id="leave_status_myreport" class="input-medium">
+                                   <div id="display_search_myreport" class="datatable_custom"><label class="custom_label"  >Date From:</label>  <div class="custom_label" ><input type="text" id="datefrom_myreport" name="datefrom_myreport" class='span10' value="" ></div> <label  class="custom_label">  Date To:</label><div class="custom_label" ><input type="text" id="dateto_myreport" name="dateto_myreport" class='span10' value="" ></div> <label  class="custom_label"> Leave Status:</label><div class="custom_label" > 
+                    <select name="leave_status_myreport" id="leave_status_myreport" class="input-medium">
                         <option value="">Select All</option>
                         <option value="pending" <?php if ($_REQUEST['myleaveid']==''){?> selected="selected"<?php } ?>>Pending</option>
                         <option value="taken">Taken</option>
@@ -445,6 +452,10 @@
                 <input type="button" id="holidaybtn" name="holidaybtn" class='btn btn-primary' value="Save">
                 <input type="reset" class='btn' value="Discard changes">
             </div>
+            <div class="alert alert-success span8" id="assign_holiday" style="display: none;">
+                <button data-dismiss="alert" class="close" type="button"></button>
+                <strong> <span id="assign_holiday_message"> Success!</span></strong>
+            </div>
         </div>
         <div class="span7">
             <table class="table table-hover table-nomargin table-bordered usertable" id="holidaytable">
@@ -467,11 +478,15 @@
                                <div class="row-fluid"> 
                                 <div class="span12">
                                    <div class="box box-color box-bordered">
-                                       <div class="box-title">
+                                       <div class="box-title"><?php if ($session['user_role']==1 or $session['user_role']==2){?>
                                             <h3>Employee Leave Status</h3>                                                                                                                   
+                                      <?php }else{?>
+                                     <h3>Subordinate Leave Status</h3>       
+                                     <?php }?>
                                        </div>
                                     <div class="box-content nopadding">
-                                        <div id="display_search" class="datatable_custom"><label class="custom_label"  >Date From:</label>  <div class="custom_label" ><input type="text" id="datefrom" name="datefrom" class='span10' value="" ></div> <label  class="custom_label">  Date To:</label><div class="custom_label" ><input type="text" id="dateto" name="dateto" class='span10' value="" ></div> <label  class="custom_label"> Leave Status:</label><div class="custom_label" > <select name="leave_status" id="leave_status" class="input-medium">
+                                        <div id="display_search" class="datatable_custom"><label class="custom_label"  >Date From:</label>  <div class="custom_label" ><input type="text" id="datefrom" name="datefrom" class='span10' value="" ></div> <label  class="custom_label">  Date To:</label><div class="custom_label" ><input type="text" id="dateto" name="dateto" class='span10' value="" ></div> <label  class="custom_label"> Leave Status:</label><div class="custom_label" > 
+                    <select name="leave_status" id="leave_status" class="input-medium">
                         <option value="">Select All</option>
                         <option value="pending" selected="selected">Pending</option>
                         <option value="taken">Taken</option>
@@ -486,10 +501,11 @@
                                                     <th style="width: 15%;">From Date</th>
                                                     <th style="width: 15%;">To Date</th>  
                                                     <th style="width: 20%;">Reason</th>
-                                                    <th class='width: 10%;'>days</th>
+                                                    <th class='width: 10%;'>Days</th>
                                                     <th class='hidden-480'>Status</th>
-
+                                                    <?php if ($session['user_role']==1 or $session['user_role']==2){?>
                                                     <th class='hidden-480'>Options</th>
+                                                    <?php } ?>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -520,6 +536,7 @@
                                                               
                                                                 <th style="width: 20%;">Leave Type</th>
                                                                 <th style="width: 20%;">Leave Number</th>
+                                                                <th style="width: 20%;">Expiry Date</th>
                                                                 <th class='hidden-480'>Options</th>
                                                                 
                                                                    
@@ -546,7 +563,7 @@
                                                 <span aria-hidden="true">&times;</span>
                                     
                                                 </button>
-                                                <h4 class="modal-title" id="otherlabel">Employee Other Leaves</h4>
+                                                <h4 class="modal-title" id="otherlabel">Employee Custom Leaves</h4>
                                               </div>
                                               <div class="modal-body">
                                                 
@@ -572,7 +589,12 @@
                                               <div class="modal-footer">
                                                  <input type="button" id="custombtn" name="custombtn" class='btn btn-primary' value="Save">
                                                  <input type="reset" class='btn' value="Discard changes">
+                                                  <div class="alert alert-success span8" id="assign_custom" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong> <span id="assign_custom_message"> Success!</span></strong>
+                                    </div>
                                               </div>
+                                             
                                             </div> 
                                         </div>
                                     </div> 
@@ -631,6 +653,12 @@
                                         <input type="text" id="leavemax" name="leavemax" class="input-xlarge" value="">
                                     </div>
                                 </div>
+                                 <div class="control-group">
+                                    <label for="leave" class="control-label right span4">Expiry Date:</label>
+                                    <div class="controls span6">
+                                        <input type="text" id="expiry_date" name="expiry_date" class="input-xlarge" value="">
+                                    </div>
+                                </div>
                                 <div class="control-group">
                                     <label for="leave" class="control-label right span4">Probation Period:</label>
                                     <div class="controls span6">
@@ -643,14 +671,112 @@
                                 <input type="reset" class='btn' value="Discard changes">
                                 <div class="alert alert-success span8" id="leavealert" style="display: none;">
                                         <button data-dismiss="alert" class="close" type="button"></button>
-                                        <strong>          Success!</strong>
+                                        <strong><span id="popup_leave_mess">          Success!</span></strong>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         </div>        
-                        </form>                            
+                        </form>          
+
+
+                         <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Leave/cancel" id="leavecancelform" method="POST" class="form-horizontal">
+                        <div class="span8">   
+                            <div style="display:none;" class="modal fade popup" id="leaveCancel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">&times;</span>
+                                    <!--<span class="sr-only">Close</span>-->
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Cancel Leave</h4>
+                              </div>
+                              <div class="modal-body">
+                                <div class="control-group">
+                                    <label for="leave" class="control-label right span4">Leave Type:</label>
+                                    <div class="controls span6" id="cancel_leave_type">
+                                        
+                                    </div>
+                                </div>
+                                <div class="control-group" >
+                                    <label for="leave" class="control-label right span4">Leave Date:</label>
+                                    <div class="controls span6" id="cancel_leave_date">
+                                       
+                                    </div>
+                                    <input type="hidden" name="cancel_leave_id" id="cancel_leave_id" value="">
+                                </div>
+                                <div class="control-group">
+                                    <label for="leave" class="control-label right span4">Reason:</label>
+                                    <div class="controls span6">
+                                        <textarea id="leave_cancel" name="leave_cancel" class="input-xlarge" value=""></textarea>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">                                
+                                <input type="button" id="cancelpopupbtn" name="cancelpopupbtn" class='btn btn-primary' value="Cancel Leave">
+                                <input type="reset" id="cancelreset" class='btn' value="Discard changes">
+                                <div class="alert alert-success span8" id="leavecancelalert" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong> <span id="leave_cancel_message" >Success!</span></strong>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>        
+                        </form>     
+
+
+                        <form action="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=Leave/Approve" id="leaveApproveform" method="POST" class="form-horizontal">
+                        <div class="span8">   
+                            <div style="display:none;" class="modal fade popup" id="leaveApprove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">&times;</span>
+                                    <!--<span class="sr-only">Close</span>-->
+                                </button>
+                                <h4 class="modal-title" id="leaveApprove_head"> </h4>
+                              </div>
+                              <div class="modal-body">
+                                <div class="control-group">
+                                    <label for="leave" class="control-label right span4">Leave Type:</label>
+                                    <div class="controls span6" id="approve_leave_type">
+                                        
+                                    </div>
+                                </div>
+                                <div class="control-group" >
+                                    <label for="leave" class="control-label right span4">Leave Date:</label>
+                                    <div class="controls span6" id="approve_leave_date">
+                                       
+                                    </div>
+                                    <input type="hidden" name="approve_leave_id" id="approve_leave_id" value="">
+                                </div>
+                                <div class="control-group">
+                                    <label for="leave" class="control-label right span4">Reason:</label>
+                                    <div class="controls span6">
+                                        <textarea id="leave_approve_text" name="leave_approve_text" class="input-xlarge" value=""></textarea>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">                                
+                                <input type="button" id="approvepopupbtn" name="approvepopupbtn" class='btn btn-primary' value="Cancel Leave">
+                                <input type="reset" id="approvereset" class='btn' value="Discard changes">
+                                <div class="alert alert-success span8" id="leaveapprovealert" style="display: none;">
+                                        <button data-dismiss="alert" class="close" type="button"></button>
+                                        <strong>  <span id="approve_message"   >     Success!</span></strong>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>        
+                        </form>    
+
+
                                 
                         <form action="" id="editleavepopupform" method="POST" class="form-horizontal">
                         <div class="span10">   
@@ -680,6 +806,12 @@
                                     <label for="leave" class="control-label right span4">Leave Number:</label>
                                     <div class="controls span6">
                                         <input type="text" id="editleavemax" name="editleavemax" class="input-xlarge" value="">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="leave" class="control-label right span4"> Expiry Date:</label>
+                                    <div class="controls span6">
+                                        <input type="text" id="edit_expiry_date" name="edit_expiry_date" class="input-xlarge" value="">
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -719,6 +851,8 @@
 <script type="text/javascript">
 <?php $myleaveid = $_REQUEST['myleaveid'];?>
 var myleaveid = "<?php  echo $myleaveid;?>"; 
+var user_role = "<?php  echo $session[user_role];?>"; 
+var availableDates = [];
     var baseurl="<?php echo Yii::app()->request->baseUrl; ?>"; 
     $(document).ready(function(){
     $('ul.tabs-top > li').click(function(){
@@ -732,9 +866,7 @@ var myleaveid = "<?php  echo $myleaveid;?>";
                $('#lreport').hide();
                $('#addholiday').hide();
              
-            $('#myleave').show();
-
-            
+            $('#myleave').show();            
             
         }
         else if ($(this).children().attr('href') == '#otherleave'){
@@ -802,7 +934,7 @@ var myleaveid = "<?php  echo $myleaveid;?>";
 
     });  
 
-    $( "ul.tabs-top li:first-child" ).trigger('click');
+    $("ul.tabs-top li:first-child" ).trigger('click');
 
    }); 
 </script>
